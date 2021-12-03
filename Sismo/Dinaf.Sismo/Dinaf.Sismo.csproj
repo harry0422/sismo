@@ -4,4 +4,70 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\apexcharts\locales\" />
+    <Folder Include="wwwroot\lib\bootstrap-icons\fonts\" />
+    <Folder Include="wwwroot\lib\bootstrap\css\" />
+    <Folder Include="wwwroot\lib\bootstrap\js\" />
+    <Folder Include="wwwroot\lib\boxicons\css\" />
+    <Folder Include="wwwroot\lib\boxicons\fonts\" />
+    <Folder Include="wwwroot\lib\chart.js\chunks\" />
+    <Folder Include="wwwroot\lib\echarts\extension\" />
+    <Folder Include="wwwroot\lib\simple-datatables\" />
+    <Folder Include="wwwroot\lib\remixicon\" />
+    <Folder Include="wwwroot\lib\quill\" />
+    <Folder Include="wwwroot\lib\php-email-form\" />
+    <Folder Include="wwwroot\lib\tinymce\icons\default\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\advlist\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\anchor\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\autolink\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\autoresize\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\autosave\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\bbcode\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\charmap\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\code\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\codesample\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\colorpicker\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\contextmenu\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\directionality\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\emoticons\js\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\fullpage\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\fullscreen\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\help\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\hr\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\image\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\imagetools\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\importcss\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\insertdatetime\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\legacyoutput\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\link\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\lists\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\media\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\wordcount\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\visualchars\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\visualblocks\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\toc\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\textpattern\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\textcolor\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\template\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\table\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\tabfocus\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\spellchecker\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\searchreplace\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\save\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\quickbars\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\print\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\preview\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\paste\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\pagebreak\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\noneditable\" />
+    <Folder Include="wwwroot\lib\tinymce\plugins\nonbreaking\" />
+    <Folder Include="wwwroot\lib\tinymce\themes\" />
+    <Folder Include="wwwroot\lib\tinymce\skins\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\VentanaSismo.html" />
+  </ItemGroup>
+
 </Project>
