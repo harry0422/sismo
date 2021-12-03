@@ -64,10 +64,7 @@
     <Folder Include="wwwroot\lib\tinymce\plugins\nonbreaking\" />
     <Folder Include="wwwroot\lib\tinymce\themes\" />
     <Folder Include="wwwroot\lib\tinymce\skins\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\VentanaSismo.html" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>
