@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{55A22F82-805A-40AD-AC69-73A804D8D423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo", "Dinaf.Sismo\Dinaf.Sismo.csproj", "{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo", "Dinaf.Sismo\Dinaf.Sismo.csproj", "{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Applicacion", "2. Applicacion", "{05405033-AA1F-44E8-BEED-3DA9290C4CC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{513D0967-BB5F-41D4-877F-4C0167063027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{CB4E6057-69AC-411D-AA7F-2F79F3E5DF9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo.Dimain", "Dinaf.Sismo.Dimain\Dinaf.Sismo.Dimain.csproj", "{00F5319F-2F73-4E82-B6A7-A509A33E3D14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,17 @@ Global
 		{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00F5319F-2F73-4E82-B6A7-A509A33E3D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F5319F-2F73-4E82-B6A7-A509A33E3D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F5319F-2F73-4E82-B6A7-A509A33E3D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F5319F-2F73-4E82-B6A7-A509A33E3D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1AEDBC7C-E419-4017-BBA1-90EE81A5E7A2} = {55A22F82-805A-40AD-AC69-73A804D8D423}
+		{00F5319F-2F73-4E82-B6A7-A509A33E3D14} = {513D0967-BB5F-41D4-877F-4C0167063027}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F797655-D75B-4E0E-AF19-4B0E98FFD612}

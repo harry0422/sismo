@@ -9,25 +9,25 @@ namespace Dinaf.Sismo.Controllers
 {
     public class ExpedientesController : Controller
     {
-        // GET: ExpedientesController
+        // GET: Expedientes
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ExpedientesController/Details/5
+        // GET: Expedientes/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ExpedientesController/Create
+        // GET: Expedientes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ExpedientesController/Create
+        // POST: Expedientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +42,13 @@ namespace Dinaf.Sismo.Controllers
             }
         }
 
-        // GET: ExpedientesController/Edit/5
+        // GET: Expedientes/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ExpedientesController/Edit/5
+        // POST: Expedientes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +63,13 @@ namespace Dinaf.Sismo.Controllers
             }
         }
 
-        // GET: ExpedientesController/Delete/5
+        // GET: Expedientes/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ExpedientesController/Delete/5
+        // POST: Expedientes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
