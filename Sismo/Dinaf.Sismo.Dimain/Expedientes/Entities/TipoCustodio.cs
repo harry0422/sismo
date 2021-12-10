@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dinaf.Sismo.Dimain.Expedientes
+namespace Dinaf.Sismo.Domain.Expedientes.Entities
 {
     public class TipoCustodio
     {

@@ -1,18 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.Expedientes;
+using Dinaf.Sismo.Application.Expedientes.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Controllers
 {
     public class ExpedientesController : Controller
     {
+        private readonly IExpedienteService _expedienteService;
+
+        public ExpedientesController(IExpedienteService expedienteService)
+        {
+            _expedienteService = expedienteService;
+        }
+
         // GET: Expedientes
         public ActionResult Index()
         {
-            return View();
+            ListExpedientesDto expedientes = _expedienteService.GetExpedientes();
+            return View(expedientes);
         }
 
         // GET: Expedientes/Details/5

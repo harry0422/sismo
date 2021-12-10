@@ -1,4 +1,4 @@
-﻿namespace Dinaf.Sismo.Dimain.Expedientes
+﻿namespace Dinaf.Sismo.Domain.Expedientes.Entities
 {
     public class Centro
     {

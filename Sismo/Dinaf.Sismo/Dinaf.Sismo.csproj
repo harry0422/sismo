@@ -68,7 +68,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dinaf.Sismo.Application\Dinaf.Sismo.Application.csproj" />
+    <ProjectReference Include="..\Dinaf.Sismo.IoC\Dinaf.Sismo.IoC.csproj" />
   </ItemGroup>
 
 </Project>

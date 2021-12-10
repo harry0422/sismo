@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Dinaf.Sismo.Dimain.Expedientes
+namespace Dinaf.Sismo.Domain.Expedientes.Entities
 {
     public class Unidad
     {

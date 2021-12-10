@@ -1,18 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.Contracts.Personas;
+using Dinaf.Sismo.Application.Personas.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Controllers
 {
     public class PersonasController : Controller
     {
+        private readonly IPersonaService _personaService;
+
+        public PersonasController(IPersonaService personaService)
+        {
+            _personaService = personaService;
+        }
+
         // GET: Personas
         public ActionResult Index()
         {
-            return View();
+            ListPersonasDto personas =_personaService.GetPersonas();
+            return View(personas);
         }
 
         // GET: Personas/Details/5

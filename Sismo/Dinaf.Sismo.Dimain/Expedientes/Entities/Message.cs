@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dinaf.Sismo.Dimain.Expedientes
+namespace Dinaf.Sismo.Domain.Expedientes.Entities
 {
-    public class mesage
+    public class Message
     {
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaLeido { get; set; }
