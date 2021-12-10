@@ -11,7 +11,7 @@ namespace Dinaf.Sismo.IoC
         protected override void Load(ContainerBuilder builder)
         {
             //string connectionString = Environment.GetEnvironmentVariable("FIRMAS_DB", EnvironmentVariableTarget.User);
-            string connectionString = "Server=127.0.0.1;Port=5432;Database=postgres;User Id=postgres;Password=Honduras2021;";
+            string connectionString = "Server=127.0.0.1;Port=5432;Database=postgres;User Id=postgres;Password=mysecretpassword;";
 
             builder.RegisterType<TransactionInterceptor>().SingleInstance();
             //builder.RegisterType<LogInterceptor>().SingleInstance();
