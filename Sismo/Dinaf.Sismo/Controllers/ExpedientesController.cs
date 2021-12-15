@@ -1,5 +1,6 @@
-﻿using Dinaf.Sismo.Application.Expedientes;
-using Dinaf.Sismo.Application.Expedientes.DTOs;
+﻿
+using Dinaf.Sismo.Application.Contracts.Personas;
+using Dinaf.Sismo.Application.Personas.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,24 +8,25 @@ namespace Dinaf.Sismo.Controllers
 {
     public class ExpedientesController : Controller
     {
-        private readonly IExpedienteService _expedienteService;
+        private readonly IPersonaService _personaService;
 
-        public ExpedientesController(IExpedienteService expedienteService)
+        public ExpedientesController(IPersonaService personaService)
         {
-            _expedienteService = expedienteService;
+            _personaService = personaService;
         }
 
         // GET: Expedientes
         public ActionResult Index()
         {
-            ListExpedientesDto expedientes = _expedienteService.GetExpedientes();
+            ListExpedientesDto expedientes = _personaService.GetExpedientesNiños();
             return View(expedientes);
         }
 
         // GET: Expedientes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
+            return View(expediente);
         }
 
         // GET: Expedientes/Create

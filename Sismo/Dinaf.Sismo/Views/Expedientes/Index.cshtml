@@ -1,4 +1,4 @@
-﻿@model Dinaf.Sismo.Application.Expedientes.DTOs.ListExpedientesDto
+﻿@model Dinaf.Sismo.Application.Personas.DTOs.ListExpedientesDto
 
 @{
 }
@@ -6,25 +6,19 @@
     <thead>
         <tr>
             <th scope="col">Numero de Expediente</th>
-            <th scope="col">Creacion</th>
-            <th scope="col">Actualmente</th>
-            <th scope="col">Solicitante</th>
-            <th scope="col">Solicitante</th>
-            <th scope="col">Representante Legal</th>
-            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">En Calidad</th>
+            <th scope="col">Fecha</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var expediente in Model.Expedientes)
         {
         <tr>
-            <th>@expediente.NumeroExpediente</th>
-            <td>@expediente.FechaCreacion</td>
-            <td>Oficina Regional Centro Oriente</td>
-            <td>Alma Eliuth Ponce</td>
-            <td>Denis Ariel Diaz</td>
-            <td>Sowel Alejandro Mejia</td>
-            <td><a href="@Url.Action("Details", "Expedientes", new { id = expediente.Id })" type="button" class="btn btn-outline-primary btn-sm">Detalles</a></td>
+            <td><a href="@Url.Action("Details", "Expedientes", new { id = expediente.Id })">@expediente.NumeroExpediente</a></td>
+            <td>@expediente.Persona.Nombre</td>
+            <td>@expediente.EnCalidad</td>
+            <td>@expediente.Fecha</td>
         </tr>
         }
     </tbody>

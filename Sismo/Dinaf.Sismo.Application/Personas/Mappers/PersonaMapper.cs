@@ -1,5 +1,4 @@
-﻿using Dinaf.Sismo.Application.Common.ExtensionMethods;
-using Dinaf.Sismo.Application.Personas.DTOs;
+﻿using Dinaf.Sismo.Application.Personas.DTOs;
 using Dinaf.Sismo.Domain.Personas.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,8 @@ namespace Dinaf.Sismo.Application.Personas.Mappers
     {
         public static PersonaDto ToDto(this Persona persona)
         {
+            if (persona is null) return null;
+
             PersonaDto dto = new PersonaDto();
             dto.Id = persona.Id;
             dto.Nombre = persona.NombreCompleto;

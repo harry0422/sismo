@@ -22,7 +22,6 @@ namespace Dinaf.Sismo.Domain.Personas.Entities
         public virtual string ColorOjos { get; set; }
         public virtual string ColorPiel { get; set; }
         public virtual string SignosFisicos { get; set; }
-        public virtual string Edad { get; set; }
         public virtual string Ocupacion { get; set; }
         public virtual string Observaciones { get; set; }
         public virtual string ChildrenFirst { get; set; }
@@ -35,6 +34,14 @@ namespace Dinaf.Sismo.Domain.Personas.Entities
                 Nombre nombre = Nombres.FirstOrDefault();
                     
                 return $"{nombre.PrimerNombre} {nombre.SegundoNombre} {nombre.PrimerApellido} {nombre.SegundoApellido}";
+            }
+        }
+
+        public virtual int Edad
+        {
+            get 
+            { 
+                return DateTime.Now.AddYears(-FechaNacimiento.Year).Year; 
             }
         }
 

@@ -18,7 +18,7 @@
         public string ColorOjos { get; set; }
         public string ColorPiel { get; set; }
         public string SignosFisicos { get; set; }
-        public string Edad { get; set; }
+        public int Edad { get; set; }
         public string Ocupacion { get; set; }
         public string Observaciones { get; set; }
         public string ChildrenFirst { get; set; }

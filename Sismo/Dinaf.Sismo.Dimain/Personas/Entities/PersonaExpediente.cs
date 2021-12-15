@@ -1,17 +1,12 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
-using Dinaf.Sismo.Domain.Personas.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dinaf.Sismo.Domain.Expedientes.Entities
+namespace Dinaf.Sismo.Domain.Personas.Entities
 {
-    public class PersonaExpediente : EntityBase<int>
+    public class PersonaExpediente : EntityBase<int>, IAggregateRoot
     {
         public virtual Persona Persona { get; set; }
-        public virtual Expediente Expediente { get; set; }
+        public virtual string NumeroExpediente { get; set; }
         public virtual int UsuarioId { get; set; }
         public virtual DateTime Fecha { get; set; }
         public virtual string Encalidad { get; set; }

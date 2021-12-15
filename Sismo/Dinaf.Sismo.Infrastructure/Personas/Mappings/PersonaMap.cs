@@ -26,7 +26,6 @@ namespace Dinaf.Sismo.Infrastructure.Personas.Mappings
             Map(x => x.ColorOjos, "colorojos");
             Map(x => x.ColorPiel, "colorpiel");
             Map(x => x.SignosFisicos, "signosfisicos");
-            Map(x => x.Edad, "edad");
             Map(x => x.Ocupacion, "ocupacion");
             Map(x => x.Observaciones, "observaciones");
             Map(x => x.ChildrenFirst, "childrefirst");

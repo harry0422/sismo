@@ -9,9 +9,6 @@ namespace Dinaf.Sismo.Infrastructure.Expedientes.Mappings
         {
             Table("expediente");
             Id(x => x.Id, "id");
-            HasMany(x => x.PersonaExpedientes)
-                .KeyColumn("gidexpediente")
-                .Not.LazyLoad();
             Map(x => x.NumeroExpediente, "numero_expediente");
             Map(x => x.FechaCreacion, "fechacreacion");
             //Map(x => x.Id, "id");

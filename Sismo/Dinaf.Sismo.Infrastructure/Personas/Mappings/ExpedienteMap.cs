@@ -1,21 +1,16 @@
-﻿using Dinaf.Sismo.Domain.Expedientes.Entities;
+﻿using Dinaf.Sismo.Domain.Personas.Entities;
 using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dinaf.Sismo.Infrastructure.Expedientes.Mappings
+namespace Dinaf.Sismo.Infrastructure.Personas.Mappings
 {
-    public class PersonaExpedienteMap : ClassMap<PersonaExpediente>
+    public class ExpedienteMap : ClassMap<PersonaExpediente>
     {
-        public PersonaExpedienteMap()
+        public ExpedienteMap()
         {
             Table("personasexpediente");
             Id(x => x.Id, "id");
-            References(x => x.Persona, "gidpersona");
-            References(x => x.Expediente, "gidexpediente");
+            References(x => x.Persona, "gidpersona").Not.LazyLoad();
+            Map(x => x.NumeroExpediente, "gidexpediente");
             Map(x => x.UsuarioId, "id_usuario");
             Map(x => x.Fecha, "fecha");
             Map(x => x.Encalidad, "encalidad");

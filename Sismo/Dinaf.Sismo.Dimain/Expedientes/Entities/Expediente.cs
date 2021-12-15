@@ -6,7 +6,6 @@ namespace Dinaf.Sismo.Domain.Expedientes.Entities
 {
     public class Expediente : EntityBase<int>, IAggregateRoot
     {
-        public virtual IList<PersonaExpediente> PersonaExpedientes { get; set; }
         public virtual string NumeroExpediente { get; set; }
         public virtual DateTime FechaCreacion { get; set; }
         public virtual Unidad Unidad { get; set; }
