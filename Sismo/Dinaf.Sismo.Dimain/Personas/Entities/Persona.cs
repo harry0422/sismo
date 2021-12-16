@@ -26,6 +26,17 @@ namespace Dinaf.Sismo.Domain.Personas.Entities
         public virtual string Observaciones { get; set; }
         public virtual string ChildrenFirst { get; set; }
 
+        public virtual string NombreCorto
+        {
+            get
+            {
+                if (!Nombres.Any()) return string.Empty;
+                Nombre nombre = Nombres.FirstOrDefault();
+
+                return $"{nombre.PrimerNombre} {nombre.PrimerApellido}";
+            }
+        }
+
         public virtual string NombreCompleto
         {
             get 

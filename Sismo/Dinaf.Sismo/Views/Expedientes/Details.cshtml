@@ -1,151 +1,146 @@
-﻿@model Dinaf.Sismo.Application.Personas.DTOs.ExpedienteDto
+﻿@model Dinaf.Sismo.Models.ExpedienteNiñoViewModel
 
 @{
 }
 <section class="section profile">
+    
     <div class="row">
         <div class="col-xl-4">
-
             <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
                     <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <h2>Carlos Garcia</h2>
+                    <h2>@Model.Expediente.Persona.NombreCorto</h2>
                     <h3>Ingeniero de Sofware</h3>
                     <div class="social-links mt-2">
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Persona.Nombre</div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
                             <div class="col-lg-12 col-md-8">0801-1977-07557</div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Persona.FechaNacimiento</div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Persona.Edad Años</div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">Honduras</div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
                             <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
                             <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
         </div>
 
         <div class="col-xl-8">
-
             <div class="card">
                 <div class="card-body pt-3">
                     <!-- Bordered Tabs -->
                     <ul class="nav nav-tabs nav-tabs-bordered">
-
                         <li class="nav-item">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Informacion Personales</button>
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button>
                         </li>
-
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Atenciones DINAF</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Vulneraciones</button>
                         </li>
-
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Medidas de Proteccion </button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Medidas de Protección</button>
                         </li>
-
                     </ul>
-                    <div class="tab-content pt-2">
 
+                    <div class="tab-content pt-2">
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
                             <h5 class="card-title">Expediente</h5>
-                            <p class="small fst-italic">Exp-DINAF-CF2021-20051.</p>
-
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                             <h5 class="card-title">Detalles</h5>
-
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Ciudad</div>
                                 <div class="col-lg-9 col-md-8">Tegucigalpa</div>
                             </div>
-
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label ">Domicilio Actual</div>
                                 <div class="col-lg-9 col-md-8">Villa Olimpica Sector 3, casa 14</div>
                             </div>
-
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Educacion</div>
                                 <div class="col-lg-9 col-md-8">Educación superior</div>
                             </div>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Titulo obtenido</div>
-                                <div class="col-lg-9 col-md-8">Ingeniero en SIstemas Informaticos</div>
+                                <div class="col-lg-3 col-md-4 label">Raza</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.Raza</div>
                             </div>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Lugar de Nacimiento</div>
-                                <div class="col-lg-9 col-md-8">Tegucigalpa</div>
+                                <div class="col-lg-3 col-md-4 label">Color de Cabello</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorCabello</div>
                             </div>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Estado Civil</div>
-                                <div class="col-lg-9 col-md-8">Casado</div>
+                                <div class="col-lg-3 col-md-4 label">Color de Piel</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorPiel</div>
                             </div>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Ocupacion</div>
-                                <div class="col-lg-9 col-md-8">Desarrollador de >Software</div>
+                                <div class="col-lg-3 col-md-4 label">Color de Ojos</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorOjos</div>
                             </div>
-
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Titulo Obtenido</div>
-                                <div class="col-lg-9 col-md-8">Ingeniero de Sofware</div>
+                                <div class="col-lg-3 col-md-4 label">Rasgos Fisicos</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.SignosFisicos</div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Contactos</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-9 col-md-4">maicol@hotmail.com</div>
-                                <div class="col-lg-9 col-md-4">(+504)9867-5433</div>
-                            </div>
-
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                            <h5 class="card-title">Expediente</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                             <!-- Default Card -->
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Exp-DINAF-CF2021-20051</h5>
-                                    Diana Lozano Bardales - Consolidación Familiar
-                                    Oficina Regional Centro Oriente,
-                                </div>
-                            </div><!-- End Default Card -->
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Fecha de Creacion</th>
+                                                <th scope="col">Remitente</th>
+                                                <th scope="col">Articulo</th>
+                                                <th scope="col">tipologia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
+                                            {
+                                                <tr>
+                                                    <th>@vulneraciones.FechaCreacion</th>
+                                                    <td>@vulneraciones.UsuarioRemitente</td>
+                                                    <td>@vulneraciones.Articulo</td>
+                                                    <td>@vulneraciones.Tipoligia</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div><!-- End Default Card -->
+                            </div>
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-settings">
+                            <h5 class="card-title">Expediente</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Seguimiento</h5>
@@ -173,17 +168,12 @@
                                             Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam. Qui amet ipsum iure. Dignissimos fuga tempore dolor.
                                         </div>
                                     </div><!-- End Default Tabs -->
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div><!-- End Bordered Tabs -->
-
                 </div>
             </div>
-
         </div>
     </div>
 </section>

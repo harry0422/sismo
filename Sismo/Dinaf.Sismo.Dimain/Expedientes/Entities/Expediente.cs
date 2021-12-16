@@ -23,7 +23,6 @@ namespace Dinaf.Sismo.Domain.Expedientes.Entities
         public virtual DateTime SFecha { get; set; }
         public virtual string Issue { get; set; }
         public virtual DateTime FechaVulneracion { get; set; }
-
         public virtual IList<Convenio> Convenios { get; set; }
 
         protected override void Validate()

@@ -14,6 +14,7 @@ namespace Dinaf.Sismo.Application.Personas.Mappers
             PersonaDto dto = new PersonaDto();
             dto.Id = persona.Id;
             dto.Nombre = persona.NombreCompleto;
+            dto.NombreCorto = persona.NombreCorto;
             dto.Genero = persona.Genero;
             dto.Nna = persona.Nna;
             dto.Raza = persona.Raza;

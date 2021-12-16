@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string NombreCorto { get; set; }
         public string Genero { get; set; }
         public string Nna { get; set; }
         public string Raza { get; set; }

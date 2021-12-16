@@ -1,6 +1,9 @@
 ﻿
 using Dinaf.Sismo.Application.Contracts.Personas;
 using Dinaf.Sismo.Application.Personas.DTOs;
+using Dinaf.Sismo.Application.Vulneraciones;
+using Dinaf.Sismo.Application.Vulneraciones.DTOs;
+using Dinaf.Sismo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +12,12 @@ namespace Dinaf.Sismo.Controllers
     public class ExpedientesController : Controller
     {
         private readonly IPersonaService _personaService;
+        private readonly IVulneracionService _vulneracionService;
 
-        public ExpedientesController(IPersonaService personaService)
+        public ExpedientesController(IPersonaService personaService, IVulneracionService vulneracionService)
         {
             _personaService = personaService;
+            _vulneracionService = vulneracionService;
         }
 
         // GET: Expedientes
@@ -26,7 +31,10 @@ namespace Dinaf.Sismo.Controllers
         public ActionResult Details(int id)
         {
             ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
-            return View(expediente);
+            ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new NumeroExpedienteDto(expediente.NumeroExpediente));
+            ExpedienteNiñoViewModel viewModel = new ExpedienteNiñoViewModel(expediente, vulneraciones);
+
+            return View(viewModel);
         }
 
         // GET: Expedientes/Create
