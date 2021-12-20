@@ -8,14 +8,15 @@ namespace Dinaf.Sismo.Infrastructure.Personas.Repositories
 {
     public class ExpedienteRepository : NhRepositoryBase<PersonaExpediente, int>, IExpedienteRepository
     {
-        public IList<PersonaExpediente> GetExpedientesAdultos()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public IList<PersonaExpediente> GetExpedientesNiños()
         {
             return Session.Query<PersonaExpediente>().Where(x => x.ExpNna == "nna").ToList();
+        }
+
+        public IList<PersonaExpediente> GetSolicitantesAdopcion()
+        {
+            return Session.Query<PersonaExpediente>()
+                .Where(x => x.NumeroExpediente.Substring(0, 3) == "SI-" && x.Persona != null).ToList();
         }
     }
 }

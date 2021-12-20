@@ -8,7 +8,7 @@ namespace Dinaf.Sismo.Domain.Vulneraciones.Entities
         public virtual DateTime FechaCreacion { get; set; }
         public virtual int UsuarioRemitente { get; set; }
         public virtual string NumeroInstrumento { get; set; }
-        public virtual TipoVulneracion TipoVulneracion { get; set; }
+        public virtual SubTipoVulneracion  SubTipoVulneracion { get; set; }
 
         protected override void Validate()
         {

@@ -8,7 +8,7 @@ namespace Dinaf.Sismo.Application.Contracts.Personas
         ExpedienteDto GetExpediente(PersonaExpedienteIdDto expedienteId);
         ListPersonasDto GetPersonas();
         PersonaDto GetPersona(PersonaIdDto personaId);
-        ListExpedientesDto GetExpedientesNiños();
-        ListExpedientesDto GetExpedientesAdultos();
+        ListExpedientesDto GetNnaEstadoAdoptabilidad();
+        ListExpedientesDto GetSolicitantesAdopcion();
     }
 }

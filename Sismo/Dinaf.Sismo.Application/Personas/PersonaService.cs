@@ -36,14 +36,14 @@ namespace Dinaf.Sismo.Application.Implementation.Personas
             return _expedienteRepository.Get(expedienteId.Valor).ToDto();
         }
 
-        public ListExpedientesDto GetExpedientesNiños()
+        public ListExpedientesDto GetNnaEstadoAdoptabilidad()
         {
             return _expedienteRepository.GetExpedientesNiños().ToDto();
         }
 
-        public ListExpedientesDto GetExpedientesAdultos()
+        public ListExpedientesDto GetSolicitantesAdopcion()
         {
-            return _expedienteRepository.GetExpedientesAdultos().ToDto();
+            return _expedienteRepository.GetSolicitantesAdopcion().ToDto();
         }
     }
 }

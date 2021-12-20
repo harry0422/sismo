@@ -10,7 +10,10 @@ namespace Dinaf.Sismo.Infrastructure.Vulneraciones.Repositories
     {
         public IList<Vulneracion> GetByNumeroExpediente(string numeroExpediente)
         {
-            return Session.Query<Vulneracion>().Where(x => x.NumeroInstrumento == numeroExpediente).ToList();
+            return Session.Query<Vulneracion>()
+                .Where(x => x.NumeroInstrumento == numeroExpediente)
+                .OrderByDescending(x => x.FechaCreacion)
+                .ToList();
         }
     }
 }

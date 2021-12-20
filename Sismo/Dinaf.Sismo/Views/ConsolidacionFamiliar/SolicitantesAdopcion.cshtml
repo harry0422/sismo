@@ -15,7 +15,7 @@
         @foreach (var expediente in Model.Expedientes)
         {
         <tr>
-            <td><a href="@Url.Action("Details", "Expedientes", new { id = expediente.Id })">@expediente.NumeroExpediente</a></td>
+            <td><a href="@Url.Action(" DetalleNiños", "ConsolidacionFamiliar" , new { id=expediente.Id })">@expediente.NumeroExpediente</a></td>
             <td>@expediente.Persona.Nombre</td>
             <td>@expediente.EnCalidad</td>
             <td>@expediente.Fecha</td>

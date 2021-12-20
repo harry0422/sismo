@@ -1,0 +1,25 @@
+﻿@model Dinaf.Sismo.Application.Personas.DTOs.ListExpedientesDto
+
+@{
+}
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">Numero de Expediente</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">En Calidad</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expediente in Model.Expedientes)
+        {
+        <tr>
+            <td><a href="@Url.Action("DetalleNnaEstadoAdoptabilidad", "ConsolidacionFamiliar", new { id = expediente.Id })">@expediente.NumeroExpediente</a></td>
+            <td>@expediente.Persona.Nombre</td>
+            <td>@expediente.EnCalidad</td>
+            <td>@expediente.Fecha</td>
+        </tr>
+        }
+    </tbody>
+</table>

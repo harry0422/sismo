@@ -9,6 +9,7 @@ namespace Dinaf.Sismo.Application.Vulneraciones.DTOs
         public int UsuarioRemitente { get; set; }
         public string NumeroInstrumento { get; set; }
         public string Articulo { get; set; }
-        public string Tipoligia { get; set; }
+        public string TipoVulneracion { get; set; }
+        public string SubTipoVulneracion { get; set; }
     }
 }

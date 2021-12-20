@@ -7,6 +7,6 @@ namespace Dinaf.Sismo.Domain.Personas.Repositories
     public interface IExpedienteRepository : IRepository<PersonaExpediente, int>
     {
         IList<PersonaExpediente> GetExpedientesNiños();
-        IList<PersonaExpediente> GetExpedientesAdultos();
+        IList<PersonaExpediente> GetSolicitantesAdopcion();
     }
 }

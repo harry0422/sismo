@@ -117,19 +117,21 @@
                                             <tr>
                                                 <th scope="col">Fecha de Creacion</th>
                                                 <th scope="col">Remitente</th>
+                                                <th scope="col">Tipo Vulneración</th>
+                                                <th scope="col">Sub-Tipo Vulneración</th>
                                                 <th scope="col">Articulo</th>
-                                                <th scope="col">tipologia</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
                                             {
-                                                <tr>
-                                                    <th>@vulneraciones.FechaCreacion</th>
-                                                    <td>@vulneraciones.UsuarioRemitente</td>
-                                                    <td>@vulneraciones.Articulo</td>
-                                                    <td>@vulneraciones.Tipoligia</td>
-                                                </tr>
+                                            <tr>
+                                                <th>@vulneraciones.FechaCreacion</th>
+                                                <td>@vulneraciones.UsuarioRemitente</td>
+                                                <td>@vulneraciones.TipoVulneracion</td>
+                                                <td>@vulneraciones.SubTipoVulneracion</td>
+                                                <td>@vulneraciones.Articulo</td>
+                                            </tr>
                                             }
                                         </tbody>
                                     </table>
@@ -141,35 +143,35 @@
                         <div class="tab-pane fade pt-3" id="profile-settings">
                             <h5 class="card-title">Expediente</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Seguimiento</h5>
-
-                                    <!-- Default Tabs -->
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Actualmente</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Anteriormente</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Comite de Asignacion</button>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content pt-2" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                            Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.
-                                        </div>
-                                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
-                                        </div>
-                                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                            Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam. Qui amet ipsum iure. Dignissimos fuga tempore dolor.
-                                        </div>
-                                    </div><!-- End Default Tabs -->
-                                </div>
-                            </div>
+                            <!-- Default Table -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Custodio</th>
+                                        <th scope="col">Fecha de Inicio</th>
+                                        <th scope="col">Referencias</th>
+                                        <th scope="col">Remitente</th>
+                                        <th scope="col">Gestion</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Unidad Remitente</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
+                                    {
+                                    <tr>
+                                        <th>@seguimiento.TipoCustodio</th>
+                                        <td>@seguimiento.FechaInicio</td>
+                                        <td>@seguimiento.Referencias</td>
+                                        <td>@seguimiento.UsuarioRemitente</td>
+                                        <td>@seguimiento.TipoGestion</td>
+                                        <td>@seguimiento.Estado</td>
+                                        <td>@seguimiento.UnidadRemitente</td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- End Default Table Example -->
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>

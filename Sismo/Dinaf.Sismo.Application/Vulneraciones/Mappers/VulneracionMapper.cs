@@ -15,8 +15,9 @@ namespace Dinaf.Sismo.Application.Vulneraciones.Mappers
             dto.FechaCreacion = vulneracion.FechaCreacion.ToString("dd/MM/yyyy");
             dto.UsuarioRemitente = vulneracion.UsuarioRemitente;
             dto.NumeroInstrumento = vulneracion.NumeroInstrumento;
-            dto.Articulo = vulneracion.TipoVulneracion is null ? "" : vulneracion.TipoVulneracion.Artuculo;
-            dto.Tipoligia = vulneracion.TipoVulneracion is null ? "" : vulneracion.TipoVulneracion.Tipologia;
+            dto.Articulo = vulneracion.SubTipoVulneracion.TipoVulneracion.Artuculo;
+            dto.TipoVulneracion = vulneracion.SubTipoVulneracion.TipoVulneracion.Tipologia;
+            dto.SubTipoVulneracion = vulneracion.SubTipoVulneracion.Tipologia;
 
             return dto;
         }
