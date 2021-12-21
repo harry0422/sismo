@@ -67,14 +67,13 @@
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Familia</button>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Emparejamiento</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-match">Emparejamiento</button>
                         </li>
                     </ul>
 
                     <div class="tab-content pt-2">
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                            <h5 class="card-title">Expediente</h5>
-                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
                             <h5 class="card-title">Detalles</h5>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Ciudad</div>
@@ -90,33 +89,86 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Raza</div>
-                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.Raza</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="col-sm-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                          <option selected>seleccione una opción</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <a href="" type="submit" class="btn btn-primary btn-sm">Guardar</a>
+                                    @Model.Expediente.Persona.Raza
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Color de Cabello</div>
-                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorCabello</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="col-sm-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                          <option selected>seleccione una opción</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <<button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                    @Model.Expediente.Persona.ColorCabello
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Color de Piel</div>
-                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorPiel</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="col-sm-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                          <option selected>seleccione una opción</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                    @Model.Expediente.Persona.ColorPiel
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Color de Ojos</div>
-                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.ColorOjos</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="col-sm-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                          <option selected>seleccione una opción</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                    @Model.Expediente.Persona.ColorOjos
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Rasgos Fisicos</div>
-                                <div class="col-lg-9 col-md-8">@Model.Expediente.Persona.SignosFisicos</div>
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="col-sm-4">
+                                        <select class="form-select" aria-label="Default select example">
+                                          <option selected>seleccione una opción</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                                    @Model.Expediente.Persona.SignosFisicos
+                                </div>
                             </div>
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                            <h5 class="card-title">Expediente</h5>
-                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
                             <!-- Default Card -->
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Exp-DINAF-CF2021-20051</h5>
                                     <!-- Default Table -->
                                     <table class="table">
                                         <thead>
@@ -147,8 +199,7 @@
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-settings">
-                            <h5 class="card-title">Expediente</h5>
-                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -181,9 +232,72 @@
                             <h5 class="card-title">Familia</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                         </div>
-                        <div class="tab-pane fade pt-3" id="profile-settings">
+                        <div class="tab-pane fade pt-3" id="profile-match">
                             <h5 class="card-title">Emparejamiento</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <div class="row">
+                                <!-- Sales Card -->
+                            <div class="col-xxl-4 col-md-6">
+                              <div class="card info-card sales-card">
+                                <div class="card-body">
+                                  <h5 class="card-title">Nombre </h5>
+
+                                  <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                      <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                      <h6>145</h6>
+                                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div><!-- End Sales Card -->
+
+                            <!-- Revenue Card -->
+                            <div class="col-xxl-4 col-md-6">
+                              <div class="card info-card revenue-card">
+                                  <div class="card-body">
+                                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                  <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                      <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                      <h6>$3,264</h6>
+                                      <span class="text-warning small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div><!-- End Revenue Card -->
+
+                            <!-- Customers Card -->
+                            <div class="col-xxl-4 col-md-6">
+
+                              <div class="card info-card customers-card">
+                                  <div class="card-body">
+                                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                                  <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                      <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                      <h6>1244</h6>
+                                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                            </div><!-- End Customers Card -->
+                            </div>                               
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>
