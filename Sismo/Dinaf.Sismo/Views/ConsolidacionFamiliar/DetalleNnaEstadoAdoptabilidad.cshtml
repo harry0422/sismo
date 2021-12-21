@@ -61,7 +61,7 @@
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Vulneraciones</button>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Medidas de Protección</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-protection">Medidas de Protección</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Familia</button>
@@ -93,12 +93,13 @@
                                     <div class="col-sm-4">
                                         <select class="form-select" aria-label="Default select example">
                                           <option selected>seleccione una opción</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <option value="1">Mestizo</option>
+                                          <option value="2">Indigena</option>
+                                          <option value="3">Afrodescendiente</option>
+                                          <option value="3">Blanco</option>
+                                          <option value="3">Asiatico</option>
                                         </select>
                                     </div>
-                                    <a href="" type="submit" class="btn btn-primary btn-sm">Guardar</a>
                                     @Model.Expediente.Persona.Raza
                                 </div>
                             </div>
@@ -108,12 +109,12 @@
                                     <div class="col-sm-4">
                                         <select class="form-select" aria-label="Default select example">
                                           <option selected>seleccione una opción</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <option value="1">Cabello Negro</option>
+                                          <option value="2">Cabello Castaño</option>
+                                          <option value="3">Cabello Rubio</option>
+                                          <option value="3">Cabello Pelirrojo</option>
                                         </select>
                                     </div>
-                                    <<button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                                     @Model.Expediente.Persona.ColorCabello
                                 </div>
                             </div>
@@ -123,12 +124,11 @@
                                     <div class="col-sm-4">
                                         <select class="form-select" aria-label="Default select example">
                                           <option selected>seleccione una opción</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <option value="1">Piel Clara</option>
+                                          <option value="2">Piel Oscura</option>
+                                          <option value="3">Piel Intermedia</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                                     @Model.Expediente.Persona.ColorPiel
                                 </div>
                             </div>
@@ -138,30 +138,18 @@
                                     <div class="col-sm-4">
                                         <select class="form-select" aria-label="Default select example">
                                           <option selected>seleccione una opción</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <option value="1">Ojos Color Café</option>
+                                          <option value="2">Ojos color Ámbar</option>
+                                          <option value="3">Ojos color Avellana</option>
+                                          <option value="3">Ojos color Verde</option>
+                                          <option value="3">Ojos color Azul</option>
+                                          <option value="3">Otro</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                                     @Model.Expediente.Persona.ColorOjos
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Rasgos Fisicos</div>
-                                <div class="col-lg-9 col-md-8">
-                                    <div class="col-sm-4">
-                                        <select class="form-select" aria-label="Default select example">
-                                          <option selected>seleccione una opción</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                                    @Model.Expediente.Persona.SignosFisicos
-                                </div>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm a">Guardar</button>
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -176,7 +164,7 @@
                                                 <th scope="col">Fecha de Creacion</th>
                                                 <th scope="col">Remitente</th>
                                                 <th scope="col">Tipo Vulneración</th>
-                                                <th scope="col">Sub-Tipo Vulneración</th>
+@*                                                <th scope="col">Sub-Tipo Vulneración</th>*@
                                                 <th scope="col">Articulo</th>
                                             </tr>
                                         </thead>
@@ -187,7 +175,7 @@
                                                     <th>@vulneraciones.FechaCreacion</th>
                                                     <td>@vulneraciones.UsuarioRemitente</td>
                                                     <td>@vulneraciones.TipoVulneracion</td>
-                                                    <td>@vulneraciones.SubTipoVulneracion</td>
+@*                                                    <td>@vulneraciones.SubTipoVulneracion</td>*@
                                                     <td>@vulneraciones.Articulo</td>
                                                 </tr>
                                             }
@@ -198,106 +186,181 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade pt-3" id="profile-settings">
+                        <div class="tab-pane fade pt-3" id="profile-protection">
                             <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Custodio</th>
-                                        <th scope="col">Fecha de Inicio</th>
-                                        <th scope="col">Referencias</th>
-                                        <th scope="col">Remitente</th>
-                                        <th scope="col">Gestion</th>
-                                        <th scope="col">Estado</th>
-                                        <th scope="col">Unidad Remitente</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
-                                    {
-                                        <tr>
-                                            <th>@seguimiento.TipoCustodio</th>
-                                            <td>@seguimiento.FechaInicio</td>
-                                            <td>@seguimiento.Referencias</td>
-                                            <td>@seguimiento.UsuarioRemitente</td>
-                                            <td>@seguimiento.TipoGestion</td>
-                                            <td>@seguimiento.Estado</td>
-                                            <td>@seguimiento.UnidadRemitente</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                            <!-- Default Card -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Tipo Vulneración</th>
+                                                <th scope="col">Sub-Tipo Vulneración</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
+                                            {
+                                                <tr>
+                                                    <td>@vulneraciones.TipoVulneracion</td>
+                                                    <td>@vulneraciones.SubTipoVulneracion</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div><!-- End Default Card -->
+                            </div>
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-settings">
                             <h5 class="card-title">Familia</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-match">
-                            <h5 class="card-title">Emparejamiento</h5>
+                            <h5 class="card-title">Coincidencias</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
-                            <div class="row">
-                                <!-- Sales Card -->
-                            <div class="col-xxl-4 col-md-6">
-                              <div class="card info-card sales-card">
-                                <div class="card-body">
-                                  <h5 class="card-title">Nombre </h5>
-
-                                  <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                      <i class="bi bi-people"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                      <h6>145</h6>
-                                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                                    </div>
-                                  </div>
+                            <!-- Card with an image on left -->
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                <div class="col-md-2">
+                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
                                 </div>
-
-                              </div>
-                            </div><!-- End Sales Card -->
-
-                            <!-- Revenue Card -->
-                            <div class="col-xxl-4 col-md-6">
-                              <div class="card info-card revenue-card">
-                                  <div class="card-body">
-                                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
-                                  <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                      <i class="bi bi-people"></i>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        
+                                        <p>
+                                            <span class="badge rounded-pill bg-success">85% coincidencias</span>
+                                        </p>
+                                        <p>
+                                            <!-- Vertical Pills Tabs -->
+                                          <div class="d-flex align-items-start">
+                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                            </div>
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                  <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Nombre: Juan Canales</li>
+                                                    <li class="list-group-item">Edad: 30 años</li>
+                                                    <li class="list-group-item">Hondureña</li>
+                                                  </ul><!-- End Clean list group -->
+                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                    <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                    <li class="list-group-item">Color de Piel: </li>
+                                                    <li class="list-group-item">Color de cabello: </li>
+                                                  </ul><!-- End Clean list group -->                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                    Motivos de Adopcion                                             </div>
+                                            </div>
+                                          </div>
+                                          <!-- End Vertical Pills Tabs -->
+                                        </p>
+                                        
                                     </div>
-                                    <div class="ps-3">
-                                      <h6>$3,264</h6>
-                                      <span class="text-warning small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-                                    </div>
-                                  </div>
                                 </div>
-                              </div>
-                            </div><!-- End Revenue Card -->
-
-                            <!-- Customers Card -->
-                            <div class="col-xxl-4 col-md-6">
-
-                              <div class="card info-card customers-card">
-                                  <div class="card-body">
-                                  <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                                  <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                      <i class="bi bi-people"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                      <h6>1244</h6>
-                                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                                    </div>
-                                  </div>
-
                                 </div>
-                              </div>
-
-                            </div><!-- End Customers Card -->
-                            </div>                               
+                          </div><!-- End Card with an image on left -->
+                          <!-- Card with an image on left -->
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                <div class="col-md-2">
+                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        
+                                        <p>
+                                            <span class="badge rounded-pill bg-warning text-dark">70% Coincidencias</span>
+                                        </p>
+                                        <p>
+                                            <!-- Vertical Pills Tabs -->
+                                          <div class="d-flex align-items-start">
+                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                            </div>
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                  <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Nombre: Jamye Ponce</li>
+                                                    <li class="list-group-item">Edad: 28 años</li>
+                                                    <li class="list-group-item">Hondureña</li>
+                                                  </ul><!-- End Clean list group -->
+                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                    <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                    <li class="list-group-item">Color de Piel: </li>
+                                                    <li class="list-group-item">Color de cabello: </li>
+                                                  </ul><!-- End Clean list group -->                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                    Motivos de Adopcion                                             </div>
+                                            </div>
+                                          </div>
+                                          <!-- End Vertical Pills Tabs -->
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                                </div>
+                          </div><!-- End Card with an image on left -->
+                          <!-- Card with an image on left -->
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                <div class="col-md-2">
+                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        
+                                        <p>
+                                            <span class="badge rounded-pill bg-danger">60% Coincidencias</span>
+                                        </p>
+                                        <p>
+                                            <!-- Vertical Pills Tabs -->
+                                          <div class="d-flex align-items-start">
+                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                            </div>
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                  <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Nombre: Alex Games</li>
+                                                    <li class="list-group-item">Edad: 28 años</li>
+                                                    <li class="list-group-item">Hondureña</li>
+                                                  </ul><!-- End Clean list group -->
+                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                    <!-- List group with active and disabled items -->
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                    <li class="list-group-item">Color de Piel: </li>
+                                                    <li class="list-group-item">Color de cabello: </li>
+                                                  </ul><!-- End Clean list group -->                                              </div>
+                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                    Motivos de Adopcion                                             </div>
+                                            </div>
+                                          </div>
+                                          <!-- End Vertical Pills Tabs -->
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                                </div>
+                          </div><!-- End Card with an image on left -->                             
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>
