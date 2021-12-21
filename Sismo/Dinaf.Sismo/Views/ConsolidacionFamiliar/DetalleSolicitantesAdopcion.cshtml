@@ -1,0 +1,97 @@
+﻿@model Dinaf.Sismo.Models.SolicitanteAdopcionViewModel
+
+@{
+}
+<section class="section profile">
+
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <h2>@Model.Expediente.Persona.NombreCorto</h2>
+                    <h3>Ingeniero de Sofware</h3>
+                    <div class="social-links mt-2">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
+                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
+                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
+                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Emparejamiento</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <h5 class="card-title">Expediente</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <h5 class="card-title">Detalles</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Ciudad</div>
+                                <div class="col-lg-9 col-md-8">Tegucigalpa</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Domicilio Actual</div>
+                                <div class="col-lg-9 col-md-8">Villa Olimpica Sector 3, casa 14</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Educación</div>
+                                <div class="col-lg-9 col-md-8">Educación superior</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Motivo Adopción</div>
+                                <div class="col-lg-9 col-md-8">@(Model.MotivoAdopcion is null ? "" : Model.MotivoAdopcion.Contenido)</div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+                            <h5 class="card-title">Emparejamiento</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                        </div>
+                    </div><!-- End Bordered Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

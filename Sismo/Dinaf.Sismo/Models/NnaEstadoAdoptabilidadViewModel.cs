@@ -4,9 +4,9 @@ using Dinaf.Sismo.Application.Vulneraciones.DTOs;
 
 namespace Dinaf.Sismo.Models
 {
-    public class ExpedienteNiñoViewModel
+    public class NnaEstadoAdoptabilidadViewModel
     {
-        public ExpedienteNiñoViewModel(ExpedienteDto expediente, ListVulneracionesDto vulneraciones, ListSeguimientosDto medidasProteccion)
+        public NnaEstadoAdoptabilidadViewModel(ExpedienteDto expediente, ListVulneracionesDto vulneraciones, ListSeguimientosDto medidasProteccion)
         {
             Expediente = expediente;
             Vulneraciones = vulneraciones;

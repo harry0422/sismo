@@ -8,5 +8,6 @@ namespace Dinaf.Sismo.Domain.Personas.Repositories
     {
         IList<PersonaExpediente> GetExpedientesNiños();
         IList<PersonaExpediente> GetSolicitantesAdopcion();
+        IList<PersonaExpediente> GetExpedientesNiños(List<string> numerosExpedientes);
     }
 }

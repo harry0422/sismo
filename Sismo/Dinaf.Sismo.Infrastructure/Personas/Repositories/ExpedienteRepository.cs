@@ -10,13 +10,23 @@ namespace Dinaf.Sismo.Infrastructure.Personas.Repositories
     {
         public IList<PersonaExpediente> GetExpedientesNiños()
         {
-            return Session.Query<PersonaExpediente>().Where(x => x.ExpNna == "nna").ToList();
+            return Session.Query<PersonaExpediente>()
+                .Where(x => x.ExpNna == "nna")
+                .ToList();
         }
 
         public IList<PersonaExpediente> GetSolicitantesAdopcion()
         {
             return Session.Query<PersonaExpediente>()
-                .Where(x => x.NumeroExpediente.Substring(0, 3) == "SI-" && x.Persona != null).ToList();
+                .Where(x => x.NumeroExpediente.Substring(0, 3) == "SI-" && x.Persona != null && x.ExpNna != "nna")
+                .ToList();
+        }
+
+        public IList<PersonaExpediente> GetExpedientesNiños(List<string> numerosExpedientes)
+        {
+            return Session.Query<PersonaExpediente>()
+                .Where(x => numerosExpedientes.Contains(x.NumeroExpediente) && x.ExpNna == "nna")
+                .ToList();
         }
     }
 }

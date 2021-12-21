@@ -1,4 +1,4 @@
-﻿@model Dinaf.Sismo.Models.ExpedienteNiñoViewModel
+﻿@model Dinaf.Sismo.Models.NnaEstadoAdoptabilidadViewModel
 
 @{
 }
@@ -63,6 +63,12 @@
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Medidas de Protección</button>
                         </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Familia</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Emparejamiento</button>
+                        </li>
                     </ul>
 
                     <div class="tab-content pt-2">
@@ -125,13 +131,13 @@
                                         <tbody>
                                             @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
                                             {
-                                            <tr>
-                                                <th>@vulneraciones.FechaCreacion</th>
-                                                <td>@vulneraciones.UsuarioRemitente</td>
-                                                <td>@vulneraciones.TipoVulneracion</td>
-                                                <td>@vulneraciones.SubTipoVulneracion</td>
-                                                <td>@vulneraciones.Articulo</td>
-                                            </tr>
+                                                <tr>
+                                                    <th>@vulneraciones.FechaCreacion</th>
+                                                    <td>@vulneraciones.UsuarioRemitente</td>
+                                                    <td>@vulneraciones.TipoVulneracion</td>
+                                                    <td>@vulneraciones.SubTipoVulneracion</td>
+                                                    <td>@vulneraciones.Articulo</td>
+                                                </tr>
                                             }
                                         </tbody>
                                     </table>
@@ -143,7 +149,6 @@
                         <div class="tab-pane fade pt-3" id="profile-settings">
                             <h5 class="card-title">Expediente</h5>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
-                            <!-- Default Table -->
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -159,19 +164,26 @@
                                 <tbody>
                                     @foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
                                     {
-                                    <tr>
-                                        <th>@seguimiento.TipoCustodio</th>
-                                        <td>@seguimiento.FechaInicio</td>
-                                        <td>@seguimiento.Referencias</td>
-                                        <td>@seguimiento.UsuarioRemitente</td>
-                                        <td>@seguimiento.TipoGestion</td>
-                                        <td>@seguimiento.Estado</td>
-                                        <td>@seguimiento.UnidadRemitente</td>
-                                    </tr>
+                                        <tr>
+                                            <th>@seguimiento.TipoCustodio</th>
+                                            <td>@seguimiento.FechaInicio</td>
+                                            <td>@seguimiento.Referencias</td>
+                                            <td>@seguimiento.UsuarioRemitente</td>
+                                            <td>@seguimiento.TipoGestion</td>
+                                            <td>@seguimiento.Estado</td>
+                                            <td>@seguimiento.UnidadRemitente</td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
-                            <!-- End Default Table Example -->
+                        </div>
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+                            <h5 class="card-title">Familia</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                        </div>
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+                            <h5 class="card-title">Emparejamiento</h5>
+                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>

@@ -17,5 +17,10 @@ namespace Dinaf.Sismo.Application.Vulneraciones
         {
             return _vulneracionRepository.GetByNumeroExpediente(numeroExpediente.Valor).ToDto();
         }
+
+        public ListVulneracionesDto GetVulneraciones(TipoVulneracionIdDto tipoVulneracionId)
+        {
+            return _vulneracionRepository.GetBySubTipo(tipoVulneracionId.Valor).ToDto();
+        }
     }
 }

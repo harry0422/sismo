@@ -1,19 +1,29 @@
 ﻿using Dinaf.Sismo.Application.Contracts.Personas;
 using Dinaf.Sismo.Application.Personas.DTOs;
 using Dinaf.Sismo.Application.Personas.Mappers;
+using Dinaf.Sismo.Application.Seguimientos;
+using Dinaf.Sismo.Application.Seguimientos.DTOs;
+using Dinaf.Sismo.Application.Vulneraciones;
+using Dinaf.Sismo.Application.Vulneraciones.DTOs;
 using Dinaf.Sismo.Domain.Personas.Repositories;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Dinaf.Sismo.Application.Implementation.Personas
 {
     public class PersonaService : IPersonaService
     {
+        private const int ID_DECLARACION_ABANDONO = 41;
+
         private readonly IPersonaRepository _personaRepository;
         private readonly IExpedienteRepository _expedienteRepository;
+        private readonly IVulneracionService _vulneracionService;
 
-        public PersonaService(IPersonaRepository personaRepository, IExpedienteRepository expedienteRepository)
+        public PersonaService(IPersonaRepository personaRepository, IExpedienteRepository expedienteRepository, IVulneracionService vulneracionService)
         {
             _personaRepository = personaRepository;
             _expedienteRepository = expedienteRepository;
+            _vulneracionService = vulneracionService;
         }
 
         public ListPersonasDto GetPersonas()
@@ -38,7 +48,11 @@ namespace Dinaf.Sismo.Application.Implementation.Personas
 
         public ListExpedientesDto GetNnaEstadoAdoptabilidad()
         {
-            return _expedienteRepository.GetExpedientesNiños().ToDto();
+            ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new TipoVulneracionIdDto(ID_DECLARACION_ABANDONO));
+            
+            return _expedienteRepository
+                .GetExpedientesNiños(vulneraciones.Vulneraciones.Select(x => x.NumeroInstrumento).ToList())
+                .ToDto();
         }
 
         public ListExpedientesDto GetSolicitantesAdopcion()

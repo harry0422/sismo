@@ -15,5 +15,13 @@ namespace Dinaf.Sismo.Infrastructure.Vulneraciones.Repositories
                 .OrderByDescending(x => x.FechaCreacion)
                 .ToList();
         }
+
+        public IList<Vulneracion> GetBySubTipo(int subTipoVulneracionId)
+        {
+            return Session.Query<Vulneracion>()
+                .Where(x => x.SubTipoVulneracion.Id == subTipoVulneracionId)
+                .OrderByDescending(x => x.FechaCreacion)
+                .ToList();
+        }
     }
 }

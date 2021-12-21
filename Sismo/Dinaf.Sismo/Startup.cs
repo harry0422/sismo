@@ -37,6 +37,7 @@ namespace Dinaf.Sismo
             builder.RegisterModule(new ExpedientesModule());
             builder.RegisterModule(new VulneracionesModule());
             builder.RegisterModule(new SeguimientosModule());
+            builder.RegisterModule(new AnexosModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

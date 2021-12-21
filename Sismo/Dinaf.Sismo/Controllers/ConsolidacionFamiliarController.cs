@@ -1,4 +1,6 @@
-﻿using Dinaf.Sismo.Application.Contracts.Personas;
+﻿using Dinaf.Sismo.Application.Anexos;
+using Dinaf.Sismo.Application.Anexos.DTOs;
+using Dinaf.Sismo.Application.Contracts.Personas;
 using Dinaf.Sismo.Application.Personas.DTOs;
 using Dinaf.Sismo.Application.Seguimientos;
 using Dinaf.Sismo.Application.Seguimientos.DTOs;
@@ -8,6 +10,7 @@ using Dinaf.Sismo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace Dinaf.Sismo.Controllers
 {
@@ -16,12 +19,18 @@ namespace Dinaf.Sismo.Controllers
         private readonly IPersonaService _personaService;
         private readonly IVulneracionService _vulneracionService;
         private readonly ISeguimientoService _seguimientoService;
+        private readonly IAnexoService _anexoService;
 
-        public ConsolidacionFamiliarController(IPersonaService personaService, IVulneracionService vulneracionService, ISeguimientoService seguimientoService)
+        public ConsolidacionFamiliarController(
+            IPersonaService personaService, 
+            IVulneracionService vulneracionService, 
+            ISeguimientoService seguimientoService, 
+            IAnexoService anexoService)
         {
             _personaService = personaService;
             _vulneracionService = vulneracionService;
             _seguimientoService = seguimientoService;
+            _anexoService = anexoService;
         }
 
         // GET: ConsolidacionFamiliar/NnaEstadoAdoptabilidad
@@ -37,7 +46,7 @@ namespace Dinaf.Sismo.Controllers
             ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
             ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
             ListSeguimientosDto medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.Seguimientos.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
-            ExpedienteNiñoViewModel viewModel = new ExpedienteNiñoViewModel(expediente, vulneraciones, medidasProteccion);
+            NnaEstadoAdoptabilidadViewModel viewModel = new NnaEstadoAdoptabilidadViewModel(expediente, vulneraciones, medidasProteccion);
 
             return View(viewModel);
         }
@@ -50,14 +59,18 @@ namespace Dinaf.Sismo.Controllers
         }
 
         // GET: ConsolidacionFamiliar/DetalleSolicitantesAdopcion/5
-        //public ActionResult DetalleSolicitantesAdopcion(int id)
-        //{
-        //    ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
-        //    ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new NumeroExpedienteDto(expediente.NumeroExpediente));
-        //    ExpedienteNiñoViewModel viewModel = new ExpedienteNiñoViewModel(expediente, vulneraciones);
+        public ActionResult DetalleSolicitantesAdopcion(int id)
+        {
+            ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
+            AnexoDto motivoAdopcion = _anexoService
+                .GetAnexos(new Application.Anexos.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente))
+                .Detalles.Where(x => x.Asunto == "Adopción")
+                .FirstOrDefault();
 
-        //    return View(viewModel);
-        //}
+            SolicitanteAdopcionViewModel viewModel = new SolicitanteAdopcionViewModel(expediente, motivoAdopcion);
+
+            return View(viewModel);
+        }
 
         // GET: ConsolidacionFamiliar/Create
         public ActionResult Create()

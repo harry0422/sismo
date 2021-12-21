@@ -22,7 +22,7 @@ namespace Dinaf.Sismo.Application.Personas.Mappers
             dto.Cobertura = persona.Cobertura;
             dto.Religion = persona.Religion;
             dto.FechaNacimiento = persona.FechaNacimiento.ToString("dd/MM/yyyy");
-            dto.Nacionalidad = persona.Nacionalidad;
+            dto.Nacionalidad = persona.Nacionalidad == "HN" ? "Hondureño" : persona.Nacionalidad;
             dto.Fecha = persona.Fecha.ToString("dd/MM/yyyy");
             dto.UsuarioId = persona.UsuarioId;
             dto.ColorCabello = persona.ColorCabello;
