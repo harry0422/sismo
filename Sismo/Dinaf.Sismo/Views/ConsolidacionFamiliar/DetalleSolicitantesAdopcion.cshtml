@@ -89,12 +89,33 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade pt-3" id="profile-settings">
-                            <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
-                            </p>                            
+                        <div class="tab-pane fade pt-3 text-center" id="profile-settings">
+                            <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                             <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>  
+                                        </div>
+                                </div>                        
                             <!-- General Form Elements -->
                             <form>
+                                <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <select class="form-select" aria-label="Default select example">
+                                              <option selected>Genero</option>
+                                              <option value="1">Masculino</option>
+                                              <option value="2">Femenino</option>
+                                            </select>   
+                                        </div>
+                                </div>
+                                <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <select class="form-select" aria-label="Default select example">
+                                              <option selected>Religion</option>
+                                              <option value="1">Evasngelico</option>
+                                              <option value="2">Catolico</option>
+                                              <option value="3">N/A</option>
+                                            </select>   
+                                        </div>
+                                </div>
                                 <div class="row mb-3">
                                         <div class="col-sm-4">
                                             <select class="form-select" aria-label="Default select example">
@@ -142,9 +163,22 @@
                                         </div>
                                 </div>
                                 <div class="row mb-3">
-                                  <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Buscar Coincidencias</button>
-                                  </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" placeholder="Edad Minima">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" placeholder="Edad Maxima">
+                                    </div>
+                                </div>
+                                @*<div class="row mb-3">
+                                  <div class="input-group col-sm-10">
+                                  <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                                  <span class="input-group-text">/</span>
+                                  <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
+                                </div>
+                                </div>  *@                              
+                                <div class="col-sm-4">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
 
                               </form><!-- End General Form Elements -->
@@ -169,7 +203,7 @@
                                             <div class="d-flex align-items-start">
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                 <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
                                                 <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">
@@ -218,7 +252,7 @@
                                           <div class="d-flex align-items-start">
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                               <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home1" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile1" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile1" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
                                               <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages1" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">
@@ -266,7 +300,7 @@
                                           <div class="d-flex align-items-start">
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                               <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home2" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
                                               <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">

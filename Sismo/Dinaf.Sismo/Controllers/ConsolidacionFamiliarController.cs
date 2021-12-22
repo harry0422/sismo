@@ -72,8 +72,14 @@ namespace Dinaf.Sismo.Controllers
             return View(viewModel);
         }
 
-        // GET: ConsolidacionFamiliar/CreatePreEmparejamiento
-        public ActionResult CreatePreEmparejamiento()
+        // GET: ConsolidacionFamiliar/CrearEmparejamiento
+        public ActionResult CrearEmparejamiento()
+        {
+            return View();
+        }
+
+        // GET: ConsolidacionFamiliar/Emparejamiento
+        public ActionResult Emparejamiento()
         {
             return View();
         }
