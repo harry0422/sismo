@@ -64,7 +64,7 @@
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-protection">Medidas de Protección</button>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Familia</button>
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Nucleo Familiar</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-match">Emparejamiento</button>
@@ -234,13 +234,48 @@
                             <p>
                                 <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
                             </p>
-                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
+                            <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Edad</th>
+                                                <th scope="col">Parentesco</th>
+                                                <th scope="col">Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @*@foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
+                                            {
+                                                <tr>
+                                                    <td>@seguimiento.TipoCustodio</td>
+                                                    <td>@seguimiento.FechaInicio</td>
+                                                    <td>@seguimiento.Referencias</td>
+                                                    <td>@seguimiento.UsuarioRemitente</td>
+                                                    <td>@seguimiento.TipoGestion</td>
+                                                    <td>@seguimiento.Estado</td>
+                                                    <td>@seguimiento.UnidadRemitente</td>
+                                                </tr>
+                                            }*@
+                                              <tr>
+                                                <td>Angus Grady</td>
+                                                <td>33</td>
+                                                <td>Padre</td>
+                                                <td>Fallecido</td>
+                                              <tr>
+                                                <td>Sara Ponce</td>
+                                                <td>44</td>
+                                                <td>Madre</td>
+                                                <td>Con Vida</td>
+                                              </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-match">
                             <p>
                                 <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
                             </p>
-                            <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                             <!-- Card with an image on left -->
                             <div class="card mb-3">
                                 <div class="row g-0">
@@ -278,7 +313,7 @@
                                                     <li class="list-group-item">Color de cabello: </li>
                                                   </ul><!-- End Clean list group -->                                              </div>
                                               <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                  <a href="@Url.Action("CreatePreEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                              </div>
+                                                  <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                              </div>
                                             </div>
                                           </div>
                                           <!-- End Vertical Pills Tabs -->
@@ -324,7 +359,7 @@
                                                     <li class="list-group-item">Color de cabello: </li>
                                                   </ul><!-- End Clean list group -->                                              </div>
                                               <div class="tab-pane fade" id="v-pills-messages1" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <a href="@Url.Action("CreatePreEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                              
+                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                              
                                               </div>
                                             </div>
                                           </div>
@@ -370,9 +405,10 @@
                                                     <li class="list-group-item">Color de Ojos: </li>
                                                     <li class="list-group-item">Color de Piel: </li>
                                                     <li class="list-group-item">Color de cabello: </li>
-                                                  </ul><!-- End Clean list group -->                                              </div>
+                                                  </ul><!-- End Clean list group -->                                              
+                                                  </div>
                                               <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <a href="@Url.Action("CreatePreEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                         
+                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-primary">Pre Emparejamiento</a>                                         
                                               </div>
                                             </div>
                                           </div>

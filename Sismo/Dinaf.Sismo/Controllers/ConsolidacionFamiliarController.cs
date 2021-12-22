@@ -84,6 +84,12 @@ namespace Dinaf.Sismo.Controllers
             return View();
         }
 
+        // GET: ConsolidacionFamiliar/DetalleEmparejamiento
+        public ActionResult DetalleEmparejamiento()
+        {
+            return View();
+        }
+
         // POST: ConsolidacionFamiliar/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
