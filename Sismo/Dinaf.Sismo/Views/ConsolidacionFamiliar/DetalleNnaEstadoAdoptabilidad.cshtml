@@ -73,7 +73,9 @@
 
                     <div class="tab-content pt-2">
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            </p>
                             <h5 class="card-title">Detalles</h5>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Ciudad</div>
@@ -96,8 +98,8 @@
                                           <option value="1">Mestizo</option>
                                           <option value="2">Indigena</option>
                                           <option value="3">Afrodescendiente</option>
-                                          <option value="3">Blanco</option>
-                                          <option value="3">Asiatico</option>
+                                          <option value="4">Blanco</option>
+                                          <option value="5">Asiatico</option>
                                         </select>
                                     </div>
                                     @Model.Expediente.Persona.Raza
@@ -112,7 +114,7 @@
                                           <option value="1">Cabello Negro</option>
                                           <option value="2">Cabello Castaño</option>
                                           <option value="3">Cabello Rubio</option>
-                                          <option value="3">Cabello Pelirrojo</option>
+                                          <option value="4">Cabello Pelirrojo</option>
                                         </select>
                                     </div>
                                     @Model.Expediente.Persona.ColorCabello
@@ -141,9 +143,9 @@
                                           <option value="1">Ojos Color Café</option>
                                           <option value="2">Ojos color Ámbar</option>
                                           <option value="3">Ojos color Avellana</option>
-                                          <option value="3">Ojos color Verde</option>
-                                          <option value="3">Ojos color Azul</option>
-                                          <option value="3">Otro</option>
+                                          <option value="4">Ojos color Verde</option>
+                                          <option value="5">Ojos color Azul</option>
+                                          <option value="6">Otro</option>
                                         </select>
                                     </div>
                                     @Model.Expediente.Persona.ColorOjos
@@ -153,7 +155,9 @@
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            </p>
                             <!-- Default Card -->
                             <div class="card">
                                 <div class="card-body">
@@ -164,7 +168,7 @@
                                                 <th scope="col">Fecha de Creacion</th>
                                                 <th scope="col">Remitente</th>
                                                 <th scope="col">Tipo Vulneración</th>
-@*                                                <th scope="col">Sub-Tipo Vulneración</th>*@
+                                                <th scope="col">Sub-Tipo Vulneración</th>
                                                 <th scope="col">Articulo</th>
                                             </tr>
                                         </thead>
@@ -175,7 +179,7 @@
                                                     <th>@vulneraciones.FechaCreacion</th>
                                                     <td>@vulneraciones.UsuarioRemitente</td>
                                                     <td>@vulneraciones.TipoVulneracion</td>
-@*                                                    <td>@vulneraciones.SubTipoVulneracion</td>*@
+                                                    <td>@vulneraciones.SubTipoVulneracion</td>
                                                     <td>@vulneraciones.Articulo</td>
                                                 </tr>
                                             }
@@ -187,7 +191,10 @@
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-protection">
-                            <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            </p>
+                            <br />
                             <!-- Default Card -->
                             <div class="card">
                                 <div class="card-body">
@@ -195,16 +202,26 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Tipo Vulneración</th>
-                                                <th scope="col">Sub-Tipo Vulneración</th>
+                                                <th scope="col">Custodio</th>
+                                                <th scope="col">Fecha Inicio</th>
+                                                <th scope="col">Referencias</th>
+                                                <th scope="col">Remitente</th>
+                                                <th scope="col">Gestion</th>
+                                                <th scope="col">Estado</th>
+                                                <th scope="col">Unidad Remitente</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
+                                            @foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
                                             {
                                                 <tr>
-                                                    <td>@vulneraciones.TipoVulneracion</td>
-                                                    <td>@vulneraciones.SubTipoVulneracion</td>
+                                                    <td>@seguimiento.TipoCustodio</td>
+                                                    <td>@seguimiento.FechaInicio</td>
+                                                    <td>@seguimiento.Referencias</td>
+                                                    <td>@seguimiento.UsuarioRemitente</td>
+                                                    <td>@seguimiento.TipoGestion</td>
+                                                    <td>@seguimiento.Estado</td>
+                                                    <td>@seguimiento.UnidadRemitente</td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -214,11 +231,15 @@
                             </div>
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-settings">
-                            <h5 class="card-title">Familia</h5>
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            </p>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-match">
-                            <h5 class="card-title">Coincidencias</h5>
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                            </p>
                             <p class="small fst-italic">@Model.Expediente.NumeroExpediente</p>
                             <!-- Card with an image on left -->
                             <div class="card mb-3">
@@ -238,7 +259,7 @@
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                               <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
                                               <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
-                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">
                                               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -257,7 +278,8 @@
                                                     <li class="list-group-item">Color de cabello: </li>
                                                   </ul><!-- End Clean list group -->                                              </div>
                                               <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    Motivos de Adopcion                                             </div>
+                                                    <button type="button" class="btn btn-primary">Pre Emparejamiento</button>                                               
+                                              </div>
                                             </div>
                                           </div>
                                           <!-- End Vertical Pills Tabs -->
@@ -275,7 +297,6 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        
                                         <p>
                                             <span class="badge rounded-pill bg-warning text-dark">70% Coincidencias</span>
                                         </p>
@@ -283,12 +304,12 @@
                                             <!-- Vertical Pills Tabs -->
                                           <div class="d-flex align-items-start">
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
-                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home1" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile1" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages1" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">
-                                              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                              <div class="tab-pane fade show active" id="v-pills-home1" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                   <!-- List group with active and disabled items -->
                                                   <ul class="list-group list-group-flush">
                                                     <li class="list-group-item">Nombre: Jamye Ponce</li>
@@ -296,15 +317,16 @@
                                                     <li class="list-group-item">Hondureña</li>
                                                   </ul><!-- End Clean list group -->
                                               </div>
-                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                              <div class="tab-pane fade" id="v-pills-profile1" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                                     <!-- List group with active and disabled items -->
                                                   <ul class="list-group list-group-flush">
                                                     <li class="list-group-item">Color de Ojos: </li>
                                                     <li class="list-group-item">Color de Piel: </li>
                                                     <li class="list-group-item">Color de cabello: </li>
                                                   </ul><!-- End Clean list group -->                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    Motivos de Adopcion                                             </div>
+                                              <div class="tab-pane fade" id="v-pills-messages1" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                    <button type="button" class="btn btn-primary">Pre Emparejamiento</button>                                              
+                                              </div>
                                             </div>
                                           </div>
                                           <!-- End Vertical Pills Tabs -->
@@ -330,12 +352,12 @@
                                             <!-- Vertical Pills Tabs -->
                                           <div class="d-flex align-items-start">
                                             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
-                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Motivo</button>
+                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home2" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caract</button>
+                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
                                             </div>
                                             <div class="tab-content" id="v-pills-tabContent">
-                                              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                              <div class="tab-pane fade show active" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                   <!-- List group with active and disabled items -->
                                                   <ul class="list-group list-group-flush">
                                                     <li class="list-group-item">Nombre: Alex Games</li>
@@ -343,15 +365,16 @@
                                                     <li class="list-group-item">Hondureña</li>
                                                   </ul><!-- End Clean list group -->
                                               </div>
-                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                              <div class="tab-pane fade" id="v-pills-profile2" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                                     <!-- List group with active and disabled items -->
                                                   <ul class="list-group list-group-flush">
                                                     <li class="list-group-item">Color de Ojos: </li>
                                                     <li class="list-group-item">Color de Piel: </li>
                                                     <li class="list-group-item">Color de cabello: </li>
                                                   </ul><!-- End Clean list group -->                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    Motivos de Adopcion                                             </div>
+                                              <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                    <button type="button" class="btn btn-primary">Pre Emparejamiento</button>                                          
+                                              </div>
                                             </div>
                                           </div>
                                           <!-- End Vertical Pills Tabs -->

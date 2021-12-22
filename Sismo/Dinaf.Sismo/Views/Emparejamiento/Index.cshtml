@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Numero de Expediente NNA</th>
+            <th scope="col">Solicitante de Adopcion</th>
+            <th scope="col">Solicitante de Adopcion</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expediente in Model.Expedientes)
+        {
+        <tr>
+            @*<td><a href="@Url.Action("DetalleNnaEstadoAdoptabilidad", "ConsolidacionFamiliar", new { id = expediente.Id })">@expediente.NumeroExpediente</a></td>
+            <td>@expediente.Persona.Nombre</td>
+            <td>@expediente.EnCalidad</td>
+            <td>@expediente.Fecha</td>*@
+        </tr>
+        }
+    </tbody>
+</table>

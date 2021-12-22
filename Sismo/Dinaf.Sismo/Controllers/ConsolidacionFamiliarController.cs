@@ -51,7 +51,7 @@ namespace Dinaf.Sismo.Controllers
             return View(viewModel);
         }
 
-        // GET: ConsolidacionFamiliar/Adultos
+        // GET: ConsolidacionFamiliar/SolicitantesAdopcion
         public ActionResult SolicitantesAdopcion()
         {
             ListExpedientesDto expedientes = _personaService.GetSolicitantesAdopcion();
@@ -72,8 +72,8 @@ namespace Dinaf.Sismo.Controllers
             return View(viewModel);
         }
 
-        // GET: ConsolidacionFamiliar/Create
-        public ActionResult Create()
+        // GET: ConsolidacionFamiliar/CreatePreEmparejamiento
+        public ActionResult CreatePreEmparejamiento()
         {
             return View();
         }
