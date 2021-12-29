@@ -90,6 +90,30 @@ namespace Dinaf.Sismo.Controllers
             return View();
         }
 
+        // GET: ConsolidacionFamiliar/Seguimiento
+        public ActionResult Seguimiento()
+        {
+            return View();
+        }
+
+        // GET: ConsolidacionFamiliar/DetalleSeguimiento
+        public ActionResult DetalleSeguimiento()
+        {
+            return View();
+        }
+
+        // GET: ConsolidacionFamiliar/CrearEvento
+        public ActionResult CrearEvento()
+        {
+            return View();
+        }
+
+        // GET: ConsolidacionFamiliar/DetalleEvento
+        public ActionResult DetalleEvento()
+        {
+            return View();
+        }
+
         // POST: ConsolidacionFamiliar/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

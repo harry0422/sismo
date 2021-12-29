@@ -3,14 +3,16 @@
 *@
 @{
 }
-<!-- General Form Elements -->
-<p><h3 class="card-title">Detalles de Pre Emparejamiento</h3></p>  
+<p><h3 class="card-title">Datos de Evento</h3></p>  
 <form>
     <div class="row mb-3">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <input type="text" class="form-control" placeholder="Nombre de Encargado">
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Tipo de Evento">
+        </div>
+        <div class="col-sm-3">
             <input type="date" class="form-control" placeholder="Fecha de Creacion">
         </div>        
     </div>
@@ -26,7 +28,7 @@
     </div>
     <div class="row mb-3">
         <div class="text-left">
-            <a href="@Url.Action("Index", "Home")" type="button" class="btn btn-outline-primary">Emparejar</a>
+            <a href="@Url.Action("DetalleSeguimiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Agregar Evento</a>
             <button type="reset" class="btn btn-secondary">Cancelar</button>
         </div>
     </div>
