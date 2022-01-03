@@ -7,7 +7,19 @@
     <div class="row">
         <div class="col-xl-4">
             <div class="card">
-                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                <div class="card-body">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home" type="button" role="tab" aria-controls="home" aria-selected="true">Profile1</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile2</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2" id="borderedTabContent">
+                        <div class="tab-pane fade show active" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                     <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                     <h2>@Model.Expediente.Persona.NombreCorto</h2>
                     <h3>Ingeniero de Sofware</h3>
@@ -45,6 +57,49 @@
                             <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
                         </div>
                     </div>
+                </div>    
+                        </div>
+                    <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
+ <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                    <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <h2>@Model.Expediente.Persona.NombreCorto</h2>
+                    <h3>Ingeniero de Sofware</h3>
+                    <div class="social-links mt-2">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
+                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
+                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
+                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                        </div>
+                    </div>
+                </                    </div>
+                    </div><!-- End Bordered Tabs -->
                 </div>
             </div>
         </div>
@@ -80,10 +135,6 @@
                                 <div class="col-lg-9 col-md-8">Villa Olimpica Sector 3, casa 14</div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Educación</div>
-                                <div class="col-lg-9 col-md-8">Educación superior</div>
-                            </div>
-                            <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Motivo Adopción</div>
                                 <div class="col-lg-9 col-md-8">@(Model.MotivoAdopcion is null ? "" : Model.MotivoAdopcion.Contenido)</div>
                             </div>
@@ -94,76 +145,44 @@
                             <!-- General Form Elements -->
                             <form>
                                 <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Género</label>
+                                    <div class="col-sm-10">
                                         <div class="col-sm-4">
                                             <select class="form-select" aria-label="Default select example">
-                                              <option selected>Genero</option>
+                                              <option selected>Género</option>
                                               <option value="1">Masculino</option>
                                               <option value="2">Femenino</option>
                                             </select>   
                                         </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Religion</option>
-                                              <option value="1">Evasngelico</option>
-                                              <option value="2">Catolico</option>
-                                              <option value="3">N/A</option>
-                                            </select>   
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Raza</option>
-                                              <option value="1">Mestizo</option>
-                                              <option value="2">Indigena</option>
-                                              <option value="3">Afrodescendiente</option>
-                                              <option value="4">Blanco</option>
-                                              <option value="5">Asiatico</option>
-                                            </select>   
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Color de Cabello</option>
-                                              <option value="1">Cabello Negro</option>
-                                              <option value="2">Cabello Castaño</option>
-                                              <option value="3">Cabello Rubio</option>
-                                              <option value="4">Cabello Pelirrojo</option>
-                                            </select>   
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Color de Piel</option>
-                                              <option value="1">Piel Clara</option>
-                                              <option value="2">Piel Oscura</option>
-                                              <option value="3">Piel Intermedia</option>
-                                            </select>   
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                        <div class="col-sm-4">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Color de Ojos</option>
-                                              <option value="1">Ojos Color Café</option>
-                                              <option value="2">Ojos color Ámbar</option>
-                                              <option value="3">Ojos color Avellana</option>
-                                              <option value="4">Ojos color Verde</option>
-                                              <option value="5">Ojos color Azul</option>
-                                              <option value="6">Otro</option>
-                                            </select>   
-                                        </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" placeholder="Edad Minima">
                                     </div>
-                                    <div class="col-sm-2">
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Edad</label>
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-2">
+                                        <input type="text" class="form-control" placeholder="Edad Minima">
+                                        </div>
+                                        <div class="col-sm-2">
                                         <input type="text" class="form-control" placeholder="Edad Maxima">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">condición médica</label>
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-4">
+                                            <select class="form-select" aria-label="Default select example">
+                                              <option selected>Elija una opción</option>
+                                              <option value="1">1</option>
+                                              <option value="2">2</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Hermanos</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="Cabtidad de Hermanos">
                                     </div>
                                 </div>
                                 @*<div class="row mb-3">
