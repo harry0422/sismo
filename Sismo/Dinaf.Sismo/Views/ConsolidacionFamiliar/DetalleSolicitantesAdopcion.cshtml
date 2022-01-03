@@ -20,48 +20,48 @@
                     <div class="tab-content pt-2" id="borderedTabContent">
                         <div class="tab-pane fade show active" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                    <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <h2>@Model.Expediente.Persona.NombreCorto</h2>
-                    <h3>Ingeniero de Sofware</h3>
-                    <div class="social-links mt-2">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
+                                <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                                <h2>@Model.Expediente.Persona.NombreCorto</h2>
+                                <h3>Ingeniero de Sofware</h3>
+                                <div class="social-links mt-2">
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
+                                        <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
+                                        <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
+                                        <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
+                                        <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
+                                        <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                                        <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
+                                        <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
+                                        <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
-                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                        <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
+
                         </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
-                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
-                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
-                        </div>
-                    </div>
-                </div>    
-                        </div>
-                    <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
-                            Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
-                    </div>
                     </div><!-- End Bordered Tabs -->
                 </div>
             </div>
@@ -87,7 +87,7 @@
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
                             <p>
                                 <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
-                            </p>                            
+                            </p>
                             <h5 class="card-title">Detalles</h5>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Ciudad</div>
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-settings">
-                            <p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>  </p>                     
+                            <p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>  </p>
                             <!-- General Form Elements -->
                             <form>
                                 <div class="row mb-1">
@@ -143,166 +143,178 @@
                                     </div>
                                 </div>
                                 @*<div class="row mb-3">
-                                  <div class="input-group col-sm-10">
-                                  <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
-                                  <span class="input-group-text">/</span>
-                                  <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-                                </div>
-                                </div>  *@                              
+                                    <div class="input-group col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                                    <span class="input-group-text">/</span>
+                                    <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
+                                    </div>
+                                    </div>  *@
                                 <div class="col-sm-3">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>
 
-                              </form>
-                              <!-- End General Form Elements -->
+                            </form>
+                            <!-- End General Form Elements -->
                         </div>
 
                         <div class="tab-pane fade pt-3" id="profile-emp">
                             <p>
                                 <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
-                            </p>                            
+                            </p>
                             <!-- Card with an image on left -->
                             <div class="card mb-3">
                                 <div class="row g-0">
-                                <div class="col-md-2">
-                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">                                        
-                                        <p><span class="badge rounded-pill bg-success">85% coincidencias</span></p>
-                                        <p>
-                                            <!-- Vertical Pills Tabs -->
-                                            <div class="d-flex align-items-start">
-                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
-                                                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+                                    <div class="col-md-2">
+                                        <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <span class="badge rounded-pill bg-success">85% coincidencias</span>
+                                            <div class="row mt-2">
+                                                <div class="col-8">
+                                                    <!-- Vertical Pills Tabs -->
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
+                                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+                                                        </div>
+                                                        <div class="tab-content" id="v-pills-tabContent">
+                                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Nombre: Juan Canales</li>
+                                                                    <li class="list-group-item">Edad: 30 años</li>
+                                                                    <li class="list-group-item">Hondureña</li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                                    <li class="list-group-item">Color de Piel: </li>
+                                                                    <li class="list-group-item">Color de cabello: </li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                                <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Vertical Pills Tabs -->
+                                                </div>
+                                                <div class="col-4">
+                                                    <br />
+                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                </div>
                                             </div>
-                                            <div class="tab-content" id="v-pills-tabContent">
-                                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                <!-- List group with active and disabled items -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Nombre: Chris Canales</li>
-                                                    <li class="list-group-item">Edad: 7 años</li>
-                                                    <li class="list-group-item">Hondureña</li>
-                                                </ul><!-- End Clean list group -->
-                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                    <!-- List group with active and disabled items -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Color de Ojos: </li>
-                                                    <li class="list-group-item">Color de Piel: </li>
-                                                    <li class="list-group-item">Color de cabello: </li>
-                                                </ul><!-- End Clean list group -->                                              
-                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>                                                
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <!-- End Vertical Pills Tabs -->
-                                        </p>
-                                        
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                          </div><!-- End Card with an image on left -->
-                          <!-- Card with an image on left -->
+                            </div><!-- End Card with an image on left -->
+                            <!-- Card with an image on left -->
                             <div class="card mb-3">
                                 <div class="row g-0">
-                                <div class="col-md-2">
-                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        
-                                        <p>
+                                    <div class="col-md-2">
+                                        <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
                                             <span class="badge rounded-pill bg-warning text-dark">70% Coincidencias</span>
-                                        </p>
-                                        <p>
-                                            <!-- Vertical Pills Tabs -->
-                                          <div class="d-flex align-items-start">
-                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home1" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile1" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
-                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages1" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+                                            <div class="row mt-2">
+                                                <div class="col-8">
+                                                    <!-- Vertical Pills Tabs -->
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home1" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile1" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
+                                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages1" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+                                                        </div>
+                                                        <div class="tab-content" id="v-pills-tabContent">
+                                                            <div class="tab-pane fade show active" id="v-pills-home1" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Nombre: Jamye Ponce</li>
+                                                                    <li class="list-group-item">Edad: 28 años</li>
+                                                                    <li class="list-group-item">Hondureña</li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-profile1" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                                    <li class="list-group-item">Color de Piel: </li>
+                                                                    <li class="list-group-item">Color de cabello: </li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-messages1" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                                <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Vertical Pills Tabs -->
+                                                </div>
+                                                <div class="col-4">
+                                                    <br />
+                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                </div>
                                             </div>
-                                            <div class="tab-content" id="v-pills-tabContent">
-                                              <div class="tab-pane fade show active" id="v-pills-home1" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                  <!-- List group with active and disabled items -->
-                                                  <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Nombre: Carlos Ponce</li>
-                                                    <li class="list-group-item">Edad: 5 años</li>
-                                                    <li class="list-group-item">Hondureña</li>
-                                                  </ul><!-- End Clean list group -->
-                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-profile1" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                    <!-- List group with active and disabled items -->
-                                                  <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Color de Ojos: </li>
-                                                    <li class="list-group-item">Color de Piel: </li>
-                                                    <li class="list-group-item">Color de cabello: </li>
-                                                  </ul><!-- End Clean list group -->                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-messages1" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>  
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <!-- End Vertical Pills Tabs -->
-                                        </p>
-                                        
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                          </div><!-- End Card with an image on left -->
-                          <!-- Card with an image on left -->
+                            </div><!-- End Card with an image on left -->
+                            <!-- Card with an image on left -->
                             <div class="card mb-3">
                                 <div class="row g-0">
-                                <div class="col-md-2">
-                                    <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        
-                                        <p>
+                                    <div class="col-md-2">
+                                        <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
                                             <span class="badge rounded-pill bg-danger">60% Coincidencias</span>
-                                        </p>
-                                        <p>
-                                            <!-- Vertical Pills Tabs -->
-                                          <div class="d-flex align-items-start">
-                                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home2" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
-                                              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+
+                                            <div class="row mt-2">
+                                                <div class="col-8">
+                                                    <!-- Vertical Pills Tabs -->
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home2" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
+                                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emparejar</button>
+                                                        </div>
+                                                        <div class="tab-content" id="v-pills-tabContent">
+                                                            <div class="tab-pane fade show active" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Nombre: Alex Games</li>
+                                                                    <li class="list-group-item">Edad: 28 años</li>
+                                                                    <li class="list-group-item">Hondureña</li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-profile2" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                                    <li class="list-group-item">Color de Piel: </li>
+                                                                    <li class="list-group-item">Color de cabello: </li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                                <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Vertical Pills Tabs -->
+                                                </div>
+                                                <div class="col-4">
+                                                    <br />
+                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                </div>
                                             </div>
-                                            <div class="tab-content" id="v-pills-tabContent">
-                                              <div class="tab-pane fade show active" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                  <!-- List group with active and disabled items -->
-                                                  <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Nombre: Angel Games</li>
-                                                    <li class="list-group-item">Edad: 3 años</li>
-                                                    <li class="list-group-item">Hondureña</li>
-                                                  </ul><!-- End Clean list group -->
-                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-profile2" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                    <!-- List group with active and disabled items -->
-                                                  <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Color de Ojos: </li>
-                                                    <li class="list-group-item">Color de Piel: </li>
-                                                    <li class="list-group-item">Color de cabello: </li>
-                                                  </ul><!-- End Clean list group -->                                              </div>
-                                              <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <a href="@Url.Action("CrearEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>  
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <!-- End Vertical Pills Tabs -->
-                                        </p>
-                                        
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                          </div><!-- End Card with an image on left -->
+                            </div><!-- End Card with an image on left -->
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>

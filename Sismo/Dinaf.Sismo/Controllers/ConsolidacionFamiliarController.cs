@@ -90,6 +90,12 @@ namespace Dinaf.Sismo.Controllers
             return View();
         }
 
+        // GET: ConsolidacionFamiliar/CrearMatch
+        public ActionResult CrearMatch()
+        {
+            return View();
+        }
+
         // GET: ConsolidacionFamiliar/Seguimiento
         public ActionResult Seguimiento()
         {
