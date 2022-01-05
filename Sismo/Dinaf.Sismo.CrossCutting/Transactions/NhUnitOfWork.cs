@@ -20,7 +20,10 @@ namespace Dinaf.Sismo.CrossCutting.Transactions
 
         public static ISession Session
         {
-            get { return _session; }
+            get 
+            {
+                return _session; 
+            }
         }
 
         public bool SessionExists()

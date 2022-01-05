@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.Application", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.Infrastructure", "Dinaf.Sismo.Infrastructure\Dinaf.Sismo.Infrastructure.csproj", "{AF2A29F3-867D-47DE-9808-B5C8B2E0EFB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo.CrossCutting", "Dinaf.Sismo.CrossCutting\Dinaf.Sismo.CrossCutting.csproj", "{CC29A314-928D-407B-9D3C-FF4FE7C27798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.CrossCutting", "Dinaf.Sismo.CrossCutting\Dinaf.Sismo.CrossCutting.csproj", "{CC29A314-928D-407B-9D3C-FF4FE7C27798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo.IoC", "Dinaf.Sismo.IoC\Dinaf.Sismo.IoC.csproj", "{3095B765-D60D-46F4-9A8F-23E23F334B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.IoC", "Dinaf.Sismo.IoC\Dinaf.Sismo.IoC.csproj", "{3095B765-D60D-46F4-9A8F-23E23F334B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

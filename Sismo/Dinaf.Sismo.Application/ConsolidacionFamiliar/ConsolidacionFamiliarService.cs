@@ -1,60 +1,40 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
-using Dinaf.Sismo.Application.Contracts.Personas;
-using Dinaf.Sismo.Application.Vulneraciones;
-using System;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers;
+using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Repositories;
 using System.Collections.Generic;
-using System.Linq;
-using TipoVulneracionId = Dinaf.Sismo.Application.Vulneraciones.DTOs.TipoVulneracionIdDto;
-using Vulneracion = Dinaf.Sismo.Application.Vulneraciones.DTOs.VulneracionDto;
-using NumeroExpedientePersona = Dinaf.Sismo.Application.Personas.DTOs.NumeroExpedienteDto;
-using ExpedientePersona = Dinaf.Sismo.Application.Personas.DTOs.ExpedienteDto;
 
 namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
 {
+
     public class ConsolidacionFamiliarService : IConsolidacionFamiliarService
     {
-        private const int ID_DECLARACION_ABANDONO = 41;
+        private readonly ISolicitudAdopcionRepository _solicitudAdopcionRepository;
+        private readonly IExpedienteNnaRepository _expedienteNnaRepository;
 
-        private readonly IVulneracionService _vulneracionService;
-        private readonly IPersonaService _personaService;
-
-        public List<NnaEstadoAdoptabilidadDto> GetNnaEstadoAdoptabilidad()
+        public ConsolidacionFamiliarService(ISolicitudAdopcionRepository solicitudAdopcionRepository, IExpedienteNnaRepository expedienteNnaRepository)
         {
-             
-            //List<Vulneracion> vulneraciones = _vulneracionService.GetVulneraciones(new TipoVulneracionId(ID_DECLARACION_ABANDONO));
-            //List<NumeroExpedientePersona> numerosExpedientes = new List<NumeroExpedientePersona>();
-            //vulneraciones.ForEach(vulneracion => numerosExpedientes.Add(new NumeroExpedientePersona(vulneracion.NumeroInstrumento)));
-
-            //List<ExpedientePersona> expedientes = _personaService.GetExpedientesNiños(numerosExpedientes);
-
-
-
-
-            throw new NotImplementedException();
+            _solicitudAdopcionRepository = solicitudAdopcionRepository;
+            _expedienteNnaRepository = expedienteNnaRepository;
         }
 
-
-
-        public void AddCaracteristicasAdopcion(CaracteristicasAdopcionDto caracteristicasAdopcion)
+        public List<SolicitudAdopcionDto> GetSolicitudesAdopcion()
         {
-            throw new NotImplementedException();
+            return _solicitudAdopcionRepository.GetAll().ToDto();
         }
 
-        public void GetAdultosParaPosiblesEmparejamientos(NumeroExpedienteDto numeroExpediente)
+        public SolicitudAdopcionDto GetSolicitudAdopcion(NumeroExpedienteDto numeroExpediente)
         {
-            throw new NotImplementedException();
+            return _solicitudAdopcionRepository.Get(numeroExpediente.Valor).ToDto();
         }
 
-        public void GetNiñosParaPosiblesEmparejamientos(NumeroExpedienteDto numeroExpediente)
+        public List<ExpedienteNnaDto> GetNnaEstadoAdoptabilidad()
         {
-            throw new NotImplementedException();
+            return _expedienteNnaRepository.GetAll().ToDto();
         }
 
-        
-
-        public List<SolicitudDeAdopcionDto> GetSolicitudesAdopcion()
+        public ExpedienteNnaDto GetNnaEstadoAdoptabilidad(NumeroExpedienteDto numeroExpediente)
         {
-            throw new NotImplementedException();
+            return _expedienteNnaRepository.Get(numeroExpediente.Valor).ToDto();
         }
     }
 }

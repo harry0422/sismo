@@ -1,24 +1,27 @@
-﻿@model Dinaf.Sismo.Application.Personas.DTOs.ListExpedientesDto
+﻿@model List<Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs.ExpedienteNnaDto>
 
 @{
+    ViewBag.tittle = "Dashboard";
 }
 <table class="table datatable">
     <thead>
         <tr>
             <th scope="col">Numero de Expediente</th>
             <th scope="col">Nombre</th>
-            <th scope="col">En Calidad</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha Creación</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var expediente in Model.Expedientes)
+        @foreach (var expediente in Model)
         {
         <tr>
-            <td><a href="@Url.Action("DetalleNnaEstadoAdoptabilidad", "ConsolidacionFamiliar", new { id = expediente.Id })">@expediente.NumeroExpediente</a></td>
-            <td>@expediente.Persona.Nombre</td>
-            <td>@expediente.EnCalidad</td>
-            <td>@expediente.Fecha</td>
+            <td><a href="@Url.Action("DetalleNnaEstadoAdoptabilidad", "ConsolidacionFamiliar", new { id = @expediente.NumeroExpediente })">@expediente.NumeroExpediente</a></td>
+            <td>@expediente.DetalleNna.Nombre</td>
+            <td>@expediente.DetalleNna.Genero</td>
+            <td>@expediente.DetalleNna.Edad</td>
+            <td>@expediente.FechaCreacion</td>
         </tr>
         }
     </tbody>

@@ -1,4 +1,4 @@
-﻿@model Dinaf.Sismo.Models.NnaEstadoAdoptabilidadViewModel
+﻿@model Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs.ExpedienteNnaDto
 
 @{
 }
@@ -9,12 +9,12 @@
             <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                     <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <h2>@Model.Expediente.Persona.NombreCorto</h2>
-                    <h3>Ingeniero de Sofware</h3>
+                    <h2>@Model.DetalleNna.NombreCorto</h2>
+                    <h3>@Model.DetalleNna.Ocupacion</h3>
                     <div class="social-links mt-2">
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nombre</div>
+                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Nombre</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
@@ -22,19 +22,19 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.FechaNacimiento</div>
+                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.FechaNacimiento</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Edad Años</div>
+                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Edad Años</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Nacionalidad</div>
+                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Nacionalidad</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.Expediente.Persona.Genero</div>
+                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Genero</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
@@ -74,7 +74,7 @@
                     <div class="tab-content pt-2">
                         <div class="tab-pane fade show active profile-overview" id="profile-overview">
                             <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
                             </p>
                             <h5 class="card-title">Detalles</h5>
                             <div class="row">
@@ -131,7 +131,7 @@
                                             <option value="5">Asiatico</option>
                                         </select>
                                     </div>
-                                    @Model.Expediente.Persona.Raza
+                                    Expediente.Persona.Raza
                                 </div>
                             </div>
                             <div class="row">
@@ -146,7 +146,7 @@
                                             <option value="4">Cabello Pelirrojo</option>
                                         </select>
                                     </div>
-                                    @Model.Expediente.Persona.ColorCabello
+                                    Expediente.Persona.ColorCabello
                                 </div>
                             </div>
                             <div class="row">
@@ -160,7 +160,7 @@
                                             <option value="3">Piel Intermedia</option>
                                         </select>
                                     </div>
-                                    @Model.Expediente.Persona.ColorPiel
+                                    Expediente.Persona.ColorPiel
                                 </div>
                             </div>
                             <div class="row">
@@ -177,7 +177,7 @@
                                             <option value="6">Otro</option>
                                         </select>
                                     </div>
-                                    @Model.Expediente.Persona.ColorOjos
+                                    Expediente.Persona.ColorOjos
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-outline-primary">Guardar</button>
@@ -185,7 +185,7 @@
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                             <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
                             </p>
                             <!-- Default Card -->
                             <div class="card">
@@ -195,21 +195,19 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Fecha de Creacion</th>
-                                                <th scope="col">Remitente</th>
                                                 <th scope="col">Tipo Vulneración</th>
                                                 <th scope="col">Sub-Tipo Vulneración</th>
                                                 <th scope="col">Articulo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var vulneraciones in Model.Vulneraciones.Vulneraciones)
+                                            @foreach (var vulneracion in Model.Vulneraciones)
                                             {
                                                 <tr>
-                                                    <th>@vulneraciones.FechaCreacion</th>
-                                                    <td>@vulneraciones.UsuarioRemitente</td>
-                                                    <td>@vulneraciones.TipoVulneracion</td>
-                                                    <td>@vulneraciones.SubTipoVulneracion</td>
-                                                    <td>@vulneraciones.Articulo</td>
+                                                    <th>@vulneracion.FechaCreacion</th>
+                                                    <td>@vulneracion.TipoVulneracion</td>
+                                                    <td>@vulneracion.SubTipoVulneracion</td>
+                                                    <td>@vulneracion.Articulo</td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -221,7 +219,7 @@
 
                         <div class="tab-pane fade pt-3" id="profile-protection">
                             <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
                             </p>
                             <br />
                             <!-- Default Card -->
@@ -234,23 +232,19 @@
                                                 <th scope="col">Custodio</th>
                                                 <th scope="col">Fecha Inicio</th>
                                                 <th scope="col">Referencias</th>
-                                                <th scope="col">Remitente</th>
                                                 <th scope="col">Gestion</th>
                                                 <th scope="col">Estado</th>
-                                                <th scope="col">Unidad Remitente</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
+                                            @foreach (var medidaProteccion in Model.MedidasProteccion)
                                             {
                                                 <tr>
-                                                    <td>@seguimiento.TipoCustodio</td>
-                                                    <td>@seguimiento.FechaInicio</td>
-                                                    <td>@seguimiento.Referencias</td>
-                                                    <td>@seguimiento.UsuarioRemitente</td>
-                                                    <td>@seguimiento.TipoGestion</td>
-                                                    <td>@seguimiento.Estado</td>
-                                                    <td>@seguimiento.UnidadRemitente</td>
+                                                    <td>@medidaProteccion.TipoCustodio</td>
+                                                    <td>@medidaProteccion.FechaInicio</td>
+                                                    <td>@medidaProteccion.Referencias</td>
+                                                    <td>@medidaProteccion.TipoGestion</td>
+                                                    <td>@medidaProteccion.Estado</td>
                                                 </tr>
                                             }
                                         </tbody>
@@ -261,7 +255,7 @@
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-settings">
                             <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
                             </p>
                             <!-- Default Table -->
                             <table class="table">
@@ -303,7 +297,7 @@
                         </div>
                         <div class="tab-pane fade pt-3" id="profile-match">
                             <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.Expediente.NumeroExpediente</span>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
                             </p>
                             <!-- Card with an image on left -->
                             <div class="card mb-3">

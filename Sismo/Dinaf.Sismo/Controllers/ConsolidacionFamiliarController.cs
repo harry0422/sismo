@@ -1,75 +1,54 @@
-﻿using Dinaf.Sismo.Application.Anexos;
-using Dinaf.Sismo.Application.Anexos.DTOs;
-using Dinaf.Sismo.Application.Contracts.Personas;
-using Dinaf.Sismo.Application.Personas.DTOs;
-using Dinaf.Sismo.Application.Seguimientos;
-using Dinaf.Sismo.Application.Seguimientos.DTOs;
-using Dinaf.Sismo.Application.Vulneraciones;
-using Dinaf.Sismo.Application.Vulneraciones.DTOs;
-using Dinaf.Sismo.Models;
+﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Controllers
 {
     public class ConsolidacionFamiliarController : Controller
     {
-        private readonly IPersonaService _personaService;
-        private readonly IVulneracionService _vulneracionService;
-        private readonly ISeguimientoService _seguimientoService;
-        private readonly IAnexoService _anexoService;
 
-        public ConsolidacionFamiliarController(
-            IPersonaService personaService, 
-            IVulneracionService vulneracionService, 
-            ISeguimientoService seguimientoService, 
-            IAnexoService anexoService)
+        private readonly IConsolidacionFamiliarService _consolidacionFamiliarService;
+
+        public ConsolidacionFamiliarController(IConsolidacionFamiliarService consolidacionFamiliarService)
         {
-            _personaService = personaService;
-            _vulneracionService = vulneracionService;
-            _seguimientoService = seguimientoService;
-            _anexoService = anexoService;
+            _consolidacionFamiliarService = consolidacionFamiliarService;
         }
+
 
         // GET: ConsolidacionFamiliar/NnaEstadoAdoptabilidad
         public ActionResult NnaEstadoAdoptabilidad()
         {
-            ListExpedientesDto expedientes = _personaService.GetNnaEstadoAdoptabilidad();
-            return View(expedientes);
+            List<ExpedienteNnaDto> expedientesNna = _consolidacionFamiliarService.GetNnaEstadoAdoptabilidad();
+            return View(expedientesNna);
         }
 
         // GET: ConsolidacionFamiliar/DetalleNnaEstadoAdoptabilidad/5
-        public ActionResult DetalleNnaEstadoAdoptabilidad(int id)
+        public ActionResult DetalleNnaEstadoAdoptabilidad(string id)
         {
-            ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
-            ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
-            ListSeguimientosDto medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.Seguimientos.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
-            NnaEstadoAdoptabilidadViewModel viewModel = new NnaEstadoAdoptabilidadViewModel(expediente, vulneraciones, medidasProteccion);
+            //ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
+            //ListVulneracionesDto vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
+            //ListSeguimientosDto medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.Seguimientos.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente));
+            //NnaEstadoAdoptabilidadViewModel viewModel = new NnaEstadoAdoptabilidadViewModel(expediente, vulneraciones, medidasProteccion);
 
-            return View(viewModel);
+            ExpedienteNnaDto expedienteNna = _consolidacionFamiliarService.GetNnaEstadoAdoptabilidad(new NumeroExpedienteDto(id));
+            return View(expedienteNna);
         }
 
         // GET: ConsolidacionFamiliar/SolicitantesAdopcion
         public ActionResult SolicitantesAdopcion()
         {
-            ListExpedientesDto expedientes = _personaService.GetSolicitantesAdopcion();
-            return View(expedientes);
+            IList<SolicitudAdopcionDto> solicitudesAdopcion = _consolidacionFamiliarService.GetSolicitudesAdopcion();
+            return View(solicitudesAdopcion);
         }
 
         // GET: ConsolidacionFamiliar/DetalleSolicitantesAdopcion/5
-        public ActionResult DetalleSolicitantesAdopcion(int id)
+        public ActionResult DetalleSolicitantesAdopcion(string numeroExpediente)
         {
-            ExpedienteDto expediente = _personaService.GetExpediente(new PersonaExpedienteIdDto(id));
-            AnexoDto motivoAdopcion = _anexoService
-                .GetAnexos(new Application.Anexos.DTOs.NumeroExpedienteDto(expediente.NumeroExpediente))
-                .Detalles.Where(x => x.Asunto == "Adopción")
-                .FirstOrDefault();
-
-            SolicitanteAdopcionViewModel viewModel = new SolicitanteAdopcionViewModel(expediente, motivoAdopcion);
-
-            return View(viewModel);
+            SolicitudAdopcionDto solicitudAdopcion = _consolidacionFamiliarService.GetSolicitudAdopcion(new NumeroExpedienteDto(numeroExpediente));
+            return View(solicitudAdopcion);
         }
 
         // GET: ConsolidacionFamiliar/CrearEmparejamiento

@@ -1,4 +1,4 @@
-﻿using Dinaf.Sismo.Infrastructure.Personas.Mappings;
+﻿using Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -15,7 +15,7 @@ namespace Dinaf.Sismo.Infrastructure.Common
                 return Fluently.Configure()
                     .Database(PostgreSQLConfiguration.PostgreSQL82
                     .ConnectionString(connectionString))
-                    .Mappings(c => c.FluentMappings.AddFromAssemblyOf<PersonaMap>())
+                    .Mappings(c => c.FluentMappings.AddFromAssemblyOf<SolicitudAdopcionMap>())
                     .BuildSessionFactory();
             }
             catch (Exception e)
