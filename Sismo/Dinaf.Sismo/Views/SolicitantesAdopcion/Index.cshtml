@@ -1,0 +1,27 @@
+﻿@model IList<Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs.SolicitudAdopcionDto>
+
+@{
+}
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">Numero de Expediente</th>
+            <th scope="col">Tipo Solicitud</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Fecha Solicitud</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var solicitud in Model)
+        {
+            <tr>
+                <td><a href="@Url.Action("Details", "SolicitantesAdopcion" , new { numeroExpediente = solicitud.NumeroExpediente })">@solicitud.NumeroExpediente</a></td>
+                <td>@solicitud.TipoSolicitud</td>
+                <td>@solicitud.Nombres</td>
+                <td>@solicitud.FechaCreacion</td>
+                <td>@solicitud.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>

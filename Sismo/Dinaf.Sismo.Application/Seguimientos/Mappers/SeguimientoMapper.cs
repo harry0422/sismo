@@ -1,10 +1,6 @@
 ﻿using Dinaf.Sismo.Application.Seguimientos.DTOs;
 using Dinaf.Sismo.Domain.Seguimientos.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Application.Seguimientos.Mappers
 {
@@ -29,13 +25,13 @@ namespace Dinaf.Sismo.Application.Seguimientos.Mappers
             return dto;
         }
 
-        public static ListSeguimientosDto ToDto(this IList<Seguimiento> seguimientos)
+        public static List<SeguimientoDto> ToDto(this IList<Seguimiento> seguimientos)
         {
-            ListSeguimientosDto dto = new ListSeguimientosDto();
+            List<SeguimientoDto> dto = new List<SeguimientoDto>();
 
             foreach (var seguimiento in seguimientos)
             {
-                dto.Seguimientos.Add(seguimiento.ToDto());
+                dto.Add(seguimiento.ToDto());
             }
 
             return dto;

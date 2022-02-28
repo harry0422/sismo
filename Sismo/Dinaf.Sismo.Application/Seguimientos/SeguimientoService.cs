@@ -1,6 +1,7 @@
 ﻿using Dinaf.Sismo.Application.Seguimientos.DTOs;
 using Dinaf.Sismo.Application.Seguimientos.Mappers;
 using Dinaf.Sismo.Domain.Seguimientos.Repositories;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.Seguimientos
 {
@@ -13,7 +14,7 @@ namespace Dinaf.Sismo.Application.Seguimientos
             _seguimientoRepository = seguimientoRepository;
         }
 
-        public ListSeguimientosDto GetMedidasProteccion(NumeroExpedienteDto numeroExpediente)
+        public List<SeguimientoDto> GetMedidasProteccion(NumeroExpedienteDto numeroExpediente)
         {
             return _seguimientoRepository.GetByNumeroExpediente(numeroExpediente.Valor).ToDto();
         }

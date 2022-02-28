@@ -22,13 +22,13 @@ namespace Dinaf.Sismo.Application.Vulneraciones.Mappers
             return dto;
         }
 
-        public static ListVulneracionesDto ToDto(this IList<Vulneracion> vulneraciones)
+        public static List<VulneracionDto> ToDto(this IList<Vulneracion> vulneraciones)
         {
-            ListVulneracionesDto dto = new ListVulneracionesDto();
+            List<VulneracionDto> dto = new List<VulneracionDto>();
 
             foreach (var vulneracion in vulneraciones)
             {
-                dto.Vulneraciones.Add(vulneracion.ToDto());
+                dto.Add(vulneracion.ToDto());
             }
 
             return dto;

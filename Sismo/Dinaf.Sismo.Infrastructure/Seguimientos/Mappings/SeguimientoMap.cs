@@ -10,7 +10,7 @@ namespace Dinaf.Sismo.Infrastructure.Seguimientos.Mappings
             Table("seguimiento");
             Id(x => x.Id, "id");
             Map(x => x.NumeroExpediente, "numero_instrumento");
-            References(x => x.TipoCustodio, "gidtipocustodio").Not.LazyLoad().NotFound.Ignore();
+            //References(x => x.TipoCustodio, "gidtipocustodio").Not.LazyLoad().NotFound.Ignore();
             Map(x => x.FechaInicio, "fechainicio");
             Map(x => x.FechaFinal, "fechafinal");
             Map(x => x.Referencias, "referencias");

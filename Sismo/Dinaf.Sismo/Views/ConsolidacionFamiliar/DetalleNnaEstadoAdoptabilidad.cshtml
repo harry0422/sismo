@@ -1,4 +1,4 @@
-﻿@model Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs.ExpedienteNnaDto
+﻿@Model.ExpedienteNna Dinaf.Sismo.Models.ExpedienteNnaViewModel
 
 @{
 }
@@ -9,12 +9,12 @@
             <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                     <img src="~/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <h2>@Model.DetalleNna.NombreCorto</h2>
-                    <h3>@Model.DetalleNna.Ocupacion</h3>
+                    <h2>@Model.ExpedienteNna.DetalleNna.NombreCorto</h2>
+                    <h3>@Model.ExpedienteNna.DetalleNna.Ocupacion</h3>
                     <div class="social-links mt-2">
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Nombre</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Nombre</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
@@ -22,19 +22,19 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.FechaNacimiento</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.FechaNacimiento</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Edad Años</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Edad Años</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Nacionalidad</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Nacionalidad</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DetalleNna.Genero</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Genero</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>

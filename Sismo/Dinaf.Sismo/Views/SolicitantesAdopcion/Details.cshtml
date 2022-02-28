@@ -1,0 +1,247 @@
+﻿@model Dinaf.Sismo.Models.SolicitudAdopcionViewModel
+
+@{
+    ViewBag.title = $"Detalle de solicitud de adopción";
+}
+<section class="section profile">
+
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Default Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered" id="profiles" role="tablist">
+                        @for (int i = 0; i < Model.SolicitudAdopcion.Solicitantes.Count; i++)
+                        {
+                            <li class="nav-item" role="presentation">
+                                <button class='nav-link @(i == 0 ? "active" : "")' id="@Model.SolicitudAdopcion.Solicitantes[i].Id" data-bs-toggle="tab" data-bs-target="#content_@Model.SolicitudAdopcion.Solicitantes[i].Id" type="button" role="tab" aria-controls="content_@Model.SolicitudAdopcion.Solicitantes[i].Id" aria-selected="true">@Model.SolicitudAdopcion.Solicitantes[i].NombreCorto</button>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="tab-content pt-2" id="profilesContent">
+                        @for (int i = 0; i < Model.SolicitudAdopcion.Solicitantes.Count; i++)
+                        {
+                            <div class='tab-pane fade @(i == 0 ? "show active" : "")' id="content_@Model.SolicitudAdopcion.Solicitantes[i].Id" role="tabpanel" aria-labelledby="@Model.SolicitudAdopcion.Solicitantes[i].Id">
+                                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                    <img src="/img/userrrr.jfif" alt="Profile" class="rounded-circle">
+                                    <h2>@Model.SolicitudAdopcion.Solicitantes[i].NombreCorto</h2>
+                                    <h3>@Model.SolicitudAdopcion.Solicitantes[i].Ocupacion</h3>
+                                    <div class="social-links mt-2">
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.SolicitudAdopcion.Solicitantes[i].Nombre</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
+                                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.SolicitudAdopcion.Solicitantes[i].FechaNacimiento</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.SolicitudAdopcion.Solicitantes[i].Edad Años</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.SolicitudAdopcion.Solicitantes[i].Nacionalidad</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.SolicitudAdopcion.Solicitantes[i].Genero</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
+                                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
+                                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- End Default Tabs -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Caracteristicas</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-emp">Emparejamiento</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.SolicitudAdopcion.NumeroExpediente</span>
+                            </p>
+                            <h5 class="card-title">Detalles</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Fecha Solicitud</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.FechaCreacion</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Tipo Instrumento</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.TipoInstrumento</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Estado</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.Estado</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Tipo Solicitud</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.TipoSolicitud</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Procedencia</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.Procedencia</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Representante Legal</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.RepresentanteLegal</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Motivo Adopción</div>
+                                <div class="col-lg-9 col-md-8">@Model.SolicitudAdopcion.MotivoAdopcion</div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+                            <p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.SolicitudAdopcion.NumeroExpediente</span></p>
+                            <!-- General Form Elements -->
+                            <form method="post" action="@Url.Action("AgregarCaracteristicas", "SolicitantesAdopcion")">
+                                <input type="hidden" name="NumeroExpediente" value="@Model.SolicitudAdopcion.NumeroExpediente" />
+                                <div class="row mb-1">
+                                    <label for="inputText" class="col-2 col-form-label">Género</label>
+                                    <div class="col-4">
+                                        <select class="form-select" aria-label="Default select example" name="Genero">
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "NA")" value="NA">Elegir una opción</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "M")" value="M">Masculino</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "F")" value="F">Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <label for="inputText" class="col-2 col-form-label">Edad</label>
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="Edad Minima" name="EdadMinima" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.EdadMinima" />
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" placeholder="Edad Maxima" name="EdadMaxima" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.EdadMaxima" />
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <label for="inputText" class="col-2 col-form-label">Condición médica</label>
+                                    <div class="col-4">
+                                        <select class="form-select" aria-label="Default select example" name="CondicionMedica">
+                                            <option value="0">Elegir una opción</option>
+                                            @foreach (var condicionMedica in Model.CondicionesMedicas)
+                                            {
+                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <label for="inputText" class="col-2 col-form-label">Sub Condición médica</label>
+                                    <div class="col-4">
+                                        <select class="form-select" aria-label="Default select example" name="CondicionMedica">
+                                            <option value="0">Elegir una opción</option>
+                                            @foreach (var condicionMedica in Model.CondicionesMedicas)
+                                            {
+                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <label for="inputText" class="col-2 col-form-label">Hermanos</label>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="Cantidad de Hermanos" name="CantidadHermanos" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.CantidadHermanos" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+
+                            </form>
+                            <!-- End General Form Elements -->
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-emp">
+                            <p>
+                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
+                            </p>
+
+                            <!-- Card with an image on left -->
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-2">
+                                        <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <span class="badge rounded-pill bg-success">85% coincidencias</span>
+                                            <div class="row mt-2">
+                                                <div class="col-8">
+                                                    <!-- Vertical Pills Tabs -->
+                                                    <div class="d-flex align-items-start">
+                                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
+                                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
+                                                        </div>
+                                                        <div class="tab-content" id="v-pills-tabContent">
+                                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Nombre: Juan Canales</li>
+                                                                    <li class="list-group-item">Edad: 30 años</li>
+                                                                    <li class="list-group-item">Hondureña</li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                                <!-- List group with active and disabled items -->
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">Color de Ojos: </li>
+                                                                    <li class="list-group-item">Color de Piel: </li>
+                                                                    <li class="list-group-item">Color de cabello: </li>
+                                                                </ul><!-- End Clean list group -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Vertical Pills Tabs -->
+                                                </div>
+                                                <div class="col-4">
+                                                    <br />
+                                                    <a href="@Url.Action("Create", "Emparejamientos", new { expedienteNna = "aaaa", solicitudAdopcion = "qqqq" })" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Card with an image on left -->
+                            
+                        </div>
+                    </div><!-- End Bordered Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

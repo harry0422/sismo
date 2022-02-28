@@ -1,9 +1,10 @@
 ﻿using Dinaf.Sismo.Application.Seguimientos.DTOs;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.Seguimientos
 {
     public interface ISeguimientoService
     {
-        ListSeguimientosDto GetMedidasProteccion(NumeroExpedienteDto numeroExpediente);
+        List<SeguimientoDto> GetMedidasProteccion(NumeroExpedienteDto numeroExpediente);
     }
 }

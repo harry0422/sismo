@@ -1,0 +1,32 @@
+﻿@{
+}
+<!-- General Form Elements -->
+<p><h3 class="card-title">Detalles de Pre Emparejamiento</h3></p>
+<form>
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Nombre de Encargado">
+        </div>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" placeholder="Fecha de Creacion">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <textarea class="form-control" style="height: 100px" placeholder="Observaciónes"></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <input class="form-control" type="file" id="formFile" placeholder="Anexos">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="text-left">
+            <a href="@Url.Action("DetalleEmparejamiento", "ConsolidacionFamiliar")" type="button" class="btn btn-outline-primary">Emparejar</a>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+</form>
+<!-- End General Form Elements -->

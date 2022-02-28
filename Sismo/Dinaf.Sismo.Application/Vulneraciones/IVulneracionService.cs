@@ -1,10 +1,11 @@
 ﻿using Dinaf.Sismo.Application.Vulneraciones.DTOs;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.Vulneraciones
 {
     public interface IVulneracionService
     {
-        ListVulneracionesDto GetVulneraciones(NumeroExpedienteDto numeroExpediente);
-        ListVulneracionesDto GetVulneraciones(TipoVulneracionIdDto tipoVulneracionId);
+        List<VulneracionDto> GetVulneraciones(NumeroExpedienteDto numeroExpediente);
+        List<VulneracionDto> GetVulneraciones(TipoVulneracionIdDto tipoVulneracionId);
     }
 }
