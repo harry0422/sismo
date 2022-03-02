@@ -1,0 +1,39 @@
+﻿@{
+}
+<h5 class="card-title">Nueva Solicitud</h5>
+<form>
+
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Presencial</option>
+                <option value="2">Teléfonica</option>
+                <option value="3">Anónima</option>
+                <option value="3">Medios de Comunicación Social</option>
+                <option value="3">Derivación</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Indique el año en que se levanto el expediente:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Vincular número de expediente anterior:</label>
+        <input type="text" class="form-control" id="inputNanme4">
+    </div>
+
+    <br />
+
+    <div class="col-5">
+        <div style="text-align:end ">
+            <a href="@Url.Action("Index", "Solicitudes")" type="button" class="btn btn-primary">Agregar Solicitud</a>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+</form>

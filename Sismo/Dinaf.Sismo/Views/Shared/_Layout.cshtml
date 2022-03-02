@@ -124,16 +124,31 @@
                     <i class="bi bi-journal-text"></i><span>Protección de Derechos</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    
                     <li>
-                        <a href="/personas">
-                            <i class="bi bi-circle"></i><span>Ver Personas</span>
+                        <a href="@Url.Action("Index", "Denuncias")">
+                            <i class="bi bi-circle"></i><span>Denuncias</span>
                         </a>
                     </li>
+                    
                     <li>
-                        <a href="forms-layouts.html">
-                            <i class="bi bi-circle"></i><span>Nueva Persona</span>
+                        <a href="@Url.Action("Index", "Asesorias")">
+                            <i class="bi bi-circle"></i><span>Asesorías</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "Solicitudes")">
+                            <i class="bi bi-circle"></i><span>Solicitudes</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "Activaciones")">
+                            <i class="bi bi-circle"></i><span>Activaciónes DINAF</span>
+                        </a>
+                    </li>
+
                 </ul>
             </li><!-- End Forms Nav -->
 

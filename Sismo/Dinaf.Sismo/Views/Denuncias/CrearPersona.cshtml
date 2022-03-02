@@ -1,0 +1,115 @@
+﻿@{
+}
+<h5 class="card-title">Nueva Persona</h5>
+<form>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Persona Ingresada es: :</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">NNA</option>
+                <option value="2">Solicitante de Adopción</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Sexo:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Masculino</option>
+                <option value="2">Femenino</option>
+            </select>
+        </div>
+    </div>
+    </div>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Nacionalidad:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Hondureña</option>
+                <option value="2">Otra Nacionalidad</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Vinculacion de la Persona con el Caso:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Sospechoso</option>
+                <option value="2">Denunciante</option>
+                <option value="2">Afectado</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Fecha de Nacimiento:</label>
+        <input type="Date" class="form-control" id="inputNanme4">
+    </div>
+     <div class="col-10">
+        <label for="inputNanme4" class="form-label">Tipo de Documento:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Tarjeta de Identidad</option>
+                <option value="2">Pasaporte</option>
+                <option value="2">Ninguno de los anteriores</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Numero de Documento:</label>
+        <input type="text" class="form-control" id="inputNanme4">
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Primer Nombre:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Segundo Nombre:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Primer Apellido:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Segundo Apellido:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Presencial</option>
+                <option value="2">Teléfonica</option>
+                <option value="3">Anónima</option>
+                <option value="3">Medios de Comunicación Social</option>
+                <option value="3">Derivación</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Indique el año en que se levanto el expediente:</label>
+        <input type="number" class="form-control" id="inputNanme4">
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Vincular número de expediente anterior:</label>
+        <input type="text" class="form-control" id="inputNanme4">
+    </div>
+
+    <br />
+
+    <div class="col-5">
+        <div style="text-align:end ">
+            <a href="@Url.Action("Index", "Denuncias")" type="button" class="btn btn-primary">Agregar Persona</a>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+</form>

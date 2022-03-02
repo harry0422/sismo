@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">Numero de Denuncia</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Año Correspondiente</th>
+            <th scope="col">Personas Vinculadas:</th>
+            <th scope="col">Creado por:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th><a href="@Url.Action("SolicitudDetails", "Solicitudes")">Exp-DINAF-2018-8</a></th>
+            <td>Presencial</td>
+            <td>2021</td>
+            <td>Brandon Jacob</td>
+            <td>Valeria Ponce</td>
+        </tr>
+        <tr>
+            <th><a href="@Url.Action("SolicitudDetails", "Solicitudes")">Denuncia-ORA-7</a></th>
+            <td>Telefonica</td>
+            <td>2022</td>
+            <td>Bridie Kessler</td>
+            <td>Eduardo Canales</td>
+        </tr>
+        <tr>
+            <th><a href="@Url.Action("SolicitudDetails", "Solicitudes")">Solicitud-ORA-13</a></th>
+            <td>Ashleigh Langosh</td>
+            <td>2019</td>
+            <td>Carlos Guerra</td>
+            <td>Marvin Zapata</td>
+        </tr>
+        <tr>
+            <th><a href="@Url.Action("SolicitudDetails", "Solicitudes")">Exp-DINAF-2018-8</a></th>
+            <td>Medio de Comunicación Social</td>
+            <td>2021</td>
+            <td>Angus Grady</td>
+            <td>Leonel Doblado</td>
+        </tr>
+        <tr>
+            <th><a href="@Url.Action("SolicitudDetails", "Solicitudes")">Denuncia-ORA-7</a></th>
+            <td>Derivacíon</td>
+            <td>2021</td>
+            <td>Raheem Lehner</td>
+            <td>Denis Diaz</td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align:end ">
+    <a href="@Url.Action("CrearSolicitud", "Solicitudes")" type="button" class="btn btn-primary">Agregar Solicitud</a>
+    @*<button type="button" class="btn btn-primary rounded-pill">Primary</button>*@
+</div>
