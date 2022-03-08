@@ -1,0 +1,57 @@
+﻿@{
+}
+<h5 class="card-title">Nueva Vulneración</h5>
+<form>
+
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Insatifacción de necesidades basicas</option>
+                <option value="2">Patrimonio amenazado</option>
+                <option value="3">Carece de representacion legal</option>
+                <option value="4">Situaciones especiales</option>
+                <option value="5">Maltrato por supresión</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-10">
+        <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+        <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione un elemento de la lista</option>
+                <option value="1">Insatifacción de necesidades basicas</option>
+                <option value="2">Patrimonio amenazado</option>
+                <option value="3">Carece de representacion legal</option>
+                <option value="4">Situaciones especiales</option>
+                <option value="5">Maltrato por supresión</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Indique el año en que se levanto el expediente:</label>
+        <input type="Date" class="form-control" id="inputNanme4">
+    </div>
+
+    <div class="col-5">
+        <label for="inputNanme4" class="form-label">Si el expediente es de años anteriores, 2018, 2017, 2016 .... por favor colocar la fecha en la que tipificó la vulneración o la fecha del ACTA DE VULNERACIÓN DE DERECHOS:</label>
+        <input type="date" class="form-control" id="inputNanme4">
+    </div>
+
+    <br />
+       <div class="col-5">
+        <label for="inputNanme4" class="form-label">Comentario corto:</label>
+        <input type="text" class="form-control" id="inputNanme4">
+    </div>
+    <br />
+
+    <div class="col-5">
+        <div style="text-align:end ">
+            <a href="@Url.Action("Index", "Activaciones")" type="button" class="btn btn-primary">Crear Vulneración</a>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+</form>
