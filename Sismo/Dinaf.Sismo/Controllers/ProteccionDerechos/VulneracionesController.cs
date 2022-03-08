@@ -1,29 +1,29 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dinaf.Sismo.Controllers.Buzon
+namespace Dinaf.Sismo.Controllers.ProteccionDerechos
 {
-    public class BuzonController : Controller
+    public class VulneracionesController : Controller
     {
-        // GET: BuzonController
+        // GET: VulneracionesController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: BuzonController/Details/5
-        public ActionResult BuzonDetails(int id)
+        // GET: VulneracionesController/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: BuzonController/Create
-        public ActionResult Create()
+        // GET: VulneracionesController/Create
+        public ActionResult CreateVulneracion()
         {
             return View();
         }
 
-        // POST: BuzonController/Create
+        // POST: VulneracionesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +38,13 @@ namespace Dinaf.Sismo.Controllers.Buzon
             }
         }
 
-        // GET: BuzonController/Edit/5
+        // GET: VulneracionesController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: BuzonController/Edit/5
+        // POST: VulneracionesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +59,13 @@ namespace Dinaf.Sismo.Controllers.Buzon
             }
         }
 
-        // GET: BuzonController/Delete/5
+        // GET: VulneracionesController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: BuzonController/Delete/5
+        // POST: VulneracionesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
