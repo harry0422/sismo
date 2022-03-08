@@ -1,11 +1,11 @@
-﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities;
+﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using FluentNHibernate.Mapping;
 
 namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
 {
-    public class DetalleSolicitanteMap : ClassMap<DetalleSolicitante>
+    public class DetallePersonaMap : ClassMap<DetallePersona>
     {
-        public DetalleSolicitanteMap()
+        public DetallePersonaMap()
         {
             Table("persona");
             Id(x => x.Id, "id");

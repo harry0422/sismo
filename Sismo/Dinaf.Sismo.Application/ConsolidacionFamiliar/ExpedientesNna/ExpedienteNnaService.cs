@@ -1,4 +1,5 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.Mappers;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.CondicionesMedicas.Entities;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.CondicionesMedicas.Repositories;

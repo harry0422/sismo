@@ -1,7 +1,7 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
 using System;
 
-namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
+namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
 {
     public class Relacion : EntityBase<int>
     {

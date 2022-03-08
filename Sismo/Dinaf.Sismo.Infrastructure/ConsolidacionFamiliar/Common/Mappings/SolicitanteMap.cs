@@ -1,15 +1,15 @@
-﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities;
+﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using FluentNHibernate.Mapping;
 
 namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
 {
-    public class SolicitanteMap : ClassMap<Solicitante>
+    public class SolicitanteMap : ClassMap<Persona>
     {
         public SolicitanteMap()
         {
             Table("personasexpediente");
             Id(x => x.Id, "id");
-            References(x => x.DetalleSolicitante, "gidpersona").Not.LazyLoad();
+            References(x => x.DetallePersona, "gidpersona").Not.LazyLoad();
             Map(x => x.NumeroExpediente, "gidexpediente");
             Map(x => x.Fecha, "fecha");
             Where("gidexpediente like 'SI-%'");

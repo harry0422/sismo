@@ -1,7 +1,7 @@
-﻿@Model.ExpedienteNna Dinaf.Sismo.Models.ExpedienteNnaViewModel
+﻿@model Dinaf.Sismo.Models.ExpedienteNnaViewModel
 
 @{
-    ViewBag.tittle = "Detalles NNA en estado de adoptabilidad";
+    ViewBag.title = $"Detalle de NNA en Estado de Adoptabilidad";
 }
 <section class="section profile">
 
@@ -92,7 +92,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Medida de Protección</div>
-                                <div class="col-lg-9 col-md-8">Ultima Medida de Protección encontrada</div>
+                                <div class="col-lg-9 col-md-8">@(Model.MedidasProteccion.FirstOrDefault() is null ? string.Empty : Model.MedidasProteccion.First().TipoGestion)</div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label ">Creación del Expediente</div>
@@ -289,29 +289,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @*@foreach (var seguimiento in Model.MedidasProteccion.Seguimientos)
-                                        {
+                                    @foreach (var familiar in Model.ExpedienteNna.Familiares)
+                                    {
                                         <tr>
-                                        <td>@seguimiento.TipoCustodio</td>
-                                        <td>@seguimiento.FechaInicio</td>
-                                        <td>@seguimiento.Referencias</td>
-                                        <td>@seguimiento.UsuarioRemitente</td>
-                                        <td>@seguimiento.TipoGestion</td>
-                                        <td>@seguimiento.Estado</td>
-                                        <td>@seguimiento.UnidadRemitente</td>
+                                            <td>@familiar.NombreCorto</td>
+                                            <td>@familiar.Edad</td>
+                                            <td>@familiar.Relacion</td>
+                                            <td>@familiar.Estado</td>
                                         </tr>
-                                        }*@
-                                    <tr>
-                                        <td>Angus Grady</td>
-                                        <td>33</td>
-                                        <td>Padre</td>
-                                        <td>Fallecido</td>
-                                    <tr>
-                                        <td>Sara Ponce</td>
-                                        <td>44</td>
-                                        <td>Madre</td>
-                                        <td>Con Vida</td>
-                                    </tr>
+                                    }
                                 </tbody>
                             </table>
                             <!-- End Default Table Example -->

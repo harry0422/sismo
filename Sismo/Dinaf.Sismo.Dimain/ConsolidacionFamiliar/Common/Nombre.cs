@@ -1,6 +1,6 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
 
-namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
+namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
 {
     public class Nombre : EntityBase<int>
     {

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
+namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
 {
-    public class DetalleSolicitante : EntityBase<int>
+    public class DetallePersona : EntityBase<int>
     {
         public virtual Nombre Nombre { get; set; }
         public virtual string Genero { get; set; }

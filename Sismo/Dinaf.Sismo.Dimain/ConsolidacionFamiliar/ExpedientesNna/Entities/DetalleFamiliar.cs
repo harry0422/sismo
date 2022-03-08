@@ -5,19 +5,15 @@ using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 {
-    public class DetalleNna : EntityBase<int>, IAggregateRoot
+    public class DetalleFamiliar : EntityBase<int>
     {
         public virtual Nombre Nombre { get; set; }
         public virtual string Genero { get; set; }
-        public virtual string Raza { get; set; }
-        public virtual string Religion { get; set; }
+        public virtual string Estado { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
         public virtual string Nacionalidad { get; set; }
-        public virtual string ColorCabello { get; set; }
-        public virtual string ColorOjos { get; set; }
-        public virtual string ColorPiel { get; set; }
-        public virtual string SignosFisicos { get; set; }
         public virtual string Ocupacion { get; set; }
+        public virtual string Observaciones { get; set; }
         public virtual IList<Relacion> Relaciones { get; set; }
 
         public virtual string NombreCorto
@@ -42,7 +38,10 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 
         public virtual int Edad
         {
-            get { return DateTime.Now.AddYears(-FechaNacimiento.Year).Year; }
+            get
+            {
+                return DateTime.Now.AddYears(-FechaNacimiento.Year).Year;
+            }
         }
 
         protected override void Validate()

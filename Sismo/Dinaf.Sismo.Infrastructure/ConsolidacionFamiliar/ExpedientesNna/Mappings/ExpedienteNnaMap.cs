@@ -12,6 +12,9 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
             Map(x => x.FechaCreacion, "fecha");
             References(x => x.DetalleNna, "gidpersona").Not.LazyLoad();
             HasOne(x => x.CondicionMedica).ForeignKey("numero_expediente").Not.LazyLoad();
+            HasMany(x => x.Familiares)
+                .KeyColumn("gidexpediente")
+                .Not.LazyLoad();
             Where("expnna = 'nna'");
         }
     }

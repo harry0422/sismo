@@ -1,12 +1,12 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
-using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities;
+using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
 {
     public static class SolicitanteMapper
     {
-        public static SolicitanteDto ToDto(this DetalleSolicitante detalleSolicitante)
+        public static SolicitanteDto ToDto(this DetallePersona detalleSolicitante)
         {
             if (detalleSolicitante is null) return null;
 
@@ -24,7 +24,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
             return dto;
         }
 
-        public static IList<SolicitanteDto> ToDto(this IList<DetalleSolicitante> detalleSolicitantes)
+        public static IList<SolicitanteDto> ToDto(this IList<DetallePersona> detalleSolicitantes)
         {
             if (detalleSolicitantes is null) return null;
 

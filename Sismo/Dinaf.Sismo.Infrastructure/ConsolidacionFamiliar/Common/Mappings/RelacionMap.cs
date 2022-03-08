@@ -1,4 +1,4 @@
-﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities;
+﻿using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using FluentNHibernate.Mapping;
 
 namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings

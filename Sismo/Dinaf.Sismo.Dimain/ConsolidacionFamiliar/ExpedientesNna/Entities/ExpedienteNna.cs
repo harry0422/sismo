@@ -1,7 +1,9 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
+using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.CondicionesMedicas.Entities;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.ExpedientesNna.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 {
@@ -10,6 +12,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual DateTime FechaCreacion { get; set; }
         public virtual DetalleNna DetalleNna { get; set; }
         public virtual CondicionMedicaNna CondicionMedica { get; set; }
+        public virtual IList<Persona> Familiares { get; set; }
 
         public virtual void AgregarCondicionMedica(CondicionMedica condicionMedica)
         {
