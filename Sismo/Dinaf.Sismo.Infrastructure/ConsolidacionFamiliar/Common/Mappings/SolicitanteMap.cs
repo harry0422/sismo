@@ -3,7 +3,7 @@ using FluentNHibernate.Mapping;
 
 namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
 {
-    public class SolicitanteMap : ClassMap<Persona>
+    public class SolicitanteMap : ClassMap<Solicitante>
     {
         public SolicitanteMap()
         {

@@ -7,14 +7,14 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 {
     public class DetalleFamiliar : EntityBase<int>
     {
-        public virtual Nombre Nombre { get; set; }
+        public virtual NombreSolicitante Nombre { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Estado { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
         public virtual string Nacionalidad { get; set; }
         public virtual string Ocupacion { get; set; }
         public virtual string Observaciones { get; set; }
-        public virtual IList<Relacion> Relaciones { get; set; }
+        public virtual IList<RelacionSolicitante> Relaciones { get; set; }
 
         public virtual string NombreCorto
         {

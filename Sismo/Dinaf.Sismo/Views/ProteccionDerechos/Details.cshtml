@@ -1,0 +1,195 @@
+﻿@model Dinaf.Sismo.Models.ExpedienteViewModel
+
+@{
+    ViewBag.title = "Detalle de Instrumento";
+}
+<section class="section profile">
+
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Default Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered" id="profiles" role="tablist">
+                        @for (int i = 0; i < Model.Personas.Count; i++)
+                        {
+                            <li class="nav-item" role="presentation">
+                                <button class='nav-link @(i == 0 ? "active" : "")' id="@Model.Personas[i].Id" data-bs-toggle="tab" data-bs-target="#content_@Model.Personas[i].Id" type="button" role="tab" aria-controls="content_@Model.Personas[i].Id" aria-selected="true">@Model.Personas[i].NombreCorto</button>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="tab-content pt-2" id="profilesContent">
+                        @for (int i = 0; i < Model.Personas.Count; i++)
+                        {
+                            <div class='tab-pane fade @(i == 0 ? "show active" : "")' id="content_@Model.Personas[i].Id" role="tabpanel" aria-labelledby="@Model.Personas[i].Id">
+                                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                    <img src="/img/userrrr.jfif" alt="Profile" class="rounded-circle">
+                                    <h2>@Model.Personas[i].NombreCorto</h2>
+                                    <h3>@Model.Personas[i].Ocupacion</h3>
+                                    <div class="social-links mt-2">
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.Personas[i].NombreCompleto</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
+                                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.Personas[i].FechaNacimiento</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.Personas[i].Edad Años</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.Personas[i].Nacionalidad</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
+                                            <div class="col-lg-12 col-md-8">@Model.Personas[i].Genero</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
+                                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
+                                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- End Default Tabs -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Agregar Información</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-emp">Acciones</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Vulneraciones">Vulneraciones</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Acciones">Historico</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                            <p>
+                                @*<span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.SolicitudAdopcion.NumeroExpediente</span>*@
+                            </p>
+                            <h5 class="card-title">Detalles</h5>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Numero de Instrumento</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.NumeroExpediente</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">Fecha Creación</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.FechaCreacion</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Creado Por</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.Usuario</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Tipo de Instrumento</div>
+                                <div class="col-lg-9 col-md-8">@Model.Expediente.TipoInstrumento</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Narración de los Hechos</div>
+                                <div class="col-lg-9 col-md-8">
+                                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                                    but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Notas</div>
+                                <div class="col-lg-9 col-md-8">
+                                    is sith desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-settings">
+                            @*<p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. @Model.SolicitudAdopcion.NumeroExpediente</span></p>*@
+
+                            <!-- List group with Links and buttons -->
+                            <div class="list-group">
+                                <a href="@Url.Action("CrearPersona", "Denuncias")" type="button" class="list-group-item list-group-item-action">Crear Perosona</a>
+                                <button type="button" class="list-group-item list-group-item-action">Agregar Persona</button>
+                                <button type="button" class="list-group-item list-group-item-action">Agregar Ticket</button>
+                                <button type="button" class="list-group-item list-group-item-action">Agregar Narracion de Hechos</button>
+                            </div><!-- End List group with Links and buttons -->
+                        </div>
+
+                        <div class="tab-pane fade pt-3" id="profile-emp">
+                            @*<p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span></p>*@
+
+                            <!-- List group with Links and buttons -->
+                            <div class="list-group">
+                                <button type="button" class="list-group-item list-group-item-action">Transferir</button>
+                                <button type="button" class="list-group-item list-group-item-action">Asignar a </button>
+                                <button type="button" class="list-group-item list-group-item-action">Acta de Comparecencia</button>
+                                <button type="button" class="list-group-item list-group-item-action">Convertir a Expediente</button>
+                            </div><!-- End List group with Links and buttons -->
+
+                        </div>
+                        <div class="tab-pane fade pt-4" id="Vulneraciones">
+                            <div style="text-align:end ">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Default Table -->
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha de Creacion</th>
+                                                    <th scope="col">Tipo Vulneración</th>
+                                                    <th scope="col">Sub-Tipo Vulneración</th>
+                                                    <th scope="col">Articulo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>Exp-DINAF-2018-8</th>
+                                                    <td>Presencial</td>
+                                                    <td>2019</td>
+                                                    <td>Brandon Jacob</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- End Default Table Example -->
+                                    </div><!-- End Default Card -->
+                                </div>
+                                <a href="@Url.Action("CreateVulneracion", "Vulneraciones")" type="button" class="btn btn-primary">Agregar Vulneración</a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade pt-5" id="Acciones">
+                        </div>
+                    </div><!-- End Bordered Tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -14,7 +14,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual string Procedencia { get; set; }
         public virtual CaracteristicasSolicitud CaracteristicasSolicitud { get; set; }
         public virtual IList<MotivoAdopcion> MotivosAdopcion { get; set; }
-        public virtual IList<Persona> Solicitantes { get; set; }
+        public virtual IList<Solicitante> Solicitantes { get; set; }
 
         public virtual string NumeroExpediente
         {
@@ -31,16 +31,16 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
             get { return !(CaracteristicasSolicitud is null); }
         }
 
-        public virtual IList<DetallePersona> SolicitantesAdopcion
+        public virtual IList<DetalleSolicitante> SolicitantesAdopcion
         {
             get { return Solicitantes.Where(x => x.EsSolicitanteAdopcion).Select(x => x.DetallePersona).ToList(); }
         }
 
-        public virtual DetallePersona RepresentanteLegal
+        public virtual DetalleSolicitante RepresentanteLegal
         {
             get 
             {
-                Persona representanteLegal = Solicitantes.FirstOrDefault(x => x.EsRepresentanteLegal);
+                Solicitante representanteLegal = Solicitantes.FirstOrDefault(x => x.EsRepresentanteLegal);
                 return representanteLegal is null ? null : representanteLegal.DetallePersona; 
             }
         }

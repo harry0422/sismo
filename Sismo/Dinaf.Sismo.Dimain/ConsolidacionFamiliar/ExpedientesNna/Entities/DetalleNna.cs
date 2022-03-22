@@ -7,7 +7,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 {
     public class DetalleNna : EntityBase<int>, IAggregateRoot
     {
-        public virtual Nombre Nombre { get; set; }
+        public virtual NombreSolicitante Nombre { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Raza { get; set; }
         public virtual string Religion { get; set; }
@@ -18,7 +18,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual string ColorPiel { get; set; }
         public virtual string SignosFisicos { get; set; }
         public virtual string Ocupacion { get; set; }
-        public virtual IList<Relacion> Relaciones { get; set; }
+        public virtual IList<RelacionSolicitante> Relaciones { get; set; }
 
         public virtual string NombreCorto
         {

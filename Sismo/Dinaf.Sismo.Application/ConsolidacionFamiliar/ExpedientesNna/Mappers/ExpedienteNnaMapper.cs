@@ -38,7 +38,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.Mappers
             return dto;
         }
 
-        public static List<FamiliarDto> ToDto(this IList<Persona> familiares)
+        public static List<FamiliarDto> ToDto(this IList<Solicitante> familiares)
         {
             if (familiares is null) return null;
 
@@ -53,7 +53,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.Mappers
             return dto;
         }
 
-        public static FamiliarDto ToDto(this DetallePersona familiar)
+        public static FamiliarDto ToDto(this DetalleSolicitante familiar)
         {
             if (familiar is null) return null;
 

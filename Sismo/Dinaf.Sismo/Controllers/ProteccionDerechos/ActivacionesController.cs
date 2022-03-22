@@ -11,7 +11,6 @@ namespace Dinaf.Sismo.Controllers.ProteccionDeDerecho
             return View();
         }
 
-        // GET: ActivacionesController/Details/5
         public ActionResult ActivacionDetails(int id)
         {
             return View();

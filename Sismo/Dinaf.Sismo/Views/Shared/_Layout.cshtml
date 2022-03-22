@@ -189,49 +189,18 @@
                     <i class="bi bi-journal-text"></i><span>Protección de Derechos</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <!--COMIENZO............................-->
-@*
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Instrumentos
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <ul class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <li>
-                                <a href="@Url.Action("Index", "Denuncias")">Denuncias</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Asesorias")">Asesorias</a>
-                            </li>
-                            <a href="@Url.Action("Index", "Solicitudes")">Solicitudes</a>
-                            <a  href="@Url.Action("Index", "Activaciones")">Activaciones</a>
-                        </nav>
-                    </ul>*@
-                    <!-- End Components Nav -->
                     <li>
-                        <a href="@Url.Action("Index", "Denuncias")">
-                        <i class="bi bi-circle"></i><span>Denuncias</span>
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="@Url.Action("Index", "Asesorias")">
-                        <i class="bi bi-circle"></i><span>Asesorías</span>
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="@Url.Action("Index", "Solicitudes")">
-                        <i class="bi bi-circle"></i><span>Solicitudes</span>
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="@Url.Action("Index", "Activaciones")">
-                        <i class="bi bi-circle"></i><span>Activaciónes DINAF</span>
-                        </a>
-                        </li>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Denuncia" })"><i class="bi bi-circle"></i><span>Denuncias</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Asesoría" })"><i class="bi bi-circle"></i><span>Asesorías</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Solicitud" })"><i class="bi bi-circle"></i><span>Solicitudes</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Activación" })"><i class="bi bi-circle"></i><span>Activaciónes DINAF</span></a>
+                    </li>
 
                 </ul>
             </li><!-- End Forms Nav -->

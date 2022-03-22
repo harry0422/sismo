@@ -12,7 +12,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual DateTime FechaCreacion { get; set; }
         public virtual DetalleNna DetalleNna { get; set; }
         public virtual CondicionMedicaNna CondicionMedica { get; set; }
-        public virtual IList<Persona> Familiares { get; set; }
+        public virtual IList<Solicitante> Familiares { get; set; }
 
         public virtual void AgregarCondicionMedica(CondicionMedica condicionMedica)
         {

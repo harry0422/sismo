@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
-using Dinaf.Sismo.Application.Seguimientos;
+using Dinaf.Sismo.Application.MedidasProteccion;
 using Dinaf.Sismo.CrossCutting.Transactions;
 using Dinaf.Sismo.Domain.Seguimientos.Repositories;
 using Dinaf.Sismo.Infrastructure.Seguimientos.Repositories;
@@ -13,11 +13,11 @@ namespace Dinaf.Sismo.IoC
         {
             builder
                 .RegisterType<SeguimientoRepository>()
-                .As<ISeguimientoRepository>()
+                .As<IMedidaProteccionRepository>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));
 
-            builder.RegisterType<SeguimientoService>().As<ISeguimientoService>();
+            builder.RegisterType<MedidaProteccionService>().As<IMedidaProteccionService>();
         }
     }
 }

@@ -2,8 +2,8 @@
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
-using Dinaf.Sismo.Application.Seguimientos;
-using Dinaf.Sismo.Application.Seguimientos.DTOs;
+using Dinaf.Sismo.Application.MedidasProteccion;
+using Dinaf.Sismo.Application.MedidasProteccion.DTOs;
 using Dinaf.Sismo.Application.Vulneraciones;
 using Dinaf.Sismo.Application.Vulneraciones.DTOs;
 using Dinaf.Sismo.Models;
@@ -17,13 +17,13 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
         private readonly IExpedienteNnaService _expedienteNnaService;
         private readonly ICondicionMedicaService _condicionMedicaService;
         private readonly IVulneracionService _vulneracionService;
-        private readonly ISeguimientoService _seguimientoService;
+        private readonly IMedidaProteccionService _seguimientoService;
 
         public ExpedientesNnaController(
             IExpedienteNnaService expedienteNnaService, 
             ICondicionMedicaService condicionMedicaService, 
             IVulneracionService vulneracionService, 
-            ISeguimientoService seguimientoService)
+            IMedidaProteccionService seguimientoService)
         {
             _expedienteNnaService = expedienteNnaService;
             _condicionMedicaService = condicionMedicaService;
@@ -42,7 +42,7 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
         public ActionResult Details(string numeroExpediente)
         {
             List<VulneracionDto> vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(numeroExpediente));
-            List<SeguimientoDto> medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.Seguimientos.DTOs.NumeroExpedienteDto(numeroExpediente));
+            List<Application.MedidasProteccion.DTOs.MedidaProteccionDto> medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.MedidasProteccion.DTOs.NumeroExpedienteDto(numeroExpediente));
             ExpedienteNnaDto expedienteNna = _expedienteNnaService.GetNnaEstadoAdoptabilidad(new Application.ConsolidacionFamiliar.DTOs.NumeroExpedienteDto(numeroExpediente));
             List<CondicionMedicaDto> condicionesMedicas = _condicionMedicaService.GetCondicionesMedicas();
 

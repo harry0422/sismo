@@ -6,7 +6,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
 {
     public static class SolicitanteMapper
     {
-        public static SolicitanteDto ToDto(this DetallePersona detalleSolicitante)
+        public static SolicitanteDto ToDto(this DetalleSolicitante detalleSolicitante)
         {
             if (detalleSolicitante is null) return null;
 
@@ -24,7 +24,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
             return dto;
         }
 
-        public static IList<SolicitanteDto> ToDto(this IList<DetallePersona> detalleSolicitantes)
+        public static IList<SolicitanteDto> ToDto(this IList<DetalleSolicitante> detalleSolicitantes)
         {
             if (detalleSolicitantes is null) return null;
 
