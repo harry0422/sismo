@@ -179,9 +179,10 @@
                                         <input type="text" class="form-control" placeholder="Cantidad de Hermanos" name="CantidadHermanos" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.CantidadHermanos" />
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                <div style="text-align:end" class="col-sm-6">
+                                    <button type="submit" class="btn btn-primary">Emparejar</button>
                                 </div>
+
 
                             </form>
                             <!-- End General Form Elements -->
@@ -240,90 +241,66 @@
                                 </div>
                             </div>
                             <!-- End Card with an image on left -->
-                            
+
                         </div>
                         <div class="tab-pane fade pt-5" id="Historico">
-                            <!-- Right side columns -->
-                            <div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Historial de Emparejamientos</h5>
 
-                                <!-- Recent Activity -->
-                                <div class="card">
-                                    @*<div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li class="dropdown-header text-start">
-                                                <h6>Filter</h6>
-                                            </li>
+                                    <!-- Table with stripped rows -->
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Numero de Expediente</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scope="col">Asesor</th>
+                                                <th scope="col">Estado</th>
+                                                <th scope="col">Fecha</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Brandon Jacob</td>
+                                                <td>Edgar</td>
+                                                <td>Inactivo</td>
+                                                <td>2016-05-25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Bridie Kessler</td>
+                                                <td>Cesar</td>
+                                                <td>Inactivo</td>
+                                                <td>2014-12-05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Ashleigh Langosh</td>
+                                                <td>Gerardo</td>
+                                                <td>Inactivo</td>
+                                                <td>2011-08-12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Angus Grady</td>
+                                                <td>Carlos</td>
+                                                <td>Inactivo</td>
+                                                <td>2012-06-11</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Raheem Lehner</td>
+                                                <td>Jermain</td>
+                                                <td>Inactivo</td>
+                                                <td>2011-04-19</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- End Table with stripped rows -->
 
-                                            <li><a class="dropdown-item" href="#">Today</a></li>
-                                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                                        </ul>
-                                    </div>*@
-
-                                    <div class="card-body">
-                                        <h5 class="card-title">Match <span>| Historico</span></h5>
-
-                                        <div class="activity">
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">32 min</div>
-                                                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">56 min</div>
-                                                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Voluptatem blanditiis blanditiis eveniet
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">2 hrs</div>
-                                                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Voluptates corrupti molestias voluptatem
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">1 day</div>
-                                                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">2 days</div>
-                                                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Est sit eum reiciendis exercitationem
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                            <div class="activity-item d-flex">
-                                                <div class="activite-label">4 weeks</div>
-                                                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                                                <div class="activity-content">
-                                                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                                                </div>
-                                            </div><!-- End activity item-->
-
-                                        </div>
-
-                                    </div>
-                                </div><!-- End Recent Activity -->
-
-
-
-
-
-                            </div><!-- End Right side columns -->
+                                </div>
+                            </div>
                         </div>
                     </div><!-- End Bordered Tabs -->
                 </div>
