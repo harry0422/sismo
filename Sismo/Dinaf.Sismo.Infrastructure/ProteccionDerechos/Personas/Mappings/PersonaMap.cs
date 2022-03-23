@@ -9,7 +9,9 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Mappings
         {
             Table("personasexpediente");
             Id(x => x.Id, "id");
-            References(x => x.DetallePersona, "gidpersona").Not.LazyLoad();
+            References(x => x.DetallePersona, "gidpersona")
+                .Cascade.All()
+                .Not.LazyLoad();
             Map(x => x.NumeroExpediente, "gidexpediente");
             Map(x => x.UsuarioCreacion, "id_usuario");
             Map(x => x.FechCreaciona, "fecha");

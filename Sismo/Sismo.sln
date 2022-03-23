@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.CrossCutting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.IoC", "Dinaf.Sismo.IoC\Dinaf.Sismo.IoC.csproj", "{3095B765-D60D-46F4-9A8F-23E23F334B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo.Adapters", "Dinaf.Sismo.Adapters\Dinaf.Sismo.Adapters.csproj", "{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.Adapters", "Dinaf.Sismo.Adapters\Dinaf.Sismo.Adapters.csproj", "{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

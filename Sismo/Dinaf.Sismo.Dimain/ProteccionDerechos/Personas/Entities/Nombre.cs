@@ -12,12 +12,14 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
             SegundoNombre = segundoNombre;
             PrimerApellido = primerApellido;
             SegundoApellido = segundoApellido;
+            TipoNombre = 6;
         }
 
         public virtual string PrimerNombre { get; set; }
         public virtual string SegundoNombre { get; set; }
         public virtual string PrimerApellido { get; set; }
         public virtual string SegundoApellido { get; set; }
+        public virtual int TipoNombre { get; set; }
 
 
         protected override void Validate()

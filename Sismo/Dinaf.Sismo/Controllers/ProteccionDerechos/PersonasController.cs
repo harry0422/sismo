@@ -1,66 +1,30 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.ProteccionDerechos.Personas;
+using Dinaf.Sismo.Application.ProteccionDerechos.Personas.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Controllers.ProteccionDerechos
 {
     public class PersonasController : Controller
     {
-        // POST: PersonasController/Create
+        private readonly IPersonaService _personaService;
+
+        public PersonasController(IPersonaService personaService)
+        {
+            _personaService = personaService;
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [Route("Personas")]
+        public ActionResult Create(NuevaPersonaDto nuevaPersona)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _personaService.AgregarPersona(nuevaPersona);
+                return RedirectToAction("Details", "ProteccionDerechos", new { NumeroExpediente = nuevaPersona.NumeroExpediente });
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PersonasController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: PersonasController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PersonasController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PersonasController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

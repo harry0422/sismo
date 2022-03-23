@@ -23,6 +23,8 @@ namespace Dinaf.Sismo.Controllers.ProteccionDerechos
         public ActionResult Index(string tipoInstrumento)
         {
             IList<ExpedienteDto> expedientes = _expedienteService.GetExpedientePorTipo(new TipoExpedienteDto(tipoInstrumento));
+            ViewBag.TipoInstrumento = tipoInstrumento;
+
             return View(expedientes);
         }
 
@@ -34,25 +36,5 @@ namespace Dinaf.Sismo.Controllers.ProteccionDerechos
 
             return View(new ExpedienteViewModel(expediente, personas));
         }
-
-        //[Route("proteccionderechos")]
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[Route("proteccionderechos")]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

@@ -130,32 +130,37 @@
                     
 
                     <div class="tab-pane fade pt-3" id="profile-emp">
-                        @*<p><span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span></p>*@
-
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Crear Persona
+                                        Agregar Persona
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <form>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Es NNA:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selectekd>Seleccione un elemento de la lista</option>
-                                                        <option value="nna">Sí</option>
-                                                        <option value="nonna">No</option>
-                                                    </select>
-                                                </div>
+                                        <form action="@Url.Action("Create", "Personas")" method="post">
+                                            <input id="NumeroExpediente" name="NumeroExpediente" type="hidden" value="@Model.Expediente.NumeroExpediente" />
+                                            <div class="col-8">
+                                                <label for="PrimerNombre" class="form-label">Primer Nombre:</label>
+                                                <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-8">
+                                                <label for="SegundoNombre" class="form-label">Segundo Nombre:</label>
+                                                <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-8">
+                                                <label for="PrimerApellido" class="form-label">Primer Apellido:</label>
+                                                <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-8">
+                                                <label for="SegundoApellido" class="form-label">Segundo Apellido:</label>
+                                                <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-control">
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Genero:</label>
+                                                <label for="Genero" class="form-label">Genero:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select id="Genero" class="form-select" name="Genero">
                                                         <option selected>Seleccione un elemento de la lista</option>
                                                         <option value="M">Masculino</option>
                                                         <option value="F">Femenino</option>
@@ -163,9 +168,50 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Nacionalidad:</label>
+                                                <label for="Nna" class="form-label">Es NNA:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select id="Nna" class="form-select" name="Nna">
+                                                        <option selectekd>Seleccione un elemento de la lista</option>
+                                                        <option value="nna">Sí</option>
+                                                        <option value="nonna">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="Raza" class="form-label">Raza:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="Raza" class="form-select" name="Raza">
+                                                        <option selectekd>Seleccione un elemento de la lista</option>
+                                                        <option value="Afrodescendiente">Afrodescendiente</option>
+                                                        <option value="Criolla">Criolla</option>
+                                                        <option value="Garifuna">Garifuna</option>
+                                                        <option value="Ladina">Ladina</option>
+                                                        <option value="Mestizo">Mestizo</option>
+                                                        <option value="Misquito">Misquito</option>
+                                                        <option value="Blanco">Blanco</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="Religion" class="form-label">Religión:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="Religion" class="form-select" name="Religion">
+                                                        <option selectekd>Seleccione un elemento de la lista</option>
+                                                        <option value="Católica">Católica</option>
+                                                        <option value="Evangélica">Evangélica</option>
+                                                        <option value="Mormón">Mormón</option>
+                                                        <option value="Otra">Otra</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                                <input id="FechaNacimiento" type="Date" class="form-control" name="FechaNacimiento">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="Nacionalidad" class="form-label">Nacionalidad:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="Nacionalidad" name="Nacionalidad" class="form-select">
                                                         <option selected>Seleccione un elemento de la lista</option>
                                                         <option value="H">Hondureña</option>
                                                         <option value="I">Otra Nacionalidad</option>
@@ -173,24 +219,116 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Vinculacion de la Persona con el Caso:</label>
+                                                <label for="ColorCabello" class="form-label">Color de Cabello:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select id="ColorCabello" name="ColorCabello" class="form-select">
                                                         <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Sospechoso</option>
-                                                        <option value="2">Denunciante</option>
-                                                        <option value="2">Afectado</option>
+                                                        <option value="Café Claro">Café Claro</option>
+                                                        <option value="Café Oscuro">Café Oscuro</option>
+                                                        <option value="Castaño Claro">Castaño Claro</option>
+                                                        <option value="Castaño Oscuro">Castaño Oscuro</option>
+                                                        <option value="Negro">Negro</option>
+                                                        <option value="Pelirrojo">Pelirrojo</option>
+                                                        <option value="Rubio">Rubio</option>
+                                                        <option value="Otro">Otro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="ColorOjos" class="form-label">Color de Ojos:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="ColorOjos" name="ColorOjos" class="form-select">
+                                                        <option selected>Seleccione un elemento de la lista</option>
+                                                        <option value="Azul">Azul</option>
+                                                        <option value="Café Claro">Café Claro</option>
+                                                        <option value="Café Oscuro">Café Oscuro</option>
+                                                        <option value="Miel">Miel</option>
+                                                        <option value="Negro">Negro</option>
+                                                        <option value="Verde">Verde</option>
+                                                        <option value="Otro">Otro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="ColorOjos" class="form-label">Color de Piel:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="ColorPiel" name="ColorPiel" class="form-select">
+                                                        <option selected>Seleccione un elemento de la lista</option>
+                                                        <option value="Blanca">Blanca</option>
+                                                        <option value="Negra">Negra</option>
+                                                        <option value="Tarigueña Clara">Café Claro</option>
+                                                        <option value="Tarigueña Oscura">Café Oscuro</option>
+                                                        <option value="Otro">Otro</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Fecha de Nacimiento:</label>
-                                                <input type="Date" class="form-control" id="inputNanme4">
+                                                <label for="SignosFisicos" class="form-label">Signos Fisicos:</label>
+                                                <input id="SignosFisicos" name="SignosFisicos" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="Ocupacion" class="form-label">Ocupación:</label>
+                                                <div class="col-sm-8">
+                                                    <select id="Ocupacion" name="Ocupacion" class="form-select">
+                                                        <option selected>Seleccione un elemento de la lista</option>
+                                                        <option value="Abogado">Abogado</option>
+                                                        <option value="Agricultor">Agricultor</option>
+                                                        <option value="Albañil">Albañil</option>
+                                                        <option value="Alfarero">Alfarero</option>
+                                                        <option value="Ama de Casa">Ama de Casa</option>
+                                                        <option value="Belleza/Estilista">Belleza/Estilista</option>
+                                                        <option value="Cocina">Cocina</option>
+                                                        <option value="Comerciante">Comerciante</option>
+                                                        <option value="Conserje">Conserje</option>
+                                                        <option value="Construcción">Construcción</option>
+                                                        <option value="Costura">Costura</option>
+                                                        <option value="Diseñador">Diseñador</option>
+                                                        <option value="Empleada Doméstica">Empleada Doméstica</option>
+                                                        <option value="Enfermeria">Enfermeria</option>
+                                                        <option value="Estudiante">Estudiante</option>
+                                                        <option value="Gerencia">Gerencia</option>
+                                                        <option value="Guardia de Seguridad">Guardia de Seguridad</option>
+                                                        <option value="Ingenieria Civil">Ingenieria Civil</option>
+                                                        <option value="Ingenieria Electrico ">Ingenieria Electrico </option>
+                                                        <option value="Ingenieria">Ingenieria</option>
+                                                        <option value="Jornalero">Jornalero</option>
+                                                        <option value="Informatica">Informatica</option>
+                                                        <option value="Maestro">Maestro</option>
+                                                        <option value="Mecanica">Mecanica</option>
+                                                        <option value="Medico">Medico</option>
+                                                        <option value="Mercadeo">Mercadeo</option>
+                                                        <option value="Microbiologia">Microbiologia</option>
+                                                        <option value="Motorista">Motorista</option>
+                                                        <option value="Obrero">Obrero</option>
+                                                        <option value="Perito Mercantil">Perito Mercantil</option>
+                                                        <option value="Proyección Social">Proyección Social</option>
+                                                        <option value="Psicologia">Psicologia</option>
+                                                        <option value="Servicio al cliente">Servicio al cliente</option>
+                                                        <option value="Transportista">Transportista</option>
+                                                        <option value="Ventas">Ventas</option>
+                                                        <option value="Otro">Otro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <label for="Observaciones" class="form-label">Observaciones:</label>
+                                                <input id="Observaciones" name="Observaciones" type="text" class="form-control">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="inputNanme4" class="form-label">Vinculacion de la Persona con el Caso:</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-select" name="EnCalidad">
+                                                        <option selected>Seleccione un elemento de la lista</option>
+                                                        <option value="Sospechoso">Sospechoso</option>
+                                                        <option value="Denunciante">Denunciante</option>
+                                                        <option value="Afectado">Afectado</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputNanme4" class="form-label">Tipo de Documento:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select class="form-select" name="TipoDocumento">
                                                         <option selected>Seleccione un elemento de la lista</option>
                                                         <option value="1">Tarjeta de Identidad</option>
                                                         <option value="2">Pasaporte</option>
@@ -200,42 +338,15 @@
                                             </div>
                                             <div class="col-8">
                                                 <label for="inputNanme4" class="form-label">Numero de Documento:</label>
-                                                <input type="text" class="form-control" id="inputNanme4">
+                                                <input type="text" class="form-control" name="NumeroDocumento">
                                             </div>
-
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Presencial</option>
-                                                        <option value="2">Teléfonica</option>
-                                                        <option value="3">Anónima</option>
-                                                        <option value="3">Medios de Comunicación Social</option>
-                                                        <option value="3">Derivación</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Indique el año en que se levanto el expediente:</label>
-                                                <input type="number" class="form-control" id="inputNanme4">
-                                            </div>
-
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Vincular número de expediente anterior:</label>
-                                                <input type="text" class="form-control" id="inputNanme4">
-                                            </div>
-
                                             <br />
-
                                             <div class="col-8">
                                                 <div style="text-align:end ">
                                                     <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar</a>
+                                                    <button type="submit" class="btn btn-primary">Agregar Persona</button>
                                                 </div>
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
