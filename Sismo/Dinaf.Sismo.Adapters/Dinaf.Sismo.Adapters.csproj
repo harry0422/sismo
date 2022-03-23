@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dinaf.Sismo.Dimain\Dinaf.Sismo.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Notificaciones\" />
+    <ProjectReference Include="..\Dinaf.Sismo.Application\Dinaf.Sismo.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.CrossCutting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dinaf.Sismo.IoC", "Dinaf.Sismo.IoC\Dinaf.Sismo.IoC.csproj", "{3095B765-D60D-46F4-9A8F-23E23F334B26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dinaf.Sismo.Adapters", "Dinaf.Sismo.Adapters\Dinaf.Sismo.Adapters.csproj", "{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{3095B765-D60D-46F4-9A8F-23E23F334B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3095B765-D60D-46F4-9A8F-23E23F334B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3095B765-D60D-46F4-9A8F-23E23F334B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{AF2A29F3-867D-47DE-9808-B5C8B2E0EFB9} = {CB4E6057-69AC-411D-AA7F-2F79F3E5DF9B}
 		{CC29A314-928D-407B-9D3C-FF4FE7C27798} = {CB4E6057-69AC-411D-AA7F-2F79F3E5DF9B}
 		{3095B765-D60D-46F4-9A8F-23E23F334B26} = {CB4E6057-69AC-411D-AA7F-2F79F3E5DF9B}
+		{F2DF1806-6FC7-4DB6-A2C1-20761FAB23C8} = {CB4E6057-69AC-411D-AA7F-2F79F3E5DF9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F797655-D75B-4E0E-AF19-4B0E98FFD612}

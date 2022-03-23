@@ -28,6 +28,14 @@ namespace Dinaf.Sismo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".Sismo.Session";
+                options.IdleTimeout = TimeSpan.FromMinutes(15);
+                options.Cookie.IsEssential = true;
+            });
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -37,6 +45,7 @@ namespace Dinaf.Sismo
             builder.RegisterModule(new SeguimientosModule());
             builder.RegisterModule(new ConsolidacionFamiliarModule());
             builder.RegisterModule(new ProteccionDerechosModule());
+            builder.RegisterModule(new UsuariosModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +77,8 @@ namespace Dinaf.Sismo
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

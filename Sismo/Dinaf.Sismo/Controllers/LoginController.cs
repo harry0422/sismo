@@ -1,86 +1,41 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.Usuarios;
+using Dinaf.Sismo.Application.Usuarios.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        private readonly IUsuarioService _usuarioService;
+
+        public LoginController(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
+        [Route("auth")]
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Login/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Login/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Login/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [Route("auth")]
+        public ActionResult Create(CredencialesDto credenciales)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                UsuarioDto usuario = _usuarioService.ObtenerPor(credenciales);
+                HttpContext.Session.SetString("Nombre", usuario.Nombre);
+                HttpContext.Session.SetInt32("Perfil", usuario.Perfil);
+                HttpContext.Session.SetInt32("Unidad", usuario.Unidad);
+
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
-                return View();
-            }
-        }
-
-        // GET: Login/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Login/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Login/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Login/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }

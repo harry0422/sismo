@@ -1,11 +1,9 @@
-﻿using Dinaf.Sismo.Models;
+﻿using Dinaf.Sismo.ActionFilters;
+using Dinaf.Sismo.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Dinaf.Sismo.Controllers
 {
@@ -18,6 +16,7 @@ namespace Dinaf.Sismo.Controllers
             _logger = logger;
         }
 
+        //[CheckSession]
         public IActionResult Index()
         {
             return View();

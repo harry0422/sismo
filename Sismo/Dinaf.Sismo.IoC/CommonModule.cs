@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Dinaf.Sismo.Adapters.Common;
+using Dinaf.Sismo.Application.Common;
 using Dinaf.Sismo.CrossCutting.Transactions;
 using Dinaf.Sismo.Infrastructure.Common;
 using NHibernate;
@@ -15,9 +17,7 @@ namespace Dinaf.Sismo.IoC
         }
 
         protected override void Load(ContainerBuilder builder)
-        {
-            //string connectionString = Environment.GetEnvironmentVariable("SISMO_DB", EnvironmentVariableTarget.User);
-            
+        {           
             builder.RegisterType<TransactionInterceptor>().SingleInstance();
             //builder.RegisterType<LogInterceptor>().SingleInstance();
 
@@ -26,6 +26,7 @@ namespace Dinaf.Sismo.IoC
                 .SingleInstance();
 
             builder.RegisterType<NhUnitOfWork>().As<IUnitOfWork>();
+            builder.RegisterType<CifradoService>().As<ICifradoService>();
 
             //builder.RegisterType<NLogLogProvider>().As<ILogProvider>();
             //builder.RegisterType<GuidIdentifierGenerator>().As<IIdentifierGenerator>();

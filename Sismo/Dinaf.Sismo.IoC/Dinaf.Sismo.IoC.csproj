@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dinaf.Sismo.Adapters\Dinaf.Sismo.Adapters.csproj" />
     <ProjectReference Include="..\Dinaf.Sismo.Application\Dinaf.Sismo.Application.csproj" />
     <ProjectReference Include="..\Dinaf.Sismo.CrossCutting\Dinaf.Sismo.CrossCutting.csproj" />
     <ProjectReference Include="..\Dinaf.Sismo.Infrastructure\Dinaf.Sismo.Infrastructure.csproj" />
