@@ -190,18 +190,38 @@
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Denuncia" })"><i class="bi bi-circle"></i><span>Denuncias</span></a>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Denuncia" })">
+                            <i class="bi bi-circle"></i><span>Denuncias</span>
+                            </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Asesoría" })"><i class="bi bi-circle"></i><span>Asesorías</span></a>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Asesoría" })">
+                            <i class="bi bi-circle"></i><span>Asesorías</span>
+                            </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Solicitud" })"><i class="bi bi-circle"></i><span>Solicitudes</span></a>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Solicitud" })">
+                            <i class="bi bi-circle"></i><span>Solicitudes</span>
+                            </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Activación" })"><i class="bi bi-circle"></i><span>Activaciónes DINAF</span></a>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Activación" })">
+                            <i class="bi bi-circle"></i><span>Activaciónes DINAF</span>
+                            </a>
                     </li>
+                </ul>
+            </li><!-- End Forms Nav -->
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#user-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-person"></i><span>Usuarios</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="user-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Usuarios")">
+                            <i class="bi bi-circle"></i><span>Asignación de Credenciales</span>
+                            </a>
+                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
 

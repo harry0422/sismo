@@ -1,29 +1,29 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dinaf.Sismo.Controllers.ProteccionDerechos
+namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
 {
-    public class MatchController : Controller
+    public class CoincidenciasController : Controller
     {
-        // GET: MatchController
+        // GET: CoincidenciasController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: MatchController/Details/5
+        // GET: CoincidenciasController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: MatchController/Create
+        // GET: CoincidenciasController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MatchController/Create
+        // POST: CoincidenciasController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +38,13 @@ namespace Dinaf.Sismo.Controllers.ProteccionDerechos
             }
         }
 
-        // GET: MatchController/Edit/5
+        // GET: CoincidenciasController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: MatchController/Edit/5
+        // POST: CoincidenciasController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +59,13 @@ namespace Dinaf.Sismo.Controllers.ProteccionDerechos
             }
         }
 
-        // GET: MatchController/Delete/5
+        // GET: CoincidenciasController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: MatchController/Delete/5
+        // POST: CoincidenciasController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

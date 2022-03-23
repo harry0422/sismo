@@ -81,9 +81,7 @@
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Caracteristicas</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-emp">Emparejamiento</button>
-                        </li>
+
                         <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Historico">Historico</button>
                         </li>
@@ -180,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div style="text-align:end" class="col-sm-6">
-                                    <button type="submit" class="btn btn-primary">Emparejar</button>
+                                    <a href="@Url.Action("Index", "Coincidencias")" type="button" class="btn btn-primary">Emparejar</a>
                                 </div>
 
 
@@ -188,61 +186,7 @@
                             <!-- End General Form Elements -->
                         </div>
 
-                        <div class="tab-pane fade pt-3" id="profile-emp">
-                            <p>
-                                <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. Expediente.NumeroExpediente</span>
-                            </p>
 
-                            <!-- Card with an image on left -->
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                    <div class="col-md-2">
-                                        <img src="~/img/userrrr.jfif" class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <span class="badge rounded-pill bg-success">85% coincidencias</span>
-                                            <div class="row mt-2">
-                                                <div class="col-8">
-                                                    <!-- Vertical Pills Tabs -->
-                                                    <div class="d-flex align-items-start">
-                                                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">General</button>
-                                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Caracteristicas</button>
-                                                        </div>
-                                                        <div class="tab-content" id="v-pills-tabContent">
-                                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                                <!-- List group with active and disabled items -->
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">Nombre: Juan Canales</li>
-                                                                    <li class="list-group-item">Edad: 30 años</li>
-                                                                    <li class="list-group-item">Hondureña</li>
-                                                                </ul><!-- End Clean list group -->
-                                                            </div>
-                                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                                <!-- List group with active and disabled items -->
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item">Color de Ojos: </li>
-                                                                    <li class="list-group-item">Color de Piel: </li>
-                                                                    <li class="list-group-item">Color de cabello: </li>
-                                                                </ul><!-- End Clean list group -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Vertical Pills Tabs -->
-                                                </div>
-                                                <div class="col-4">
-                                                    <br />
-                                                    <a href="@Url.Action("Create", "Emparejamientos", new { expedienteNna = "aaaa", solicitudAdopcion = "qqqq" })" type="button" class="btn btn-outline-primary">Pre Emparejamiento</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Card with an image on left -->
-
-                        </div>
                         <div class="tab-pane fade pt-5" id="Historico">
                             <div class="card">
                                 <div class="card-body">
@@ -252,48 +196,31 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Numero de Expediente</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Asesor</th>
-                                                <th scope="col">Estado</th>
                                                 <th scope="col">Fecha</th>
+                                                <th scope="col">Parametros</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Brandon Jacob</td>
-                                                <td>Edgar</td>
-                                                <td>Inactivo</td>
                                                 <td>2016-05-25</td>
+                                                <td>Brandon Jacob</td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
-                                                <td>Bridie Kessler</td>
-                                                <td>Cesar</td>
-                                                <td>Inactivo</td>
                                                 <td>2014-12-05</td>
+                                                <td>Bridie Kessler</td>
                                             </tr>
                                             <tr>
-                                                <td>3</td>
-                                                <td>Ashleigh Langosh</td>
-                                                <td>Gerardo</td>
-                                                <td>Inactivo</td>
                                                 <td>2011-08-12</td>
+                                                <td>Ashleigh Langosh</td>
                                             </tr>
                                             <tr>
-                                                <td>4</td>
-                                                <td>Angus Grady</td>
-                                                <td>Carlos</td>
-                                                <td>Inactivo</td>
                                                 <td>2012-06-11</td>
+                                                <td>Angus Grady</td>
                                             </tr>
                                             <tr>
-                                                <td>5</td>
-                                                <td>Raheem Lehner</td>
-                                                <td>Jermain</td>
-                                                <td>Inactivo</td>
                                                 <td>2011-04-19</td>
+                                                <td>Raheem Lehner</td>
+
                                             </tr>
                                         </tbody>
                                     </table>
