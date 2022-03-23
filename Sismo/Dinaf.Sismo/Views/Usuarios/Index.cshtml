@@ -1,24 +1,28 @@
-﻿@{
+﻿@model IList<Dinaf.Sismo.Application.Usuarios.DTOs.UsuarioDto>
+
+@{
+
 }
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Generar Credenciales</h5>
-        <form>
+        <form method="post" action="@Url.Action("Create", "Usuarios")">
             <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">Usuario</label>
                 <div class="col-sm-6">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="NombreUsuario">
                         <option selected>Elija un usuario</option>
-                        <option value="1">Juan</option>
-                        <option value="2">Carlos</option>
-                        <option value="3">Gerardo</option>
+                        @foreach (var usuario in Model.OrderBy(x => x.Nombre))
+                        {
+                            <option value="@usuario.NombreUsuario">@usuario.Nombre - @usuario.NombreUsuario</option>
+                        }
                     </select>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="Contraseña">
                 </div>
             </div>
             <div style="text-align:end" class="row mb-3">

@@ -1,36 +1,35 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.Usuarios;
+using Dinaf.Sismo.Application.Usuarios.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Controllers
 {
     public class UsuariosController : Controller
     {
+        private readonly IUsuarioService _usuarioService;
+
+        public UsuariosController(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
         // GET: UsuariosController1
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: UsuariosController1/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: UsuariosController1/Create
-        public ActionResult Create()
-        {
-            return View();
+            IList<UsuarioDto> usuarios = _usuarioService.ObtenerTodos();
+            return View(usuarios);
         }
 
         // POST: UsuariosController1/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CredencialesDto credenciales)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _usuarioService.CrearCredenciales(credenciales);
+                return RedirectToAction("Index", "Home");
             }
             catch
             {

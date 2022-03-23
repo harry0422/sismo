@@ -13,7 +13,7 @@ namespace Dinaf.Sismo.Infrastructure.Usuarios.Mappings
             Map(x => x.Perfil, "fk_perfil_id");
             Map(x => x.NombreUsuario, "usr_username");
             Map(x => x.Contraseña, "password");
-            Map(x => x.Unidad, "id_unidad");
+            //Map(x => x.Unidad, "id_unidad");
             Map(x => x.Rol, "rol");
             Map(x => x.Estado, "estado");
         }

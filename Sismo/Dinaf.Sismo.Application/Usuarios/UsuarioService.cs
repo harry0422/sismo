@@ -4,6 +4,7 @@ using Dinaf.Sismo.Application.Usuarios.Mappers;
 using Dinaf.Sismo.Domain.Usuarios.Entities;
 using Dinaf.Sismo.Domain.Usuarios.Repositories;
 using System;
+using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.Usuarios
 {
@@ -20,9 +21,6 @@ namespace Dinaf.Sismo.Application.Usuarios
 
         public UsuarioDto ObtenerPor(CredencialesDto credenciales)
         {
-            //TODO: eliminar exista pantalla para registrar usuarios
-            CrearCredenciales(credenciales);
-
             Usuario usuario = _usuarioRepository.GetByNombreUsuario(credenciales.NombreUsuario);
             if (usuario == null) throw new Exception("Usuario o contraseña incorrectos");
 
@@ -42,6 +40,11 @@ namespace Dinaf.Sismo.Application.Usuarios
             usuario.Contraseña = contraseñaCifrada;
             
             _usuarioRepository.Update(usuario);
+        }
+
+        public IList<UsuarioDto> ObtenerTodos()
+        {
+            return _usuarioRepository.GetAll().ToDto();
         }
     }
 }
