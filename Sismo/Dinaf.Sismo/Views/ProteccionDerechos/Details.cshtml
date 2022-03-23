@@ -85,6 +85,9 @@
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Vulneraciones">Vulneraciones</button>
                         </li>
                         <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Medidas">Medidas de Protección</button>
+                        </li>
+                        <li class="nav-item">
                             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#Acciones">Historico</button>
                         </li>
                     </ul>
@@ -127,457 +130,703 @@
                                 </div>
                             </div>
                         </div>
-                    
 
-                    <div class="tab-pane fade pt-3" id="profile-emp">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Agregar Persona
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <form action="@Url.Action("Create", "Personas")" method="post">
-                                            <input id="NumeroExpediente" name="NumeroExpediente" type="hidden" value="@Model.Expediente.NumeroExpediente" />
-                                            <div class="col-8">
-                                                <label for="PrimerNombre" class="form-label">Primer Nombre:</label>
-                                                <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="SegundoNombre" class="form-label">Segundo Nombre:</label>
-                                                <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="PrimerApellido" class="form-label">Primer Apellido:</label>
-                                                <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="SegundoApellido" class="form-label">Segundo Apellido:</label>
-                                                <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Genero" class="form-label">Genero:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Genero" class="form-select" name="Genero">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Femenino</option>
-                                                    </select>
+
+                        <div class="tab-pane fade pt-3" id="profile-emp">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Agregar Persona
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form action="@Url.Action("Create", "Personas")" method="post">
+                                                <input id="NumeroExpediente" name="NumeroExpediente" type="hidden" value="@Model.Expediente.NumeroExpediente" />
+                                                <div class="col-8">
+                                                    <label for="PrimerNombre" class="form-label">Primer Nombre:</label>
+                                                    <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-control">
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Nna" class="form-label">Es NNA:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Nna" class="form-select" name="Nna">
-                                                        <option selectekd>Seleccione un elemento de la lista</option>
-                                                        <option value="nna">Sí</option>
-                                                        <option value="nonna">No</option>
-                                                    </select>
+                                                <div class="col-8">
+                                                    <label for="SegundoNombre" class="form-label">Segundo Nombre:</label>
+                                                    <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-control">
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Raza" class="form-label">Raza:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Raza" class="form-select" name="Raza">
-                                                        <option selectekd>Seleccione un elemento de la lista</option>
-                                                        <option value="Afrodescendiente">Afrodescendiente</option>
-                                                        <option value="Criolla">Criolla</option>
-                                                        <option value="Garifuna">Garifuna</option>
-                                                        <option value="Ladina">Ladina</option>
-                                                        <option value="Mestizo">Mestizo</option>
-                                                        <option value="Misquito">Misquito</option>
-                                                        <option value="Blanco">Blanco</option>
-                                                    </select>
+                                                <div class="col-8">
+                                                    <label for="PrimerApellido" class="form-label">Primer Apellido:</label>
+                                                    <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-control">
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Religion" class="form-label">Religión:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Religion" class="form-select" name="Religion">
-                                                        <option selectekd>Seleccione un elemento de la lista</option>
-                                                        <option value="Católica">Católica</option>
-                                                        <option value="Evangélica">Evangélica</option>
-                                                        <option value="Mormón">Mormón</option>
-                                                        <option value="Otra">Otra</option>
-                                                    </select>
+                                                <div class="col-8">
+                                                    <label for="SegundoApellido" class="form-label">Segundo Apellido:</label>
+                                                    <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-control">
                                                 </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                                                <input id="FechaNacimiento" type="Date" class="form-control" name="FechaNacimiento">
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Nacionalidad" class="form-label">Nacionalidad:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Nacionalidad" name="Nacionalidad" class="form-select">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="H">Hondureña</option>
-                                                        <option value="I">Otra Nacionalidad</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="Genero" class="form-label">Genero:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Genero" class="form-select" name="Genero">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="M">Masculino</option>
+                                                            <option value="F">Femenino</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="ColorCabello" class="form-label">Color de Cabello:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="ColorCabello" name="ColorCabello" class="form-select">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="Café Claro">Café Claro</option>
-                                                        <option value="Café Oscuro">Café Oscuro</option>
-                                                        <option value="Castaño Claro">Castaño Claro</option>
-                                                        <option value="Castaño Oscuro">Castaño Oscuro</option>
-                                                        <option value="Negro">Negro</option>
-                                                        <option value="Pelirrojo">Pelirrojo</option>
-                                                        <option value="Rubio">Rubio</option>
-                                                        <option value="Otro">Otro</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="Nna" class="form-label">Es NNA:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Nna" class="form-select" name="Nna">
+                                                            <option selectekd>Seleccione un elemento de la lista</option>
+                                                            <option value="nna">Sí</option>
+                                                            <option value="nonna">No</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="ColorOjos" class="form-label">Color de Ojos:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="ColorOjos" name="ColorOjos" class="form-select">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="Azul">Azul</option>
-                                                        <option value="Café Claro">Café Claro</option>
-                                                        <option value="Café Oscuro">Café Oscuro</option>
-                                                        <option value="Miel">Miel</option>
-                                                        <option value="Negro">Negro</option>
-                                                        <option value="Verde">Verde</option>
-                                                        <option value="Otro">Otro</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="Raza" class="form-label">Raza:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Raza" class="form-select" name="Raza">
+                                                            <option selectekd>Seleccione un elemento de la lista</option>
+                                                            <option value="Afrodescendiente">Afrodescendiente</option>
+                                                            <option value="Criolla">Criolla</option>
+                                                            <option value="Garifuna">Garifuna</option>
+                                                            <option value="Ladina">Ladina</option>
+                                                            <option value="Mestizo">Mestizo</option>
+                                                            <option value="Misquito">Misquito</option>
+                                                            <option value="Blanco">Blanco</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="ColorOjos" class="form-label">Color de Piel:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="ColorPiel" name="ColorPiel" class="form-select">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="Blanca">Blanca</option>
-                                                        <option value="Negra">Negra</option>
-                                                        <option value="Tarigueña Clara">Café Claro</option>
-                                                        <option value="Tarigueña Oscura">Café Oscuro</option>
-                                                        <option value="Otro">Otro</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="Religion" class="form-label">Religión:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Religion" class="form-select" name="Religion">
+                                                            <option selectekd>Seleccione un elemento de la lista</option>
+                                                            <option value="Católica">Católica</option>
+                                                            <option value="Evangélica">Evangélica</option>
+                                                            <option value="Mormón">Mormón</option>
+                                                            <option value="Otra">Otra</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="SignosFisicos" class="form-label">Signos Fisicos:</label>
-                                                <input id="SignosFisicos" name="SignosFisicos" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="Ocupacion" class="form-label">Ocupación:</label>
-                                                <div class="col-sm-8">
-                                                    <select id="Ocupacion" name="Ocupacion" class="form-select">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="Abogado">Abogado</option>
-                                                        <option value="Agricultor">Agricultor</option>
-                                                        <option value="Albañil">Albañil</option>
-                                                        <option value="Alfarero">Alfarero</option>
-                                                        <option value="Ama de Casa">Ama de Casa</option>
-                                                        <option value="Belleza/Estilista">Belleza/Estilista</option>
-                                                        <option value="Cocina">Cocina</option>
-                                                        <option value="Comerciante">Comerciante</option>
-                                                        <option value="Conserje">Conserje</option>
-                                                        <option value="Construcción">Construcción</option>
-                                                        <option value="Costura">Costura</option>
-                                                        <option value="Diseñador">Diseñador</option>
-                                                        <option value="Empleada Doméstica">Empleada Doméstica</option>
-                                                        <option value="Enfermeria">Enfermeria</option>
-                                                        <option value="Estudiante">Estudiante</option>
-                                                        <option value="Gerencia">Gerencia</option>
-                                                        <option value="Guardia de Seguridad">Guardia de Seguridad</option>
-                                                        <option value="Ingenieria Civil">Ingenieria Civil</option>
-                                                        <option value="Ingenieria Electrico ">Ingenieria Electrico </option>
-                                                        <option value="Ingenieria">Ingenieria</option>
-                                                        <option value="Jornalero">Jornalero</option>
-                                                        <option value="Informatica">Informatica</option>
-                                                        <option value="Maestro">Maestro</option>
-                                                        <option value="Mecanica">Mecanica</option>
-                                                        <option value="Medico">Medico</option>
-                                                        <option value="Mercadeo">Mercadeo</option>
-                                                        <option value="Microbiologia">Microbiologia</option>
-                                                        <option value="Motorista">Motorista</option>
-                                                        <option value="Obrero">Obrero</option>
-                                                        <option value="Perito Mercantil">Perito Mercantil</option>
-                                                        <option value="Proyección Social">Proyección Social</option>
-                                                        <option value="Psicologia">Psicologia</option>
-                                                        <option value="Servicio al cliente">Servicio al cliente</option>
-                                                        <option value="Transportista">Transportista</option>
-                                                        <option value="Ventas">Ventas</option>
-                                                        <option value="Otro">Otro</option>
-                                                    </select>
+                                                <div class="col-8">
+                                                    <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                                    <input id="FechaNacimiento" type="Date" class="form-control" name="FechaNacimiento">
                                                 </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="Observaciones" class="form-label">Observaciones:</label>
-                                                <input id="Observaciones" name="Observaciones" type="text" class="form-control">
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Vinculacion de la Persona con el Caso:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" name="EnCalidad">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="Sospechoso">Sospechoso</option>
-                                                        <option value="Denunciante">Denunciante</option>
-                                                        <option value="Afectado">Afectado</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="Nacionalidad" class="form-label">Nacionalidad:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Nacionalidad" name="Nacionalidad" class="form-select">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="H">Hondureña</option>
+                                                            <option value="I">Otra Nacionalidad</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Tipo de Documento:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" name="TipoDocumento">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Tarjeta de Identidad</option>
-                                                        <option value="2">Pasaporte</option>
-                                                        <option value="2">Ninguno de los anteriores</option>
-                                                    </select>
+                                                <div class="col-12">
+                                                    <label for="ColorCabello" class="form-label">Color de Cabello:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="ColorCabello" name="ColorCabello" class="form-select">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="Café Claro">Café Claro</option>
+                                                            <option value="Café Oscuro">Café Oscuro</option>
+                                                            <option value="Castaño Claro">Castaño Claro</option>
+                                                            <option value="Castaño Oscuro">Castaño Oscuro</option>
+                                                            <option value="Negro">Negro</option>
+                                                            <option value="Pelirrojo">Pelirrojo</option>
+                                                            <option value="Rubio">Rubio</option>
+                                                            <option value="Otro">Otro</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Numero de Documento:</label>
-                                                <input type="text" class="form-control" name="NumeroDocumento">
-                                            </div>
-                                            <br />
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary">Agregar Persona</button>
+                                                <div class="col-12">
+                                                    <label for="ColorOjos" class="form-label">Color de Ojos:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="ColorOjos" name="ColorOjos" class="form-select">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="Azul">Azul</option>
+                                                            <option value="Café Claro">Café Claro</option>
+                                                            <option value="Café Oscuro">Café Oscuro</option>
+                                                            <option value="Miel">Miel</option>
+                                                            <option value="Negro">Negro</option>
+                                                            <option value="Verde">Verde</option>
+                                                            <option value="Otro">Otro</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                                <div class="col-12">
+                                                    <label for="ColorOjos" class="form-label">Color de Piel:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="ColorPiel" name="ColorPiel" class="form-select">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="Blanca">Blanca</option>
+                                                            <option value="Negra">Negra</option>
+                                                            <option value="Tarigueña Clara">Café Claro</option>
+                                                            <option value="Tarigueña Oscura">Café Oscuro</option>
+                                                            <option value="Otro">Otro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <label for="SignosFisicos" class="form-label">Signos Fisicos:</label>
+                                                    <input id="SignosFisicos" name="SignosFisicos" type="text" class="form-control">
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="Ocupacion" class="form-label">Ocupación:</label>
+                                                    <div class="col-sm-8">
+                                                        <select id="Ocupacion" name="Ocupacion" class="form-select">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="Abogado">Abogado</option>
+                                                            <option value="Agricultor">Agricultor</option>
+                                                            <option value="Albañil">Albañil</option>
+                                                            <option value="Alfarero">Alfarero</option>
+                                                            <option value="Ama de Casa">Ama de Casa</option>
+                                                            <option value="Belleza/Estilista">Belleza/Estilista</option>
+                                                            <option value="Cocina">Cocina</option>
+                                                            <option value="Comerciante">Comerciante</option>
+                                                            <option value="Conserje">Conserje</option>
+                                                            <option value="Construcción">Construcción</option>
+                                                            <option value="Costura">Costura</option>
+                                                            <option value="Diseñador">Diseñador</option>
+                                                            <option value="Empleada Doméstica">Empleada Doméstica</option>
+                                                            <option value="Enfermeria">Enfermeria</option>
+                                                            <option value="Estudiante">Estudiante</option>
+                                                            <option value="Gerencia">Gerencia</option>
+                                                            <option value="Guardia de Seguridad">Guardia de Seguridad</option>
+                                                            <option value="Ingenieria Civil">Ingenieria Civil</option>
+                                                            <option value="Ingenieria Electrico ">Ingenieria Electrico </option>
+                                                            <option value="Ingenieria">Ingenieria</option>
+                                                            <option value="Jornalero">Jornalero</option>
+                                                            <option value="Informatica">Informatica</option>
+                                                            <option value="Maestro">Maestro</option>
+                                                            <option value="Mecanica">Mecanica</option>
+                                                            <option value="Medico">Medico</option>
+                                                            <option value="Mercadeo">Mercadeo</option>
+                                                            <option value="Microbiologia">Microbiologia</option>
+                                                            <option value="Motorista">Motorista</option>
+                                                            <option value="Obrero">Obrero</option>
+                                                            <option value="Perito Mercantil">Perito Mercantil</option>
+                                                            <option value="Proyección Social">Proyección Social</option>
+                                                            <option value="Psicologia">Psicologia</option>
+                                                            <option value="Servicio al cliente">Servicio al cliente</option>
+                                                            <option value="Transportista">Transportista</option>
+                                                            <option value="Ventas">Ventas</option>
+                                                            <option value="Otro">Otro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <label for="Observaciones" class="form-label">Observaciones:</label>
+                                                    <input id="Observaciones" name="Observaciones" type="text" class="form-control">
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Vinculacion de la Persona con el Caso:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" name="EnCalidad">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="Sospechoso">Sospechoso</option>
+                                                            <option value="Denunciante">Denunciante</option>
+                                                            <option value="Afectado">Afectado</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Tipo de Documento:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" name="TipoDocumento">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Tarjeta de Identidad</option>
+                                                            <option value="2">Pasaporte</option>
+                                                            <option value="2">Ninguno de los anteriores</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <label for="inputNanme4" class="form-label">Numero de Documento:</label>
+                                                    <input type="text" class="form-control" name="NumeroDocumento">
+                                                </div>
+                                                <br />
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary">Agregar Persona</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Vincular Persona
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                            Crear Ticket
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-8">
+                                                    <label for="inputNanme4" class="form-label">Asunto:</label>
+                                                    <input type="text" class="form-control" id="inputNanme4">
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <label for="inputNanme4" class="form-label">Ticket:</label>
+                                                    <textarea class="form-control" style="height: 100px"></textarea>
+                                                </div>
+
+                                                <br />
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar</a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                            Agregar Narración de Hechos
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-8">
+                                                    <label for="inputNanme4" class="form-label">Fecha:</label>
+                                                    <input type="Date" class="form-control" id="inputNanme4">
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <label for="inputNanme4" class="form-label">Ticket:</label>
+                                                    <textarea class="form-control" style="height: 100px"></textarea>
+                                                </div>
+
+                                                <br />
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar</a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                            Transferir
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+
+                                            <form>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                            Asignar
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+
+                                            <form>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingSeven">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                                            Acta de Comparecencia
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingEight">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+                                            Agregar Vulneración
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Tipo de Vulneración:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Sub-Tipo de Vulneración:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Articulo:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingNine">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+                                            Agregar Medida de Protección
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Custodio:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Referencia:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <label for="inputNanme4" class="form-label">Gestion:</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option selected>Seleccione un elemento de la lista</option>
+                                                            <option value="1">Edgar Salgado</option>
+                                                            <option value="2">Sergio Ramos</option>
+                                                            <option value="3">Cesar Guifarro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8">
+                                                    <div style="text-align:end ">
+                                                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTen">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
+                                            Convertir a Expediente
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <form>
+                                                <div class="col-8">
+                                                    <div>
+                                                        <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Convertir </a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        Vincular Persona
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <form>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Edgar Salgado</option>
-                                                        <option value="2">Sergio Ramos</option>
-                                                        <option value="3">Cesar Guifarro</option>
-                                                    </select>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
+                        </div>
+                        <div class="tab-pane fade pt-3" id="Vulneraciones">
+                            <div style="text-align:end ">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- Default Table -->
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha de Creacion</th>
+                                                    <th scope="col">Tipo Vulneración</th>
+                                                    <th scope="col">Sub-Tipo Vulneración</th>
+                                                    <th scope="col">Articulo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>Exp-DINAF-2018-8</th>
+                                                    <td>Presencial</td>
+                                                    <td>2019</td>
+                                                    <td>Brandon Jacob</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- End Default Table Example -->
+                                    </div><!-- End Default Card -->
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Crear Ticket
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <form>
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Asunto:</label>
-                                                <input type="text" class="form-control" id="inputNanme4">
-                                            </div>
-
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Ticket:</label>
-                                                <textarea class="form-control" style="height: 100px"></textarea>
-                                            </div>
-
-                                            <br />
-
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar</a>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                        Agregar Narración de Hechos
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <form>
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Fecha:</label>
-                                                <input type="Date" class="form-control" id="inputNanme4">
-                                            </div>
-
-                                            <div class="col-8">
-                                                <label for="inputNanme4" class="form-label">Ticket:</label>
-                                                <textarea class="form-control" style="height: 100px"></textarea>
-                                            </div>
-
-                                            <br />
-
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar</a>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFive">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                        Transferir
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-
-                                        <form>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Edgar Salgado</option>
-                                                        <option value="2">Sergio Ramos</option>
-                                                        <option value="3">Cesar Guifarro</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingSix">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                        Asignar
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-
-                                        <form>
-                                            <div class="col-12">
-                                                <label for="inputNanme4" class="form-label">Seleccione el tipo:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Seleccione un elemento de la lista</option>
-                                                        <option value="1">Edgar Salgado</option>
-                                                        <option value="2">Sergio Ramos</option>
-                                                        <option value="3">Cesar Guifarro</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingSeven">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                                        Acta de Comparecencia
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingEight">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
-                                        Convertir a Expediente
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <form>
-                                            <div class="col-8">
-                                                <div style="text-align:end ">
-                                                    <button type="reset" class="btn btn-secondary">Cancelar</button>
-                                                    <a href="@Url.Action("Details", "ProteccionDerechos")" type="button" class="btn btn-primary">Agregar </a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                <a href="@Url.Action("CreateVulneracion", "Vulneraciones")" type="button" class="btn btn-primary">Agregar Vulneración</a>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="tab-pane fade pt-4" id="Vulneraciones">
-                        <div style="text-align:end ">
+                        <div class="tab-pane fade pt-3" id="Medidas">
                             <div class="card">
                                 <div class="card-body">
-                                    <!-- Default Table -->
-                                    <table class="table">
+                                    @*<h5 class="card-title">Table with stripped rows</h5>*@
+
+                                    <!-- Table with stripped rows -->
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Fecha de Creacion</th>
-                                                <th scope="col">Tipo Vulneración</th>
-                                                <th scope="col">Sub-Tipo Vulneración</th>
-                                                <th scope="col">Articulo</th>
+                                                <th scope="col">Custodio</th>
+                                                <th scope="col">Fecha Inicio</th>
+                                                <th scope="col">Referencias</th>
+                                                <th scope="col">Gestion</th>
+                                                <th scope="col">Estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th>Exp-DINAF-2018-8</th>
-                                                <td>Presencial</td>
-                                                <td>2019</td>
-                                                <td>Brandon Jacob</td>
+                                                <th></th>
+                                                <td>2016-05-25</td>
+                                                <td>Hogar CREA</td>
+                                                <td>Ingreso</td>
+                                                <td>OFF</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <td>2014-12-05</td>
+                                                <td>Hogar CREA: Internacional </td>
+                                                <td>Ingreso</td>
+                                                <td>OFF</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <td>2011-08-12</td>
+                                                <td>Centro de paso casitas Kennedy</td>
+                                                <td>Ingreso</td>
+                                                <td>ON</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <td>2012-06-11</td>
+                                                <td>Centro de paso casitas Kennedy</td>
+                                                <td>Ingreso</td>
+                                                <td>ON</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <td>2011-04-19</td>
+                                                <td>Centro de paso casitas Kennedy</td>
+                                                <td>Egreso</td>
+                                                <td>ON</td>
+
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <!-- End Default Table Example -->
-                                </div><!-- End Default Card -->
+                                    <!-- End Table with stripped rows -->
+
+                                </div>
                             </div>
-                            <a href="@Url.Action("CreateVulneracion", "Vulneraciones")" type="button" class="btn btn-primary">Agregar Vulneración</a>
                         </div>
-                    </div>
-                    <div class="tab-pane fade pt-5" id="Acciones">
-                    </div>
-                </div><!-- End Bordered Tabs -->
+                        <div class="tab-pane fade pt-3" id="Acciones">
+                            <div class="card">
+                                <div class="filter">
+                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <li class="dropdown-header text-start">
+                                            <h6>Filter</h6>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="#">Today</a></li>
+                                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+
+                                    <div class="activity">
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">32 min</div>
+                                            <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                            <div class="activity-content">
+                                                Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">56 min</div>
+                                            <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                                            <div class="activity-content">
+                                                Voluptatem blanditiis blanditiis eveniet
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">2 hrs</div>
+                                            <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                                            <div class="activity-content">
+                                                Voluptates corrupti molestias voluptatem
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">1 day</div>
+                                            <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                                            <div class="activity-content">
+                                                Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">2 days</div>
+                                            <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                                            <div class="activity-content">
+                                                Est sit eum reiciendis exercitationem
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                        <div class="activity-item d-flex">
+                                            <div class="activite-label">4 weeks</div>
+                                            <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                                            <div class="activity-content">
+                                                Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                                            </div>
+                                        </div><!-- End activity item-->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End Bordered Tabs -->
                 </div>
             </div>
         </div>
