@@ -24,7 +24,10 @@
                         {
                             <div class='tab-pane fade @(i == 0 ? "show active" : "")' id="content_@Model.SolicitudAdopcion.Solicitantes[i].Id" role="tabpanel" aria-labelledby="@Model.SolicitudAdopcion.Solicitantes[i].Id">
                                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                    @*<button onclick="showAsReservation1(@Url.Action("Index","Camara")); return false;">Agregar Foto</button>
+                                        <a href="@Url.Action("Index", "Camara")" type="button" class="btn btn-primary">Emparejar</a>*@
                                     <img src="/img/userrrr.jfif" alt="Profile" class="rounded-circle">
+                                    <button onclick="showAsReservation('@Url.Action("Index" , "Camara")'); return false;">Agregar Foto</button>
                                     <h2>@Model.SolicitudAdopcion.Solicitantes[i].NombreCorto</h2>
                                     <h3>@Model.SolicitudAdopcion.Solicitantes[i].Ocupacion</h3>
                                     <div class="social-links mt-2">
@@ -235,3 +238,20 @@
         </div>
     </div>
 </section>
+<script>
+        var windowObjectReference = null; // global variable
+        var window_left = (screen.width - ancho_ventana - 12) / 2;
+        var window_top = (screen.height - alto_ventana - 57) / 2;
+
+        function showAsReservation(url){
+           if(windowObjectReference == null || windowObjectReference.closed){
+                windowObjectReference = window.open(url,"_blank","toolbar=no,scrollbars=no, resizable=no,top=(screen.height - alto_ventana - 57) / 2, left=(screen.width - ancho_ventana - 12) / 2, width=700, height=500");
+              }
+              else
+              {
+                windowObjectReference.focus();
+              };
+            windowObjectReference.focus();
+        }
+</script>
+
