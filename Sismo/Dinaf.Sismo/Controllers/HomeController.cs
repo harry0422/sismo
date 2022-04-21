@@ -16,7 +16,7 @@ namespace Dinaf.Sismo.Controllers
             _logger = logger;
         }
 
-        //[CheckSession]
+        [CheckSession]
         public IActionResult Index()
         {
             return View();

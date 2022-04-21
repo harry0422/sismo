@@ -6,6 +6,6 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Repositories
 {
     public interface IExpedienteNnaRepository : IRepository<ExpedienteNna, string>
     {
-        public IList<ExpedienteNna> GetExpedientesNnaEstadoAdopcion();
+        public IList<ExpedienteNna> GetExpedientesNna(IList<string> numerosExpedientes);
     }
 }

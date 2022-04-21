@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ConsolidacionFamiliar\Seguimiento\DTOs\" />
+    <Folder Include="ConsolidacionFamiliar\Seguimiento\Mappers\" />
     <Folder Include="Notificaciones\" />
   </ItemGroup>
 

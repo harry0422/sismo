@@ -11,7 +11,7 @@ namespace Dinaf.Sismo.ActionFilters
         {
             var ctx = filterContext.HttpContext;
 
-            if (ctx.Session.GetString("Username") == null)
+            if (ctx.Session.GetString("UsuarioId") == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { action = "Index", controller = "Login" }));
             }

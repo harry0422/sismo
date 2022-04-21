@@ -8,9 +8,11 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Repositories
 {
     public class PersonaRepository : NhRepositoryBase<Persona, int>, IPersonaRepository
     {
-        public IList<Persona> GetPersonasByExpediente(string numeroExpediente)
+        public IList<Persona> ObtenerPersonasDeExpediente(string numeroExpediente)
         {
-            return Session.Query<Persona>().Where(x => x.NumeroExpediente == numeroExpediente).ToList();
+            return Session.Query<Persona>()
+                .Where(persona => persona.NumeroExpediente == numeroExpediente)
+                .ToList();
         }
     }
 }

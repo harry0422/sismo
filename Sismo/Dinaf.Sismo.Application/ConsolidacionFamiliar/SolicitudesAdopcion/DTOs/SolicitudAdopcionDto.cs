@@ -14,7 +14,8 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs
         public string Procedencia { get; set; }
         public string MotivoAdopcion { get; set; }
         public string RepresentanteLegal { get; set; }
-        public CaracteristicasAdopcionDto CaracteristicasSolicitud { get; set; }
+        public CaracteristicasAdopcionDto CaracteristicasAdopcionActual { get; set; }
         public IList<SolicitanteDto> Solicitantes { get; set; }
+        public IList<CaracteristicasAdopcionDto> HistoricoDeBusquedas { get; set; }
     }
 }

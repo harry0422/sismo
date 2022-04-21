@@ -1,4 +1,6 @@
-﻿namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs
+﻿using System;
+
+namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs
 {
     public class CaracteristicasAdopcionDto
     {
@@ -12,12 +14,12 @@
             CantidadHermanos = 0;
         }
 
-        //TODO: Revisar si es necesario
         public string NumeroExpediente { get; set; }
         public string Genero { get; set; }
         public int EdadMinima { get; set; }
         public int EdadMaxima { get; set; }
         public int CondicionMedica { get; set; }
         public int CantidadHermanos { get; set; }
+        public string FechaCreacion { get; set; }
     }
 }

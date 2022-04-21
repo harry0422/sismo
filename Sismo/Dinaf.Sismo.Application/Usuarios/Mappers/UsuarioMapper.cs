@@ -25,6 +25,7 @@ namespace Dinaf.Sismo.Application.Usuarios.Mappers
             if (usuario is null) return null;
 
             UsuarioDto dto = new UsuarioDto();
+            dto.Id = usuario.Id;
             dto.Nombre = usuario.Nombre;
             dto.Perfil = usuario.Perfil;
             dto.NombreUsuario = usuario.NombreUsuario;

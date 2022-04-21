@@ -132,19 +132,19 @@
                                     <label for="inputText" class="col-2 col-form-label">Género</label>
                                     <div class="col-4">
                                         <select class="form-select" aria-label="Default select example" name="Genero">
-                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "NA")" value="NA">Elegir una opción</option>
-                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "M")" value="M">Masculino</option>
-                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.Genero == "F")" value="F">Femenino</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "NA")" value="NA">Elegir una opción</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "M")" value="M">Masculino</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "F")" value="F">Femenino</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <label for="inputText" class="col-2 col-form-label">Edad</label>
                                     <div class="col-2">
-                                        <input type="text" class="form-control" placeholder="Edad Minima" name="EdadMinima" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.EdadMinima" />
+                                        <input type="text" class="form-control" placeholder="Edad Minima" name="EdadMinima" value="@Model.SolicitudAdopcion.CaracteristicasAdopcionActual.EdadMinima" />
                                     </div>
                                     <div class="col-2">
-                                        <input type="text" class="form-control" placeholder="Edad Maxima" name="EdadMaxima" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.EdadMaxima" />
+                                        <input type="text" class="form-control" placeholder="Edad Maxima" name="EdadMaxima" value="@Model.SolicitudAdopcion.CaracteristicasAdopcionActual.EdadMaxima" />
                                     </div>
                                 </div>
                                 <div class="row mb-1">
@@ -154,19 +154,7 @@
                                             <option value="0">Elegir una opción</option>
                                             @foreach (var condicionMedica in Model.CondicionesMedicas)
                                             {
-                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-1">
-                                    <label for="inputText" class="col-2 col-form-label">Sub Condición médica</label>
-                                    <div class="col-4">
-                                        <select class="form-select" aria-label="Default select example" name="CondicionMedica">
-                                            <option value="0">Elegir una opción</option>
-                                            @foreach (var condicionMedica in Model.CondicionesMedicas)
-                                            {
-                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasSolicitud.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
+                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
                                             }
                                         </select>
                                     </div>
@@ -174,11 +162,11 @@
                                 <div class="row mb-1">
                                     <label for="inputText" class="col-2 col-form-label">Hermanos</label>
                                     <div class="col-4">
-                                        <input type="text" class="form-control" placeholder="Cantidad de Hermanos" name="CantidadHermanos" value="@Model.SolicitudAdopcion.CaracteristicasSolicitud.CantidadHermanos" />
+                                        <input type="text" class="form-control" placeholder="Cantidad de Hermanos" name="CantidadHermanos" value="@Model.SolicitudAdopcion.CaracteristicasAdopcionActual.CantidadHermanos" />
                                     </div>
                                 </div>
                                 <div style="text-align:end" class="col-sm-6">
-                                    <a href="@Url.Action("Index", "Coincidencias")" type="button" class="btn btn-primary">Emparejar</a>
+                                    <input type="submit"  class="btn btn-primary"/>
                                 </div>
 
 
@@ -197,31 +185,25 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Fecha</th>
-                                                <th scope="col">Parametros</th>
+                                                <th scope="col">Genero</th>
+                                                <th scope="col">Edad Minima</th>
+                                                <th scope="col">Edad Maxima</th>
+                                                <th scope="col">Condicion Medica</th>
+                                                <th scope="col">Cantidad de Hermanos</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>2016-05-25</td>
-                                                <td>Brandon Jacob</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2014-12-05</td>
-                                                <td>Bridie Kessler</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2011-08-12</td>
-                                                <td>Ashleigh Langosh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2012-06-11</td>
-                                                <td>Angus Grady</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2011-04-19</td>
-                                                <td>Raheem Lehner</td>
-
-                                            </tr>
+                                            @foreach (var caracteristicaAdopcion in Model.SolicitudAdopcion.HistoricoDeBusquedas)
+                                            {
+                                                <tr>
+                                                    <td>@caracteristicaAdopcion.FechaCreacion</td>
+                                                    <td>@caracteristicaAdopcion.Genero</td>
+                                                    <td>@caracteristicaAdopcion.EdadMinima</td>
+                                                    <td>@caracteristicaAdopcion.EdadMaxima</td>
+                                                    <td>@caracteristicaAdopcion.CondicionMedica</td>
+                                                    <td>@caracteristicaAdopcion.CantidadHermanos</td>
+                                                </tr>    
+                                            }
                                         </tbody>
                                     </table>
                                     <!-- End Table with stripped rows -->

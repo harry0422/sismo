@@ -1,5 +1,5 @@
 ﻿using Dinaf.Sismo.Application.ProteccionDerechos.MedidasProteccion.DTOs;
-using Dinaf.Sismo.Domain.Seguimientos.Entities;
+using Dinaf.Sismo.Domain.MedidasProteccion.Entities;
 using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.MedidasProteccion.Mappers

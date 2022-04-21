@@ -17,6 +17,7 @@ namespace Dinaf.Sismo.Controllers
         [Route("auth")]
         public ActionResult Index()
         {
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -30,6 +31,7 @@ namespace Dinaf.Sismo.Controllers
                 HttpContext.Session.SetString("Nombre", usuario.Nombre);
                 HttpContext.Session.SetInt32("Perfil", usuario.Perfil);
                 HttpContext.Session.SetInt32("Unidad", usuario.Unidad);
+                HttpContext.Session.SetInt32("UsuarioId", usuario.Id);
 
                 return RedirectToAction("Index", "Home");
             }

@@ -17,7 +17,14 @@ namespace Dinaf.Sismo.IoC
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));
 
+            builder
+                .RegisterType<UnidadRepository>()
+                .As<IUnidadRepository>()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(TransactionInterceptor));
+
             builder.RegisterType<UsuarioService>().As<IUsuarioService>();
+            builder.RegisterType<UnidadService>().As<IUnidadService>();
         }
     }
 }

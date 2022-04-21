@@ -26,6 +26,12 @@ namespace Dinaf.Sismo.IoC
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));
 
+            builder
+                .RegisterType<DetallePersonaRepository>()
+                .As<IDetallePersonaRepository>()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(TransactionInterceptor));
+
 
             builder.RegisterType<ExpedienteService>().As<IExpedienteService>();
             builder.RegisterType<PersonaService>().As<IPersonaService>();

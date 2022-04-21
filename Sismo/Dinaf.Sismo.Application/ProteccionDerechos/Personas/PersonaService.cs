@@ -4,35 +4,49 @@ using Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities;
 using Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
 {
     public class PersonaService : IPersonaService
     {
         private readonly IPersonaRepository _personaRepository;
+        private readonly IDetallePersonaRepository _detallePersonaRepository;
 
-        public PersonaService(IPersonaRepository personaRepository)
+        public PersonaService(IPersonaRepository personaRepository, IDetallePersonaRepository detallePersonaRepository)
         {
             _personaRepository = personaRepository;
+            _detallePersonaRepository = detallePersonaRepository;
         }
 
-        public IList<PersonaDto> GetPersonasByExpediente(NumeroExpedienteDto numeroExpediente)
+        public IList<PersonaDto> ObtenerPersonasPorExpediente(NumeroExpedienteDto numeroExpediente)
         {
-            return _personaRepository.GetPersonasByExpediente(numeroExpediente.Valor).ToDto();
+            return _personaRepository.ObtenerPersonasDeExpediente(numeroExpediente.Valor).ToDto();
         }
 
         public void AgregarPersona(NuevaPersonaDto nuevaPersona)
         {
             Nombre nombre = new Nombre(nuevaPersona.PrimerNombre, nuevaPersona.SegundoNombre, nuevaPersona.PrimerApellido, nuevaPersona.SegundoApellido);
             DetallePersona detallePersona = new(nombre, nuevaPersona.Genero, nuevaPersona.Nna, nuevaPersona.Raza, nuevaPersona.Religion, DateTime.Parse(nuevaPersona.FechaNacimiento), nuevaPersona.Nacionalidad, nuevaPersona.UsuarioCreacion, nuevaPersona.ColorCabello, nuevaPersona.ColorOjos, nuevaPersona.ColorPiel, nuevaPersona.SignosFisicos, nuevaPersona.Ocupacion, nuevaPersona.Observaciones, null);
-            Persona persona = new Persona(detallePersona, nuevaPersona.NumeroExpediente, nuevaPersona.UsuarioCreacion, nuevaPersona.EnCalidad, nuevaPersona.Nna);
 
-            _personaRepository.Insert(persona);
+            _detallePersonaRepository.Insert(detallePersona);
+            VincularPersona(new VincularPersonaDto(nuevaPersona.NumeroExpediente, detallePersona.Id, nuevaPersona.UsuarioCreacion, nuevaPersona.EnCalidad));
         }
 
         public void VincularPersona(VincularPersonaDto vincularPersona)
         {
-            throw new NotImplementedException();
+            DetallePersona detallePersona = _detallePersonaRepository.Get(vincularPersona.PersonaId);
+            Persona persona = new Persona(detallePersona, vincularPersona.NumeroExpediente, vincularPersona.UsuarioCreacion, vincularPersona.EnCalidad);
+
+            _personaRepository.Insert(persona);
+        }
+
+        public IList<PersonaDto> ObtenerFamiliaresPorExpediente(NumeroExpedienteDto numeroExpediente)
+        {
+            return _personaRepository
+                .ObtenerPersonasDeExpediente(numeroExpediente.Valor)
+                .Where(persona => persona.EsFamiliar)
+                .ToDto();
         }
     }
 }

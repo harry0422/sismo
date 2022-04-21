@@ -1,16 +1,17 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
 {
-    public class DetallePersona : EntityBase<int>
+    public class DetallePersona : EntityBase<int>, IAggregateRoot
     {
         public DetallePersona() { }
 
         public DetallePersona(Nombre nombre, string genero, string nna, string raza, string religion, DateTime fechaNacimiento, string nacionalidad, int usuario, string colorCabello, string colorOjos, string colorPiel, string signosFisicos, string ocupacion, string observaciones, IList<Relacion> relaciones)
         {
-            Nombre = nombre;
+            Nombre.Add(nombre);
             Genero = genero;
             Nna = nna;
             Raza = raza;
@@ -27,7 +28,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
             Relaciones = relaciones;
         }
 
-        public virtual Nombre Nombre { get; set; }
+        public virtual IList<Nombre> Nombre { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Nna { get; set; }
         public virtual string Raza { get; set; }
@@ -47,9 +48,9 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
         {
             get
             {
-                if (Nombre is null) return string.Empty;
+                if (Nombre is null || Nombre.Count == 0) return string.Empty;
 
-                return $"{Nombre.PrimerNombre} {Nombre.PrimerApellido}";
+                return $"{Nombre.First().PrimerNombre} {Nombre.First().PrimerApellido}";
             }
         }
 
@@ -59,7 +60,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
             {
                 if (Nombre is null) return string.Empty;
 
-                return $"{Nombre.PrimerNombre} {Nombre.SegundoNombre} {Nombre.PrimerApellido} {Nombre.SegundoApellido}";
+                return $"{Nombre.First().PrimerNombre} {Nombre.First().SegundoNombre} {Nombre.First().PrimerApellido} {Nombre.First().SegundoApellido}";
             }
         }
 
@@ -70,6 +71,14 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
                 return DateTime.Now.AddYears(-FechaNacimiento.Year).Year;
             }
         }
+
+        public virtual Relacion ObtenerRelacionParaInstrumento(string correlativoInstrumento)
+        {
+            return Relaciones
+                .Where(x => x.CorrelativoInstrumento == correlativoInstrumento)
+                .FirstOrDefault();
+        }
+
         protected override void Validate()
         {
             throw new NotImplementedException();

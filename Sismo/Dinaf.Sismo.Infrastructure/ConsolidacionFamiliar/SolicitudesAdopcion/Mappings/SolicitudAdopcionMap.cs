@@ -13,8 +13,8 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
             Map(x => x.TipoInstrumento, "tiposinstrumentos");
             Map(x => x.Estado, "estado");
             Map(x => x.Procedencia, "procedencia");
-            HasOne(x => x.CaracteristicasSolicitud)
-                .ForeignKey("numero_expediente")
+            HasMany(x => x.HistoricoDeBusquedas)
+                .KeyColumn("numero_expediente")
                 .Not.LazyLoad()
                 .Cascade.All();
             HasMany(x => x.Solicitantes)

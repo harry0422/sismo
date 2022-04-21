@@ -8,10 +8,9 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
 {
     public static class SolicitudAdopcionMapper
     {
-        public static List<SolicitudAdopcionDto> ToDto(this IList<SolicitudAdopcion> solicitudesAdopcion)
+        public static IList<SolicitudAdopcionDto> ToDto(this IList<SolicitudAdopcion> solicitudesAdopcion)
         {
-            if (solicitudesAdopcion is null) return null;
-            List<SolicitudAdopcionDto> dto = new List<SolicitudAdopcionDto>();
+            IList<SolicitudAdopcionDto> dto = new List<SolicitudAdopcionDto>();
 
             foreach (SolicitudAdopcion solicitudAdopcion in solicitudesAdopcion)
             {
@@ -36,7 +35,8 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
             dto.MotivoAdopcion = solicitudAdopcion.DescripcionMotivoAdopcion;
             dto.RepresentanteLegal = solicitudAdopcion.RepresentanteLegal is null ? "" : solicitudAdopcion.RepresentanteLegal.NombreCompleto;
             dto.Solicitantes = solicitudAdopcion.SolicitantesAdopcion.ToDto();
-            dto.CaracteristicasSolicitud = solicitudAdopcion.CaracteristicasSolicitud.ToDto();
+            dto.CaracteristicasAdopcionActual = solicitudAdopcion.CaracteristicasAdopcionActual.ToDto();
+            dto.HistoricoDeBusquedas = solicitudAdopcion.HistoricoDeBusquedas.ToDto();
 
             return dto;
         }

@@ -7,6 +7,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
     {
         public virtual TipoParentesco TipoParentesco { get; set; }
         public virtual string Estado { get; set; }
+        public virtual string CorrelativoInstrumento { get; set; }
 
         protected override void Validate()
         {

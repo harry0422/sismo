@@ -135,7 +135,7 @@
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("Index", "Login")">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -194,22 +194,27 @@
                     <li>
                         <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Denuncia" })">
                             <i class="bi bi-circle"></i><span>Denuncias</span>
-                            </a>
+                        </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Asesoría" })">
                             <i class="bi bi-circle"></i><span>Asesorías</span>
-                            </a>
+                        </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Solicitud" })">
                             <i class="bi bi-circle"></i><span>Solicitudes</span>
-                            </a>
+                        </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Activación" })">
                             <i class="bi bi-circle"></i><span>Activaciónes DINAF</span>
-                            </a>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ProteccionDerechos", new { tipoInstrumento = "Expediente" })">
+                            <i class="bi bi-circle"></i><span>Expedientes</span>
+                        </a>
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->

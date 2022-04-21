@@ -22,7 +22,7 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Mappings
             Map(x => x.SignosFisicos, "signosfisicos");
             Map(x => x.Ocupacion, "ocupacion");
             Map(x => x.Observaciones, "observaciones");
-            HasOne(x => x.Nombre).ForeignKey("gidpersona")
+            HasMany(x => x.Nombre).KeyColumn("gidpersona")
                 .Cascade.All()
                 .Not.LazyLoad();
             HasMany(x => x.Relaciones).KeyColumn("gidpersona")

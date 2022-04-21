@@ -6,7 +6,7 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas.Mappers
 {
     public static class PersonaMapper
     {
-        public static IList<PersonaDto> ToDto(this IList<Persona> personas)
+        public static IList<PersonaDto> ToDto(this IEnumerable<Persona> personas)
         {
             if (personas is null) return null;
 
@@ -35,6 +35,11 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas.Mappers
             dto.Genero = persona.DetallePersona.Genero;
             dto.Telefono = string.Empty;
             dto.Email = string.Empty;
+
+            Relacion relacion = persona.DetallePersona.ObtenerRelacionParaInstrumento(persona.NumeroExpediente);
+
+            dto.Estado = relacion is null ? string.Empty : relacion.Estado;
+            dto.TipoParentesco = relacion is null ? string.Empty : relacion.TipoParentesco.Descripcion;
 
             return dto;
         }

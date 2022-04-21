@@ -1,4 +1,5 @@
-﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
+﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.Mappers;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.CondicionesMedicas.Entities;
@@ -21,12 +22,13 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
             _condicionMedicaRepository = condicionMedicaRepository;
         }
 
-        public List<ExpedienteNnaDto> GetNnaEstadoAdoptabilidad()
+        public IList<ExpedienteNnaDto> GetNnaEstadoAdoptabilidad()
         {
-            return _expedienteNnaRepository.GetAll().ToDto();
+            //return _expedienteNnaRepository.GetAll().ToDto();
+            return new List<ExpedienteNnaDto>();
         }
 
-        public ExpedienteNnaDto GetNnaEstadoAdoptabilidad(NumeroExpedienteDto numeroExpediente)
+        public ExpedienteNnaDto GetNnaEstadoAdoptabilidad(NumeroExpedienteNnaDto numeroExpediente)
         {
             return _expedienteNnaRepository.Get(numeroExpediente.Valor).ToDto();
         }

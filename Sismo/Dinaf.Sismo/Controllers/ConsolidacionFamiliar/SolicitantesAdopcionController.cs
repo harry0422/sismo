@@ -1,4 +1,5 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
@@ -23,14 +24,14 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
         [Route("ConsolidacionFamiliar/SolicitantesAdopcion")]
         public ActionResult Index()
         {
-            IList<SolicitudAdopcionDto> solicitudesAdopcion = _solicitanteAdopcionService.GetSolicitudesAdopcion();
+            IList<SolicitudAdopcionDto> solicitudesAdopcion = _solicitanteAdopcionService.ObtenerSolicitudesAdopcion();
             return View(solicitudesAdopcion);
         }
 
         [Route("ConsolidacionFamiliar/SolicitantesAdopcion/{numeroExpediente}")]
         public ActionResult Details(string numeroExpediente)
         {
-            SolicitudAdopcionDto solicitudAdopcion = _solicitanteAdopcionService.GetSolicitudAdopcion(new NumeroExpedienteDto(numeroExpediente));
+            SolicitudAdopcionDto solicitudAdopcion = _solicitanteAdopcionService.ObtenerSolicitudAdopcion(new NumeroSolicitudDto(numeroExpediente));
             IList<CondicionMedicaDto> condicionMedicas = _condicionMedicaService.GetCondicionesMedicas();
 
             return View(new SolicitudAdopcionViewModel(solicitudAdopcion, condicionMedicas));
@@ -41,7 +42,7 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
         {
             try
             {
-                _solicitanteAdopcionService.AddCaracteristicasAdopcion(caracteristicasAdopcion);
+                _solicitanteAdopcionService.AgregarCaracteristicasAdopcion(caracteristicasAdopcion);
                 return RedirectToAction(nameof(Details), new { numeroExpediente = caracteristicasAdopcion.NumeroExpediente });
             }
             catch (Exception ex)

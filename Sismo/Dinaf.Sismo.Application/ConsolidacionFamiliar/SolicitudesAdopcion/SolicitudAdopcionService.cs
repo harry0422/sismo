@@ -1,4 +1,5 @@
-﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
+﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Repositories;
@@ -15,17 +16,17 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
             _solicitudAdopcionRepository = solicitudAdopcionRepository;
         }
 
-        public List<SolicitudAdopcionDto> GetSolicitudesAdopcion()
+        public IList<SolicitudAdopcionDto> ObtenerSolicitudesAdopcion()
         {
             return _solicitudAdopcionRepository.GetAll().ToDto();
         }
 
-        public SolicitudAdopcionDto GetSolicitudAdopcion(NumeroExpedienteDto numeroExpediente)
+        public SolicitudAdopcionDto ObtenerSolicitudAdopcion(NumeroSolicitudDto numeroSolicitud)
         {
-            return _solicitudAdopcionRepository.Get(numeroExpediente.Valor).ToDto();
+            return _solicitudAdopcionRepository.Get(numeroSolicitud.Valor).ToDto();
         }
 
-        public void AddCaracteristicasAdopcion(CaracteristicasAdopcionDto caracteristicasAdopcion)
+        public void AgregarCaracteristicasAdopcion(CaracteristicasAdopcionDto caracteristicasAdopcion)
         {
             SolicitudAdopcion solicitudAdopcion = _solicitudAdopcionRepository.Get(caracteristicasAdopcion.NumeroExpediente);
             solicitudAdopcion.AgregarCaracteristicas(
@@ -36,7 +37,6 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
                 caracteristicasAdopcion.CantidadHermanos);
 
             _solicitudAdopcionRepository.Update(solicitudAdopcion);
-
         }
     }
 }

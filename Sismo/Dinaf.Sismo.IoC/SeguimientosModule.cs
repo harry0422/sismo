@@ -2,8 +2,8 @@
 using Autofac.Extras.DynamicProxy;
 using Dinaf.Sismo.Application.MedidasProteccion;
 using Dinaf.Sismo.CrossCutting.Transactions;
-using Dinaf.Sismo.Domain.Seguimientos.Repositories;
-using Dinaf.Sismo.Infrastructure.Seguimientos.Repositories;
+using Dinaf.Sismo.Domain.MedidasProteccion.Repositories;
+using Dinaf.Sismo.Infrastructure.MedidasProteccion.Repositories;
 
 namespace Dinaf.Sismo.IoC
 {
@@ -12,7 +12,7 @@ namespace Dinaf.Sismo.IoC
         protected override void Load(ContainerBuilder builder)
         {
             builder
-                .RegisterType<SeguimientoRepository>()
+                .RegisterType<MedidaProteccionRepository>()
                 .As<IMedidaProteccionRepository>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));

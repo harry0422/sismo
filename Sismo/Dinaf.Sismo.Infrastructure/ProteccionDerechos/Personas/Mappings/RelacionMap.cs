@@ -10,6 +10,7 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Mappings
             Table("personarelacion");
             Id(x => x.Id, "id");
             Map(x => x.Estado, "envida");
+            Map(x => x.CorrelativoInstrumento, "correlativo_instrumento");
             References(x => x.TipoParentesco, "gidtipoparentesco").Not.LazyLoad();
         }
     }

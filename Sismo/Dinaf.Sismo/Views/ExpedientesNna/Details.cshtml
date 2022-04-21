@@ -292,12 +292,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var familiar in Model.ExpedienteNna.Familiares)
+                                    @foreach (var familiar in Model.Familiares)
                                     {
                                         <tr>
                                             <td>@familiar.NombreCorto</td>
                                             <td>@familiar.Edad</td>
-                                            <td>@familiar.Relacion</td>
+                                            <td>@familiar.TipoParentesco</td>
                                             <td>@familiar.Estado</td>
                                         </tr>
                                     }

@@ -12,7 +12,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual string TipoInstrumento { get; set; }
         public virtual string Estado { get; set; }
         public virtual string Procedencia { get; set; }
-        public virtual CaracteristicasSolicitud CaracteristicasSolicitud { get; set; }
+        public virtual IList<CaracteristicasAdopcion> HistoricoDeBusquedas { get; set; }
         public virtual IList<MotivoAdopcion> MotivosAdopcion { get; set; }
         public virtual IList<Solicitante> Solicitantes { get; set; }
 
@@ -28,7 +28,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 
         public virtual bool PuedeEmparejar
         {
-            get { return !(CaracteristicasSolicitud is null); }
+            get { return !(HistoricoDeBusquedas is null); }
         }
 
         public virtual IList<DetalleSolicitante> SolicitantesAdopcion
@@ -50,9 +50,14 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
             get { return string.Join(" ", MotivosAdopcion.Select(x => x.Contenido)); }
         }
 
+        public virtual CaracteristicasAdopcion CaracteristicasAdopcionActual
+        {
+            get { return HistoricoDeBusquedas.OrderByDescending(c => c.FechaCreacion).FirstOrDefault(); }
+        }
+
         public virtual void AgregarCaracteristicas(string genero, int edadMinima, int edadMaxima, int condicionMedica, int cantidadHermanos)
         {
-            CaracteristicasSolicitud = new CaracteristicasSolicitud(NumeroExpediente, genero, edadMinima, edadMaxima, condicionMedica, cantidadHermanos);
+            HistoricoDeBusquedas.Add(new CaracteristicasAdopcion(NumeroExpediente, genero, edadMinima, edadMaxima, condicionMedica, cantidadHermanos));
         }
 
         protected override void Validate()

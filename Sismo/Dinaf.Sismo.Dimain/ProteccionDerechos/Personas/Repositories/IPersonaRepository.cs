@@ -6,6 +6,6 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Repositories
 {
     public interface IPersonaRepository : IRepository<Persona, int>
     {
-        IList<Persona> GetPersonasByExpediente(string numeroExpediente);
+        public IList<Persona> ObtenerPersonasDeExpediente(string numeroExpediente);
     }
 }
