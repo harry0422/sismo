@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\ProfilePics\" />
     <Folder Include="wwwroot\lib\apexcharts\locales\" />
     <Folder Include="wwwroot\lib\bootstrap-icons\fonts\" />
     <Folder Include="wwwroot\lib\bootstrap\css\" />

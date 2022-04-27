@@ -13,6 +13,7 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
         public virtual string Nacionalidad { get; set; }
         public virtual string Ocupacion { get; set; }
         public virtual string Observaciones { get; set; }
+        public virtual string FotoPerfil { get; set; }
         public virtual IList<RelacionSolicitante> Relaciones { get; set; }
 
         public virtual string NombreCorto

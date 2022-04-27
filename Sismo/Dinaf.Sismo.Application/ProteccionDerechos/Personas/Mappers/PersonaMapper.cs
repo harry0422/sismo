@@ -40,6 +40,7 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas.Mappers
 
             dto.Estado = relacion is null ? string.Empty : relacion.Estado;
             dto.TipoParentesco = relacion is null ? string.Empty : relacion.TipoParentesco.Descripcion;
+            dto.FotoPerfil = persona.DetallePersona.FotoPerfil;
 
             return dto;
         }

@@ -11,5 +11,6 @@
         public string FechaNacimiento { get; set; }
         public string Nacionalidad { get; set; }
         public string Ocupacion { get; set; }
+        public string FotoPerfil { get; set; }
     }
 }

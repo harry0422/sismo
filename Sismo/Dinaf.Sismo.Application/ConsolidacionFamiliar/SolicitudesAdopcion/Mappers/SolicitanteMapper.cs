@@ -20,6 +20,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Mappers
             dto.FechaNacimiento = detalleSolicitante.FechaNacimiento.ToString("dd/MM/yyyy");
             dto.Nacionalidad = detalleSolicitante.Nacionalidad;
             dto.Ocupacion = detalleSolicitante.Ocupacion;
+            dto.FotoPerfil = detalleSolicitante.FotoPerfil;
 
             return dto;
         }

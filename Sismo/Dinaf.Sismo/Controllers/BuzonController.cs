@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dinaf.Sismo.Controllers.Buzon
+namespace Dinaf.Sismo.Controllers
 {
     public class BuzonController : Controller
     {

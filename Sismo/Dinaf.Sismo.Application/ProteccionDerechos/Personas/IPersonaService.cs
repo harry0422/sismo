@@ -9,6 +9,7 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
         public IList<PersonaDto> ObtenerFamiliaresPorExpediente(NumeroExpedienteDto numeroExpediente);
         public void AgregarPersona(NuevaPersonaDto nuevaPersona);
         public void VincularPersona(VincularPersonaDto vincularPersona);
-        
+        public void AgregarFotoDePerfil(FotoPerfilDto fotoPerfil);
+
     }
 }

@@ -15,6 +15,7 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
             Map(x => x.Nacionalidad, "ininacionalidad");
             Map(x => x.Ocupacion, "ocupacion");
             Map(x => x.Observaciones, "observaciones");
+            Map(x => x.FotoPerfil, "foto_perfil");
             HasOne(x => x.Nombre).ForeignKey("gidpersona").Not.LazyLoad();
             HasMany(x => x.Relaciones).KeyColumn("gidpersona").Not.LazyLoad();
         }

@@ -1,82 +1,60 @@
-﻿@{
+﻿@model int 
+
+@{
     Layout = null;
 }
-@*<button id="start-camera">Start Camera</button>
-<video id="video" width="320" height="240" autoplay></video>
-<button id="click-photo">Click Photo</button>
-<canvas id="canvas" width="320" height="240"></canvas>
-<script>
-    let camera_button = document.querySelector("#start-camera");
-    let video = document.querySelector("#video");
-    let click_button = document.querySelector("#click-photo");
-    let canvas = document.querySelector("#canvas");
 
-    camera_button.addEventListener('click', async function() {
-        let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-        video.srcObject = stream;
-    });
-
-    click_button.addEventListener('click', function() {
-        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-        let image_data_url = canvas.toDataURL('image/jpeg');
-
-        // data url of the image
-        console.log(image_data_url);
-    });
-</script>
-*@
-
-
-<!-- Stream video via webcam -->
 <div class="video-wrap">
-    <video id="video" playsinline autoplay></video>
+    <video id="video" width="700" height="400" playsinline autoplay></video>
 </div>
 
-<!-- Trigger canvas web API -->
 <div class="controller">
     <button id="snap">Capture</button>
 </div>
-
-<!-- Webcam video snapshot -->
-<canvas id="canvas" width="640" height="480"></canvas>}
+@Model
+<canvas id="canvas" width="700" height="400" style="visibility:hidden"></canvas>
 
 <script>
     'use strict';
 
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const snap = document.getElementById("snap");
-const errorMsgElement = document.querySelector('span#errorMsg');
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const snap = document.getElementById("snap");
 
-const constraints = {
-  audio: true,
-  video: {
-    width: 700, height: 400
-  }
-};
+    const constraints = {
+        audio: false,
+        video: { width: 700, height: 400 }
+    };
 
-// Access webcam
-async function init() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-    handleSuccess(stream);
-  } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-  }
-}
+    async function init() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            window.stream = stream;
+            video.srcObject = stream;
+        } catch (e) {
+            console.log(`navigator.getUserMedia error:${e.toString()}`);
+        }
+    }
 
-// Success
-function handleSuccess(stream) {
-  window.stream = stream;
-  video.srcObject = stream;
-}
+    init();
 
-// Load init
-init();
+    var context = canvas.getContext('2d');
 
-// Draw image
-var context = canvas.getContext('2d');
-snap.addEventListener("click", function() {
-        context.drawImage(video, 0, 0, 640, 480);
-});
+    snap.addEventListener("click", function() {
+        context.drawImage(video, 0, 0, 700, 400);
+        let image_data_url = canvas.toDataURL('image/jpeg');
+
+        $.ajax({
+            url: '@Url.Action("Create", "Camara")',
+            type: 'POST', 
+            data: { PersonaId: @Model, FotoBase64: image_data_url},
+            success: function(result) {
+                window.close();
+        }});
+
+    });
+
+    window.onunload = () => window.opener.location.reload();
 </script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>

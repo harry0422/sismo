@@ -42,6 +42,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
         public virtual string SignosFisicos { get; set; }
         public virtual string Ocupacion { get; set; }
         public virtual string Observaciones { get; set; }
+        public virtual string FotoPerfil { get; set; }
         public virtual IList<Relacion> Relaciones { get; set; }
 
         public virtual string NombreCorto

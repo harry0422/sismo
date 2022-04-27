@@ -12,11 +12,16 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
     {
         private readonly IPersonaRepository _personaRepository;
         private readonly IDetallePersonaRepository _detallePersonaRepository;
+        private readonly IFotografiaService _fotografiaService;
 
-        public PersonaService(IPersonaRepository personaRepository, IDetallePersonaRepository detallePersonaRepository)
+        public PersonaService(
+            IPersonaRepository personaRepository, 
+            IDetallePersonaRepository detallePersonaRepository, 
+            IFotografiaService fotografiaService)
         {
             _personaRepository = personaRepository;
             _detallePersonaRepository = detallePersonaRepository;
+            _fotografiaService = fotografiaService;
         }
 
         public IList<PersonaDto> ObtenerPersonasPorExpediente(NumeroExpedienteDto numeroExpediente)
@@ -47,6 +52,15 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
                 .ObtenerPersonasDeExpediente(numeroExpediente.Valor)
                 .Where(persona => persona.EsFamiliar)
                 .ToDto();
+        }
+
+        public void AgregarFotoDePerfil(FotoPerfilDto fotoPerfil)
+        {
+            string nombreArchivo = Guid.NewGuid().ToString() + "." + fotoPerfil.Formato;
+            _fotografiaService.Guardar(nombreArchivo, fotoPerfil.RutaCarpeta, fotoPerfil.FotoBase64);
+            DetallePersona detallePersona = _detallePersonaRepository.Get(fotoPerfil.PersonaId);
+            detallePersona.FotoPerfil = nombreArchivo;
+            _detallePersonaRepository.Update(detallePersona);
         }
     }
 }

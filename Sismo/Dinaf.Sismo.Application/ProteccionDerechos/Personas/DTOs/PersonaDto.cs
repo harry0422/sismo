@@ -14,5 +14,6 @@
         public string Email { get; set; }
         public string Estado { get; set; }
         public string TipoParentesco { get; set; }
+        public string FotoPerfil { get; set; }
     }
 }
