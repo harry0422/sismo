@@ -1,8 +1,6 @@
-﻿@model List<Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs.ExpedienteNnaDto>
+﻿@model List<Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.DTOs.ExpedienteNnaDto>
 
-@{
-}
-<table class="table datatable">
+<table id="expediente-nna-tbl" class="table datatable">
     <thead>
         <tr>
             <th scope="col">Numero de Expediente</th>
@@ -16,9 +14,9 @@
         @foreach (var expediente in Model)
         {
             <tr>
-                <td><a href="@Url.Action("Details", "ExpedientesNna", new { numeroExpediente = @expediente.NumeroExpediente })">@expediente.NumeroExpediente</a></td>
+                <td><a href="@Url.Action("Details", "ExpedientesNna", new { numeroExpediente = @expediente.NumeroExpediente })" onclick="showLoader()">@expediente.NumeroExpediente</a></td>
                 <td>@expediente.DetalleNna.Nombre</td>
-                <td>@expediente.DetalleNna.Genero</td>
+                <td>@(expediente.DetalleNna.Genero == "M" ? "Masculino" : "Femenino")</td>
                 <td>@expediente.DetalleNna.Edad</td>
                 <td>@expediente.FechaCreacion</td>
             </tr>

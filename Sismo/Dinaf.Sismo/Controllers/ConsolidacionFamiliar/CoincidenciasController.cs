@@ -1,83 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
 {
     public class CoincidenciasController : Controller
     {
-        // GET: CoincidenciasController
-        public ActionResult Index()
+        private readonly IEmparejamientoService _emparejamientoService;
+
+        public CoincidenciasController(IEmparejamientoService emparejamientoService)
         {
-            return View();
+            _emparejamientoService = emparejamientoService;
         }
 
-        // GET: CoincidenciasController/Details/5
-        public ActionResult Details(int id)
+        [Route("ConsolidacionFamiliar/Coincidencias/{numeroExpediente}")]
+        public ActionResult Index(string numeroExpediente)
         {
-            return View();
-        }
+            var emparejamientos = _emparejamientoService.ObtenerNnaParaPreEmparejamiento(new NumeroSolicitudDto(numeroExpediente));
+            ViewBag.NumeroExpediente = numeroExpediente;
 
-        // GET: CoincidenciasController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: CoincidenciasController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CoincidenciasController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CoincidenciasController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CoincidenciasController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CoincidenciasController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(emparejamientos);
         }
     }
 }

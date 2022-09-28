@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Dinaf.Sismo.Dimain\Dinaf.Sismo.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ConsolidacionFamiliar\CondicionesMedicas\Repositories\" />
+  </ItemGroup>
+
 </Project>

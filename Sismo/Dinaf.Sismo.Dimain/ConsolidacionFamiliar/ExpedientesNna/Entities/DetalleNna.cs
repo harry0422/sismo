@@ -2,12 +2,13 @@
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
 {
     public class DetalleNna : EntityBase<int>, IAggregateRoot
     {
-        public virtual NombreSolicitante Nombre { get; set; }
+        public virtual IList<NombreSolicitante> Nombres { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Raza { get; set; }
         public virtual string Religion { get; set; }
@@ -18,15 +19,21 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         public virtual string ColorPiel { get; set; }
         public virtual string SignosFisicos { get; set; }
         public virtual string Ocupacion { get; set; }
+        public virtual string CondicionMedica { get; set; }
+        public virtual string FotoPerfil { get; set; }
         public virtual IList<RelacionSolicitante> Relaciones { get; set; }
+
+        public virtual NombreSolicitante Nombre
+        {
+            get { return Nombres.FirstOrDefault(); }
+        }
+
 
         public virtual string NombreCorto
         {
             get
             {
-                if (Nombre is null) return string.Empty;
-
-                return $"{Nombre.PrimerNombre} {Nombre.PrimerApellido}";
+                return (Nombre is null) ? string.Empty : $"{Nombre.PrimerNombre} {Nombre.PrimerApellido}";
             }
         }
 
@@ -34,15 +41,18 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Entities
         {
             get
             {
-                if (Nombre is null) return string.Empty;
-
-                return $"{Nombre.PrimerNombre} {Nombre.SegundoNombre} {Nombre.PrimerApellido} {Nombre.SegundoApellido}";
+                return (Nombre is null) ? string.Empty :
+                    $"{Nombre.PrimerNombre} {Nombre.SegundoNombre} {Nombre.PrimerApellido} {Nombre.SegundoApellido}";
             }
         }
 
         public virtual int Edad
         {
-            get { return DateTime.Now.AddYears(-FechaNacimiento.Year).Year; }
+            get 
+            {
+                int edad = DateTime.Now.AddYears(-FechaNacimiento.Year).Year;
+                return edad <= 100 ? edad : 0; 
+            }
         }
 
         protected override void Validate()

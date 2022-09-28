@@ -14,6 +14,7 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Emparejamientos.Mappi
             Map(x => x.Etapa, "etapa");
             HasMany(x => x.Seguimientos)
                 .KeyColumn("emparejamiento_id")
+                .Cascade.All()
                 .Not.LazyLoad();
         }
     }

@@ -29,13 +29,20 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
             return _personaRepository.ObtenerPersonasDeExpediente(numeroExpediente.Valor).ToDto();
         }
 
-        public void AgregarPersona(NuevaPersonaDto nuevaPersona)
+        public void AgregarPersona(NuevaPersonaDto persona)
         {
-            Nombre nombre = new Nombre(nuevaPersona.PrimerNombre, nuevaPersona.SegundoNombre, nuevaPersona.PrimerApellido, nuevaPersona.SegundoApellido);
-            DetallePersona detallePersona = new(nombre, nuevaPersona.Genero, nuevaPersona.Nna, nuevaPersona.Raza, nuevaPersona.Religion, DateTime.Parse(nuevaPersona.FechaNacimiento), nuevaPersona.Nacionalidad, nuevaPersona.UsuarioCreacion, nuevaPersona.ColorCabello, nuevaPersona.ColorOjos, nuevaPersona.ColorPiel, nuevaPersona.SignosFisicos, nuevaPersona.Ocupacion, nuevaPersona.Observaciones, null);
+            DetallePersona detallePersona = new PersonaBuilder()
+                .ConNombre(persona.PrimerNombre, persona.SegundoNombre, persona.PrimerApellido, persona.SegundoApellido)
+                .ConDatosGenerales(persona.Genero, persona.FechaNacimiento, persona.Nacionalidad)
+                .ConDatosAdicionales(persona.Raza, persona.Religion, persona.Ocupacion)
+                .ConCaracteristicasFisicas(persona.ColorCabello, persona.ColorOjos, persona.ColorPiel, persona.SignosFisicos)
+                .ConObservaciones(persona.Observaciones)
+                .ConUsuarioCreacion(persona.UsuarioCreacion)
+                .ConNna(persona.Nna)
+                .ObtenerInstancia();
 
             _detallePersonaRepository.Insert(detallePersona);
-            VincularPersona(new VincularPersonaDto(nuevaPersona.NumeroExpediente, detallePersona.Id, nuevaPersona.UsuarioCreacion, nuevaPersona.EnCalidad));
+            VincularPersona(new VincularPersonaDto(persona.NumeroExpediente, detallePersona.Id, persona.UsuarioCreacion, persona.EnCalidad));
         }
 
         public void VincularPersona(VincularPersonaDto vincularPersona)
@@ -56,11 +63,20 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
 
         public void AgregarFotoDePerfil(FotoPerfilDto fotoPerfil)
         {
-            string nombreArchivo = Guid.NewGuid().ToString() + "." + fotoPerfil.Formato;
-            _fotografiaService.Guardar(nombreArchivo, fotoPerfil.RutaCarpeta, fotoPerfil.FotoBase64);
-            DetallePersona detallePersona = _detallePersonaRepository.Get(fotoPerfil.PersonaId);
-            detallePersona.FotoPerfil = nombreArchivo;
-            _detallePersonaRepository.Update(detallePersona);
+            try
+            {
+                string nombreArchivo = Guid.NewGuid().ToString() + "." + fotoPerfil.Formato;
+                _fotografiaService.Guardar(nombreArchivo, fotoPerfil.RutaCarpeta, fotoPerfil.FotoBase64);
+                DetallePersona detallePersona = _detallePersonaRepository.Get(fotoPerfil.PersonaId);
+                detallePersona.FotoPerfil = nombreArchivo;
+                _detallePersonaRepository.Update(detallePersona);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model List<Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.SeguimientoDto>
+
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">Expediente NNA</th>
+            <th scope="col">Numero Solicitud</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Etapa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var seguimiento in Model)
+        {
+            <tr>
+                <td><a href="">@seguimiento.ExpedienteNna</a></td>
+                <td>@seguimiento.SolicitudAdopcion</td>
+                <td>@seguimiento.Fecha</td>
+                <td>@seguimiento.Etapa</td>
+            </tr>
+        }
+    </tbody>
+</table>

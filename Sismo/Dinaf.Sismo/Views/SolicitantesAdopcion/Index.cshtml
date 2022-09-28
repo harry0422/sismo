@@ -16,7 +16,7 @@
         @foreach (var solicitud in Model)
         {
             <tr>
-                <td><a href="@Url.Action("Details", "SolicitantesAdopcion" , new { numeroExpediente = solicitud.NumeroExpediente })">@solicitud.NumeroExpediente</a></td>
+                <td><a href="@Url.Action("Details", "SolicitantesAdopcion" , new { numeroExpediente = solicitud.NumeroExpediente })" onclick="showLoader()">@solicitud.NumeroExpediente</a></td>
                 <td>@solicitud.TipoSolicitud</td>
                 <td>@solicitud.Nombres</td>
                 <td>@solicitud.FechaCreacion</td>

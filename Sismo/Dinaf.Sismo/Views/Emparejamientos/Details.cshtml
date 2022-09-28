@@ -1,6 +1,5 @@
-﻿
-@{
-}
+﻿@model Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.EmparejamientoDto
+
 <section class="section profile">
 
     <div class="row">
@@ -12,35 +11,35 @@
                     <div class="social-links mt-2">
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">Juan Miguel Canales</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.NombreCompleto</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
-                            <div class="col-lg-12 col-md-8">0801-1977-07557</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.NumeroIdentidad</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">14/09/2010</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.FechaNacimiento</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">8 Años</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Edad Años</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">Hondureña</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Nacionalidad</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
-                            <div class="col-lg-12 col-md-8">M</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Genero</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
-                            <div class="col-lg-12 col-md-8">(+504)9999-9999</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Telefono</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
-                            <div class="col-lg-12 col-md-8">CarlosG@hotmail.com</div>
+                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Email</div>
                         </div>
                     </div>
                 </div>
@@ -63,47 +62,22 @@
                                 <span class="badge bg-primary"><i class="bi bi-collection me-1"></i>EXP. DINAF-2018-11</span>
                             </p>
                             <!-- Default Table -->
-                            <table class="table">
+                            <table class="table datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Numero de Expediente</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Creado Por</th>
                                         <th scope="col">Estado</th>
                                         <th scope="col"></th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>Exp-DINAF-2018-11</th>
-                                        <td>Brandon Jacob</td>
-                                        <td>Javier Urquia</td>
-                                        <td>Pre Emparejamiento</td>
-                                        <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos")">Enviar a Comite de Asignacion</a></th>
-                                    <tr>
-                                        <th>Solicitud-ORA-13</th>
-                                        <td>Bridie Kessler</td>
-                                        <td>Josue Diaz</td>
-                                        <td>Pre Emparejamiento</td>
-                                        <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos")">Enviar a Comite de Asignacion</a></th>
-                                    <tr>
-                                        <th>Exp-DINAF-2018-22</th>
-                                        <td>Ashleigh Langosh</td>
-                                        <td>Fernanda Diaz</td>
-                                        <td>Pre Emparejamiento</td>
-                                        <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos")">Enviar a Comite de Asignacion</a></th>
-                                    <tr>
-                                        <th>Exp-DINAF-2018-11</th>
-                                        <td>Angus Grady</td>
-                                        <td>Brenda Chacon</td>
-                                        <td>Pre Emparejamiento</td>
-                                        <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos")">Enviar a Comite de Asignacion</a></th>
-                                    <tr>
-                                        <th>Solicitud-ORA-13</th>
-                                        <td>Raheem Lehner</td>
-                                        <td>Sara Ponce</td>
-                                        <td>Pre Emparejamiento</td>
-                                        <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos")">Enviar a Comite de Asignacion</a></th>
-                                    </tr>
+                                    @foreach (var detalle in Model.DatosEmparejamiento)
+                                    {
+                                        <tr>
+                                            <td><a href="@Url.Action("SeguimientosPorEmparejamiento", "Emparejamientos", new { emparejamientoId = detalle.Id })">@detalle.NumeroSolicitud</a></td>
+                                            <td>@detalle.Etapa</td>
+                                            <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos", new { Id = detalle.Id, expedienteNna = Model.DatosNna.NumeroExpediente })">Enviar a Comite de Asignacion</a></th>
+                                        </tr>   
+                                    }
                                 </tbody>
                             </table>
                             <!-- End Default Table Example -->

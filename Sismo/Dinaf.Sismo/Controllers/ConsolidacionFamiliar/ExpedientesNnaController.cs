@@ -1,14 +1,10 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar;
-using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas;
-using Dinaf.Sismo.Application.ConsolidacionFamiliar.CondicionesMedicas.DTOs;
-using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
-using Dinaf.Sismo.Application.MedidasProteccion;
-using Dinaf.Sismo.Application.ProteccionDerechos.MedidasProteccion.DTOs;
-using Dinaf.Sismo.Application.ProteccionDerechos.Personas;
-using Dinaf.Sismo.Application.ProteccionDerechos.Personas.DTOs;
-using Dinaf.Sismo.Application.Vulneraciones;
-using Dinaf.Sismo.Application.Vulneraciones.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.DTOs;
+using Dinaf.Sismo.Application.MedidasProteccion;
+using Dinaf.Sismo.Application.ProteccionDerechos.Personas;
+using Dinaf.Sismo.Application.Vulneraciones;
 using Dinaf.Sismo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,18 +14,23 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
     public class ExpedientesNnaController : Controller
     {
         private readonly IExpedienteNnaService _expedienteNnaService;
-        private readonly ICondicionMedicaService _condicionMedicaService;
         private readonly IVulneracionService _vulneracionService;
         private readonly IMedidaProteccionService _seguimientoService;
         private readonly IPersonaService _personaService;
+        private readonly IEmparejamientoService _emparejamientoService;
 
-        public ExpedientesNnaController(IExpedienteNnaService expedienteNnaService, ICondicionMedicaService condicionMedicaService, IVulneracionService vulneracionService, IMedidaProteccionService seguimientoService, IPersonaService personaService)
+        public ExpedientesNnaController(
+            IExpedienteNnaService expedienteNnaService, 
+            IVulneracionService vulneracionService, 
+            IMedidaProteccionService seguimientoService, 
+            IPersonaService personaService, 
+            IEmparejamientoService emparejamientoService)
         {
             _expedienteNnaService = expedienteNnaService;
-            _condicionMedicaService = condicionMedicaService;
             _vulneracionService = vulneracionService;
             _seguimientoService = seguimientoService;
             _personaService = personaService;
+            _emparejamientoService = emparejamientoService;
         }
 
         [Route("ConsolidacionFamiliar/ExpedientesNna")]
@@ -42,13 +43,21 @@ namespace Dinaf.Sismo.Controllers.ConsolidacionFamiliar
         [Route("ConsolidacionFamiliar/ExpedientesNna/{numeroExpediente}")]
         public ActionResult Details(string numeroExpediente)
         {
-            IList<VulneracionDto> vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(numeroExpediente));
-            IList<MedidaProteccionDto> medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.ProteccionDerechos.MedidasProteccion.DTOs.NumeroExpedienteDto(numeroExpediente));
-            ExpedienteNnaDto expedienteNna = _expedienteNnaService.GetNnaEstadoAdoptabilidad(new NumeroExpedienteNnaDto(numeroExpediente));
-            IList<CondicionMedicaDto> condicionesMedicas = _condicionMedicaService.GetCondicionesMedicas();
-            IList<PersonaDto> familiares = _personaService.ObtenerFamiliaresPorExpediente(new Application.ProteccionDerechos.Personas.DTOs.NumeroExpedienteDto(numeroExpediente));
+            var vulneraciones = _vulneracionService.GetVulneraciones(new Application.Vulneraciones.DTOs.NumeroExpedienteDto(numeroExpediente));
+            var medidasProteccion = _seguimientoService.GetMedidasProteccion(new Application.ProteccionDerechos.MedidasProteccion.DTOs.NumeroExpedienteDto(numeroExpediente));
+            var expedienteNna = _expedienteNnaService.GetNnaEstadoAdoptabilidad(new NumeroExpedienteNnaDto(numeroExpediente));
+            var familiares = _personaService.ObtenerFamiliaresPorExpediente(new Application.ProteccionDerechos.Personas.DTOs.NumeroExpedienteDto(numeroExpediente));
+            var emparejamientos = _emparejamientoService.ObtenerSolicitantesParaPreEmparejamiento(new NumeroExpedienteNnaDto(numeroExpediente));
 
-            return View(new ExpedienteNnaViewModel(expedienteNna, condicionesMedicas, vulneraciones, medidasProteccion, familiares));
+            return View(new ExpedienteNnaViewModel(expedienteNna, vulneraciones, medidasProteccion, familiares, emparejamientos));
+        }
+
+        [HttpPost]
+        [Route("ConsolidacionFamiliar/ExpedientesNna/{numeroExpediente}/Caracteristicas")]
+        public ActionResult AgregarCaracteristicas(string numeroExpediente, CaracteristicasDto caracteristicas)
+        {
+            _expedienteNnaService.AddCaracteristicas(caracteristicas);
+            return RedirectToAction("Details", new { numeroExpediente = numeroExpediente });
         }
     }
 }

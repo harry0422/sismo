@@ -9,9 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ConsolidacionFamiliar\Seguimiento\DTOs\" />
-    <Folder Include="ConsolidacionFamiliar\Seguimiento\Mappers\" />
-    <Folder Include="Notificaciones\" />
+    <Folder Include="ConsolidacionFamiliar\CondicionesMedicas\DTOs\" />
+    <Folder Include="ConsolidacionFamiliar\CondicionesMedicas\Mappers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
   </ItemGroup>
 
 </Project>

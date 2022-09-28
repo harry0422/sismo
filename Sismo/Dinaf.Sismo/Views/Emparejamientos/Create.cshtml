@@ -1,11 +1,9 @@
-﻿@{
-}
-
+﻿
 <p><h3 class="card-title">Detalles de Pre Emparejamiento</h3></p>
 
 <form method="post" action="Create">
-    <input type="hidden" name="ExpedienteNna" value="" />
-    <input type="hidden" name="SolicitudAdopcion" value="" />
+    <input type="hidden" name="ExpedienteNna" value="@ViewBag.expedienteNna" />
+    <input type="hidden" name="SolicitudAdopcion" value="@ViewBag.solicitudAdopcion" />
 
     <div class="row mb-3">
         <div class="col-sm-4">

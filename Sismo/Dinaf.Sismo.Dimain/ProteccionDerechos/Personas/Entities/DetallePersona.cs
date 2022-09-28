@@ -11,7 +11,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
 
         public DetallePersona(Nombre nombre, string genero, string nna, string raza, string religion, DateTime fechaNacimiento, string nacionalidad, int usuario, string colorCabello, string colorOjos, string colorPiel, string signosFisicos, string ocupacion, string observaciones, IList<Relacion> relaciones)
         {
-            Nombre.Add(nombre);
+            AgregarNombre(nombre);
             Genero = genero;
             Nna = nna;
             Raza = raza;
@@ -28,7 +28,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
             Relaciones = relaciones;
         }
 
-        public virtual IList<Nombre> Nombre { get; set; }
+        public virtual Nombre Nombre { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Nna { get; set; }
         public virtual string Raza { get; set; }
@@ -49,9 +49,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
         {
             get
             {
-                if (Nombre is null || Nombre.Count == 0) return string.Empty;
-
-                return $"{Nombre.First().PrimerNombre} {Nombre.First().PrimerApellido}";
+                return (Nombre is null) ? string.Empty : $"{Nombre.PrimerNombre} {Nombre.PrimerApellido}";
             }
         }
 
@@ -59,9 +57,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
         {
             get
             {
-                if (Nombre is null) return string.Empty;
-
-                return $"{Nombre.First().PrimerNombre} {Nombre.First().SegundoNombre} {Nombre.First().PrimerApellido} {Nombre.First().SegundoApellido}";
+                return (Nombre is null) ? string.Empty : $"{Nombre.PrimerNombre} {Nombre.SegundoNombre} {Nombre.PrimerApellido} {Nombre.SegundoApellido}";
             }
         }
 
@@ -78,6 +74,12 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
             return Relaciones
                 .Where(x => x.CorrelativoInstrumento == correlativoInstrumento)
                 .FirstOrDefault();
+        }
+
+        public virtual void AgregarNombre(Nombre nombre)
+        {
+            nombre.DetallePersona = this;
+            Nombre = nombre;
         }
 
         protected override void Validate()

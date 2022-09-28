@@ -6,9 +6,13 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos
 {
     public interface IEmparejamientoService
     {
-        public List<PreEmparejamientoDto> ObtenerNnaParaPreEmparejamiento(NumeroSolicitudDto numeroSolicitud);
-        public List<PreEmparejamientoDto> ObtenerSolicitantesParaPreEmparejamiento(NumeroExpedienteNnaDto numeroExpediente);
+        public IList<PreEmparejamientoNnaDto> ObtenerNnaParaPreEmparejamiento(NumeroSolicitudDto numeroSolicitud);
+        public IList<PreEmparejamientoSolicitudDto> ObtenerSolicitantesParaPreEmparejamiento(NumeroExpedienteNnaDto numeroExpediente);
+        public IList<EmparejamientoDto> ObtenerEmparejamientos();
+        public EmparejamientoDto ObtenerDetalleEmparejamiento(NumeroExpedienteNnaDto numeroExpediente);
         public void CrearPreEmparejamiento(NuevoEmparejamientoDto dto);
         public void CrearAvanzarEtapa(InformacionSeguimientoDto dto);
+        public IList<SeguimientoDto> ObtenerSeguimientos();
+        public IList<SeguimientoDto> ObtenerSeguimientos(EmparejamientoIdDto emparejamientoId);
     }
 }

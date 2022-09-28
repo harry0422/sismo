@@ -1,12 +1,13 @@
 ﻿using Dinaf.Sismo.Domain.Common.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
 {
     public class DetalleSolicitante : EntityBase<int>
     {
-        public virtual NombreSolicitante Nombre { get; set; }
+        public virtual IList<NombreSolicitante> Nombres { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Estado { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
@@ -15,6 +16,11 @@ namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Common
         public virtual string Observaciones { get; set; }
         public virtual string FotoPerfil { get; set; }
         public virtual IList<RelacionSolicitante> Relaciones { get; set; }
+
+        public virtual NombreSolicitante Nombre
+        {
+            get { return Nombres.FirstOrDefault(); }
+        }
 
         public virtual string NombreCorto
         {

@@ -8,10 +8,12 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Mappings
         public ExpedienteNnaMap()
         {
             Table("personasexpediente");
-            Id(x => x.Id, "gidexpediente");
+            Id(x => x.Id, "id");
+            Map(x => x.NumeroExpediente, "gidexpediente");
             Map(x => x.FechaCreacion, "fecha");
-            References(x => x.DetalleNna, "gidpersona").Not.LazyLoad();
-            HasOne(x => x.CondicionMedica).ForeignKey("numero_expediente").Not.LazyLoad();
+            References(x => x.DetalleNna, "gidpersona")
+                .Not.LazyLoad()
+                .Cascade.All();
             Where("expnna = 'nna'");
         }
     }

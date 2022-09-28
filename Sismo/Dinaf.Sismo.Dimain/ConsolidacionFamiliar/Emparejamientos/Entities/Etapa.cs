@@ -3,7 +3,7 @@
     public enum Etapa
     {
         PreEmparejamiento,
-        ComiteDe,
+        ComiteDeAsignacion,
         Emparejamiento,
         PrimerosEncuentros,
         PeriodoDeConvivencia,

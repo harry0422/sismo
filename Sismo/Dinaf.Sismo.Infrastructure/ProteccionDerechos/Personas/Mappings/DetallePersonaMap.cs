@@ -23,7 +23,7 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Mappings
             Map(x => x.Ocupacion, "ocupacion");
             Map(x => x.Observaciones, "observaciones");
             Map(x => x.FotoPerfil, "foto_perfil");
-            HasMany(x => x.Nombre).KeyColumn("gidpersona")
+            HasOne(x => x.Nombre).PropertyRef("DetallePersona")
                 .Cascade.All()
                 .Not.LazyLoad();
             HasMany(x => x.Relaciones).KeyColumn("gidpersona")

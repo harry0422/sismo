@@ -24,7 +24,7 @@
                         {
                             <div class='tab-pane fade @(i == 0 ? "show active" : "")' id="content_@Model.SolicitudAdopcion.Solicitantes[i].Id" role="tabpanel" aria-labelledby="@Model.SolicitudAdopcion.Solicitantes[i].Id">
                                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                    <img src='@(Model.SolicitudAdopcion.Solicitantes[i].FotoPerfil is null ? "/img/userrrr.jfif" : "/ProfilePics/" + Model.SolicitudAdopcion.Solicitantes[i].FotoPerfil)' alt="Profile" class="rounded-circle">
+                                    <img src='@(Model.SolicitudAdopcion.Solicitantes[i].FotoPerfil is null ? "/img/userrrr.jfif" : "/ProfilePics/" + Model.SolicitudAdopcion.Solicitantes[i].FotoPerfil)' alt="Profile" class="rounded-circle" height="120">
                                     <button onclick="showAsReservation('@Url.Action("Index" , "Camara", new { personaId = @Model.SolicitudAdopcion.Solicitantes[i].Id })'); return false;">Agregar Foto</button>
                                     <h2>@Model.SolicitudAdopcion.Solicitantes[i].NombreCorto</h2>
                                     <h3>@Model.SolicitudAdopcion.Solicitantes[i].Ocupacion</h3>
@@ -133,7 +133,7 @@
                                     <label for="inputText" class="col-2 col-form-label">Género</label>
                                     <div class="col-4">
                                         <select class="form-select" aria-label="Default select example" name="Genero">
-                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "NA")" value="NA">Elegir una opción</option>
+                                            <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "NA")" value="NA">Indistinto</option>
                                             <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "M")" value="M">Masculino</option>
                                             <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.Genero == "F")" value="F">Femenino</option>
                                         </select>
@@ -152,11 +152,11 @@
                                     <label for="inputText" class="col-2 col-form-label">Condición médica</label>
                                     <div class="col-4">
                                         <select class="form-select" aria-label="Default select example" name="CondicionMedica">
-                                            <option value="0">Elegir una opción</option>
-                                            @foreach (var condicionMedica in Model.CondicionesMedicas)
-                                            {
-                                                <option selected="@(Model.SolicitudAdopcion.CaracteristicasAdopcionActual.CondicionMedica == condicionMedica.Id)" value="@condicionMedica.Id">@condicionMedica.Descripcion</option>
-                                            }
+                                            <option>Indistinto</option>
+                                            <option>Ninguna</option>
+                                            <option>Neurologica</option>
+                                            <option>Psicologica</option>
+                                            <option>Fisica</option>
                                         </select>
                                     </div>
                                 </div>

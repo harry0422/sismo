@@ -1,5 +1,5 @@
 ﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
-using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.DTOs;
 using System.Collections.Generic;
 
 namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
@@ -8,6 +8,6 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar
     {
         public IList<ExpedienteNnaDto> GetNnaEstadoAdoptabilidad();
         public ExpedienteNnaDto GetNnaEstadoAdoptabilidad(NumeroExpedienteNnaDto numeroExpediente);
-        public void AddCondicionMedica(AddCondicionMedicaDto addCondicionMedica);
+        public void AddCaracteristicas(CaracteristicasDto caracteristicas);
     }
 }

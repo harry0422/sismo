@@ -3,8 +3,6 @@ using Dinaf.Sismo.Application.ProteccionDerechos.Personas.DTOs;
 using Dinaf.Sismo.Requests;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.IO;
 
 namespace Dinaf.Sismo.Controllers
 {
@@ -50,6 +48,5 @@ namespace Dinaf.Sismo.Controllers
                 return View();
             }
         }
-
     }
 }

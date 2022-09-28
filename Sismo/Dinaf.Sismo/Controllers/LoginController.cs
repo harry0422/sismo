@@ -2,6 +2,7 @@
 using Dinaf.Sismo.Application.Usuarios.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Dinaf.Sismo.Controllers
 {
@@ -15,8 +16,9 @@ namespace Dinaf.Sismo.Controllers
         }
 
         [Route("auth")]
-        public ActionResult Index()
+        public ActionResult Index(string error)
         {
+            ViewBag.Error = error;
             HttpContext.Session.Clear();
             return View();
         }
@@ -35,9 +37,9 @@ namespace Dinaf.Sismo.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            catch
+            catch (Exception e)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { error = e.Message });
             }
         }
     }

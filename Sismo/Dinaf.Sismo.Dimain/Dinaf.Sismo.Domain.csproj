@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="ConsolidacionFamiliar\Common\" />
+    <Folder Include="ConsolidacionFamiliar\CondicionesMedicas\Repositories\" />
   </ItemGroup>
 
 </Project>

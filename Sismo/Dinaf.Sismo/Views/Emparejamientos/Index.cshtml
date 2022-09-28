@@ -1,44 +1,21 @@
-﻿@{
-}
+﻿@model IList<Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.EmparejamientoDto>
+
 <table class="table datatable">
     <thead>
         <tr>
             <th scope="col">Numero de Expediente</th>
             <th scope="col">Nombre</th>
             <th scope="col">Estado</th>
-            <th scope="col">Creado por:</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = "EXP-2022-123" })">Exp-DINAF-2018-8</a></th>
-            <td>Brandon Jacob</td>
-            <td>Adoptable</td>
-            <td>Valeria Ponce</td>
-        </tr>
-        <tr>
-            <th><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = "EXP-2022-123" })">Denuncia-ORA-7</a></th>
-            <td>Bridie Kessler</td>
-            <td>Adoptable</td>
-            <td>Eduardo Canales</td>
-        </tr>
-        <tr>
-            <th><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = "EXP-2022-123" })">Solicitud-ORA-13</a></th>
-            <td>Ashleigh Langosh</td>
-            <td>Adoptable</td>
-            <td>Marvin Zapata</td>
-        </tr>
-        <tr>
-            <th><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = "EXP-2022-123" })">Exp-DINAF-2018-8</a></th>
-            <td>Angus Grady</td>
-            <td>Adoptable</td>
-            <td>Leonel Doblado</td>
-        </tr>
-        <tr>
-            <th><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = "EXP-2022-123" })">Denuncia-ORA-7</a></th>
-            <td>Raheem Lehner</td>
-            <td>Adoptable</td>
-            <td>Denis Diaz</td>
-        </tr>
+        @foreach (var emparejamiento in Model)
+        {
+            <tr>
+                <td><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = emparejamiento.DatosNna.NumeroExpediente })">@emparejamiento.DatosNna.NumeroExpediente</a></td>
+                <td>@emparejamiento.DatosNna.Nombre</td>
+                <td>Adoptable</td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -1,29 +1,31 @@
 ﻿
-@{
-}
 <p><h3 class="card-title">Detalles de Comite de Asignación</h3></p>
-<form>
+
+<form method="post" action="NextStep">
+    <input type="hidden" name="Id" value="@ViewBag.Id" />
+    <input type="hidden" name="ExpedienteNna" value="@ViewBag.ExpedienteNna" />
+
     <div class="row mb-3">
         <div class="col-sm-4">
-            <input type="text" class="form-control" placeholder="Nombre de Encargado">
+            <input type="text" class="form-control" placeholder="Nombre de Encargado" name="Usuario">
         </div>
         <div class="col-sm-2">
-            <input type="date" class="form-control" placeholder="Fecha de Creacion">
+            <input type="date" class="form-control" placeholder="Fecha de Creacion" name="Fecha">
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-sm-6">
-            <textarea class="form-control" style="height: 100px" placeholder="Observaciónes"></textarea>
+            <textarea class="form-control" style="height: 100px" placeholder="Observaciónes"  name="Observaciones"></textarea>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-sm-6">
-            <input class="form-control" type="file" id="formFile" placeholder="Anexos">
+            <input class="form-control" type="file" id="adjunto" placeholder="Adjunto"  name="adjunto">
         </div>
     </div>
     <div class="row mb-3">
         <div class="text-left">
-            <a href="@Url.Action("Index", "Emparejamientos")" type="button" class="btn btn-outline-primary">Emparejar</a>
+            <button type="submit" class="btn btn-outline-primary">Emparejar</button>
             <button type="reset" class="btn btn-secondary">Cancelar</button>
         </div>
     </div>

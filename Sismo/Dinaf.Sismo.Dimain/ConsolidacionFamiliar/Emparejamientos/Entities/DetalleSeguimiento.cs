@@ -3,18 +3,21 @@ using System;
 
 namespace Dinaf.Sismo.Domain.ConsolidacionFamiliar.Emparejamientos.Entities
 {
-    public class DetalleSeguimiento : EntityBase<string>
+    public class DetalleSeguimiento : EntityBase<string>, IAggregateRoot
     {
         public DetalleSeguimiento() { }
 
-        public DetalleSeguimiento(Etapa etapa, DateTime? fecha, string observaciones, string usuario)
+        public DetalleSeguimiento(Emparejamiento emparejamiento, Etapa etapa, DateTime? fecha, string observaciones, string usuario)
         {
+            Id = Guid.NewGuid().ToString();
+            Emparejamiento = emparejamiento;
             Etapa = etapa;
             Fecha = fecha ?? DateTime.Now;
             Observaciones = observaciones;
             Usuario = usuario;
         }
 
+        public virtual Emparejamiento Emparejamiento { get; set; }
         public virtual Etapa Etapa { get; set; }
         public virtual DateTime Fecha { get; set; }
         public virtual string Observaciones { get; set; }

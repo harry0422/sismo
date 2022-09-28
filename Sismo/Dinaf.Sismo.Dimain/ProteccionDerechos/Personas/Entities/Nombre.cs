@@ -20,7 +20,7 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
         public virtual string PrimerApellido { get; set; }
         public virtual string SegundoApellido { get; set; }
         public virtual int TipoNombre { get; set; }
-
+        public virtual DetallePersona DetallePersona { get; set; }
 
         protected override void Validate()
         {

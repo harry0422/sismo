@@ -14,6 +14,7 @@ namespace Dinaf.Sismo.Infrastructure.ProteccionDerechos.Personas.Mappings
             Map(x => x.PrimerApellido, "apellido");
             Map(x => x.SegundoApellido, "segapellido");
             Map(x => x.TipoNombre, "gidtiponombres");
+            References(x => x.DetallePersona, "gidpersona");
         }
     }
 }

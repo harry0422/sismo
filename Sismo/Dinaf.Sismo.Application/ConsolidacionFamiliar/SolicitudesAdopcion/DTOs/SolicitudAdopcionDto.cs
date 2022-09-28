@@ -10,7 +10,7 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs
         public string FechaCreacion { get; set; }
         public string TipoInstrumento { get; set; }
         public string Estado { get; set; }
-        public string TipoSolicitud { get; internal set; }
+        public string TipoSolicitud { get; set; }
         public string Procedencia { get; set; }
         public string MotivoAdopcion { get; set; }
         public string RepresentanteLegal { get; set; }

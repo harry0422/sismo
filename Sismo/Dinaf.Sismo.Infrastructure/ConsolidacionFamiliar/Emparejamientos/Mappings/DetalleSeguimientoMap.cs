@@ -13,6 +13,7 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Emparejamientos.Mappi
             Map(x => x.Fecha, "fecha");
             Map(x => x.Observaciones, "observaciones");
             Map(x => x.Usuario, "usuario");
+            References(x => x.Emparejamiento).Not.LazyLoad();
         }
     }
 }
