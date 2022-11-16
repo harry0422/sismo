@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs
 {
@@ -9,5 +10,8 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs
         public string Observaciones { get; set; }
         public DateTime? Fecha { get; set; }
         public string Usuario { get; set; }
+
+        //TODO: Create new view model and map to dto, add saving file logic in service method 
+        public IFormFile Adjunto { get; set; }
     }
 }

@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Emparejamientos.Repositories
 {
-    public class EmparejamientoRepository : NhRepositoryBase<Emparejamiento, string>, IEmparejamientoRepository
+    public class DetalleSeguimientoRepository : NhRepositoryBase<DetalleSeguimiento, string>, ISeguimientoRepository
     {
-        public IList<Emparejamiento> ObtenerPorNumeroExpediente(string numeroExpediente)
+        IList<DetalleSeguimiento> ISeguimientoRepository.GetByEmparejamientoId(string emparejamientoId)
         {
-            return Session.Query<Emparejamiento>().Where(x => x.ExpedienteNna == numeroExpediente).ToList();
+            return Session.Query<DetalleSeguimiento>().Where(x => x.Emparejamiento.Id == emparejamientoId).ToList();
         }
     }
 }

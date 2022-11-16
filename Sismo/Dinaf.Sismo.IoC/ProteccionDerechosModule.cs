@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
-using Dinaf.Sismo.Adapters.ProteccionDerechos.Personas;
+using Dinaf.Sismo.Adapters.Common;
+using Dinaf.Sismo.Application.Common;
 using Dinaf.Sismo.Application.ProteccionDerechos.Expedientes;
 using Dinaf.Sismo.Application.ProteccionDerechos.Personas;
 using Dinaf.Sismo.CrossCutting.Transactions;
@@ -36,7 +37,7 @@ namespace Dinaf.Sismo.IoC
 
             builder.RegisterType<ExpedienteService>().As<IExpedienteService>();
             builder.RegisterType<PersonaService>().As<IPersonaService>();
-            builder.RegisterType<FotografiaService>().As<IFotografiaService>();
+            builder.RegisterType<ArchivosService>().As<IArchivosService>();
         }
     }
 }

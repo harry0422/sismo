@@ -3,10 +3,10 @@
     public class DatosEmparejamientoDto
     {
         public string Id { get; set; }
-        public string NumeroSolicitud { get; set; }
+        public string SolicitudAdopcion { get; set; }
         public string Solicitantes { get; set; }
-        public string Etapa { get; set; }
-        public string SiguientePaso { get; set; }
+        public string EtapaActual { get; set; }
+        public string SiguienteEtapa { get; set; }
 
     }
 }

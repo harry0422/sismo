@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 
 namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs
 {
@@ -10,6 +9,8 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs
         public string Observaciones { get; set; }
         public DateTime Fecha { get; set; }
         public string Usuario { get; set; }
-        public IFormFile Adjunto { get; set; }
+        public string NombreArchivo { get; set; }
+        public string Base64 { get; set; }
+        public string RutaCarpeta { get; set; }
     }
 }

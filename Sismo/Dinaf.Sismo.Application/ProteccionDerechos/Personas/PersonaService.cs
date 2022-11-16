@@ -1,4 +1,5 @@
-﻿using Dinaf.Sismo.Application.ProteccionDerechos.Personas.DTOs;
+﻿using Dinaf.Sismo.Application.Common;
+using Dinaf.Sismo.Application.ProteccionDerechos.Personas.DTOs;
 using Dinaf.Sismo.Application.ProteccionDerechos.Personas.Mappers;
 using Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities;
 using Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Repositories;
@@ -12,16 +13,16 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
     {
         private readonly IPersonaRepository _personaRepository;
         private readonly IDetallePersonaRepository _detallePersonaRepository;
-        private readonly IFotografiaService _fotografiaService;
+        private readonly IArchivosService _archivosService;
 
         public PersonaService(
             IPersonaRepository personaRepository, 
             IDetallePersonaRepository detallePersonaRepository, 
-            IFotografiaService fotografiaService)
+            IArchivosService archivosService)
         {
             _personaRepository = personaRepository;
             _detallePersonaRepository = detallePersonaRepository;
-            _fotografiaService = fotografiaService;
+            _archivosService = archivosService;
         }
 
         public IList<PersonaDto> ObtenerPersonasPorExpediente(NumeroExpedienteDto numeroExpediente)
@@ -66,7 +67,7 @@ namespace Dinaf.Sismo.Application.ProteccionDerechos.Personas
             try
             {
                 string nombreArchivo = Guid.NewGuid().ToString() + "." + fotoPerfil.Formato;
-                _fotografiaService.Guardar(nombreArchivo, fotoPerfil.RutaCarpeta, fotoPerfil.FotoBase64);
+                _archivosService.Guardar(nombreArchivo, fotoPerfil.RutaCarpeta, fotoPerfil.FotoBase64);
                 DetallePersona detallePersona = _detallePersonaRepository.Get(fotoPerfil.PersonaId);
                 detallePersona.FotoPerfil = nombreArchivo;
                 _detallePersonaRepository.Update(detallePersona);

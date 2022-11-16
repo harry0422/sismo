@@ -1,4 +1,4 @@
-﻿@model IList<Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.EmparejamientoDto>
+﻿@model IList<Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.NnaEmparejamientoDto>
 
 <table class="table datatable">
     <thead>
@@ -12,8 +12,8 @@
         @foreach (var emparejamiento in Model)
         {
             <tr>
-                <td><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = emparejamiento.DatosNna.NumeroExpediente })">@emparejamiento.DatosNna.NumeroExpediente</a></td>
-                <td>@emparejamiento.DatosNna.Nombre</td>
+                <td><a href="@Url.Action("Details", "Emparejamientos", new { expedienteNna = emparejamiento.NumeroExpediente })">@emparejamiento.NumeroExpediente</a></td>
+                <td>@emparejamiento.Nombre</td>
                 <td>Adoptable</td>
             </tr>
         }

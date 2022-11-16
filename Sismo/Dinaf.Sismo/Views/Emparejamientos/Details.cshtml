@@ -1,4 +1,4 @@
-﻿@model Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs.EmparejamientoDto
+﻿@model Dinaf.Sismo.Models.EmparejamientoViewModel
 
 <section class="section profile">
 
@@ -11,35 +11,27 @@
                     <div class="social-links mt-2">
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nombre Completo</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.NombreCompleto</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Nombre</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>identidad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.NumeroIdentidad</div>
+                            <div class="col-lg-12 col-md-8">TODO: Mapear</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Fecha de Nacimiento</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.FechaNacimiento</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.FechaNacimiento</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Edad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Edad Años</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Edad Años</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Nacionalidad</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Nacionalidad</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Nacionalidad</div>
                         </div>
                         <div class="row">
                             <div class="col-lg-9 col-md-4 label "><b>Genero</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Genero</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Telefono</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Telefono</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9 col-md-4 label "><b>Email</b></div>
-                            <div class="col-lg-12 col-md-8">@Model.DatosNna.Email</div>
+                            <div class="col-lg-12 col-md-8">@Model.ExpedienteNna.DetalleNna.Genero</div>
                         </div>
                     </div>
                 </div>
@@ -70,12 +62,12 @@
                                         <th scope="col"></th>
                                 </thead>
                                 <tbody>
-                                    @foreach (var detalle in Model.DatosEmparejamiento)
+                                    @foreach (var detalle in Model.NnaEmparejamiento.DatosEmparejamiento)
                                     {
                                         <tr>
-                                            <td><a href="@Url.Action("SeguimientosPorEmparejamiento", "Emparejamientos", new { emparejamientoId = detalle.Id })">@detalle.NumeroSolicitud</a></td>
-                                            <td>@detalle.Etapa</td>
-                                            <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos", new { Id = detalle.Id, expedienteNna = Model.DatosNna.NumeroExpediente })">Enviar a Comite de Asignacion</a></th>
+                                            <td><a href="@Url.Action("SeguimientosPorEmparejamiento", "Emparejamientos", new { emparejamientoId = detalle.Id })">@detalle.SolicitudAdopcion</a></td>
+                                            <td>@detalle.EtapaActual</td>
+                                            <th><a type="button" class="btn btn-outline-primary" href="@Url.Action("NextStep", "Emparejamientos", new { Id = detalle.Id, expedienteNna = Model.NnaEmparejamiento.NumeroExpediente })">Enviar a @detalle.SiguienteEtapa</a></th>
                                         </tr>   
                                     }
                                 </tbody>

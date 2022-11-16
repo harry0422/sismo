@@ -1,6 +1,8 @@
-﻿using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
+﻿using Dinaf.Sismo.Application.Common;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Common.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.DTOs;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.DTOs;
+using Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos.Mappers;
 using Dinaf.Sismo.Application.ConsolidacionFamiliar.ExpedientesNna.DTOs;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Emparejamientos.Entities;
 using Dinaf.Sismo.Domain.ConsolidacionFamiliar.Emparejamientos.Repositories;
@@ -12,21 +14,24 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos
 {
     public class EmparejamientoService : IEmparejamientoService
     {
-        private readonly IEmparejamientoRepository _emparejamientoRepository;
+        private readonly INnaEmparejamientoRepository _nnaEmparejamientoRepository;
         private readonly ISeguimientoRepository _seguimientoRepository;
         private readonly ISolicitudAdopcionService _solicitudAdopcionService;
         private readonly IExpedienteNnaService _expedienteNnaService;
+        private readonly IArchivosService _archivosService;
 
         public EmparejamientoService(
-            IEmparejamientoRepository emparejamientoRepository, 
+            INnaEmparejamientoRepository nnaEmparejamientoRepository, 
             ISeguimientoRepository seguimientoRepository, 
             ISolicitudAdopcionService solicitudAdopcionService, 
-            IExpedienteNnaService expedienteNnaService)
+            IExpedienteNnaService expedienteNnaService, 
+            IArchivosService archivosService)
         {
-            _emparejamientoRepository = emparejamientoRepository;
+            _nnaEmparejamientoRepository = nnaEmparejamientoRepository;
             _seguimientoRepository = seguimientoRepository;
             _solicitudAdopcionService = solicitudAdopcionService;
             _expedienteNnaService = expedienteNnaService;
+            _archivosService = archivosService;
         }
 
         //TODO: Revisar implementacion de algoritmo
@@ -78,146 +83,50 @@ namespace Dinaf.Sismo.Application.ConsolidacionFamiliar.Emparejamientos
             return resultado.OrderByDescending(x => x.PorcetajeCoincidencia).ToList();
         }
 
-        //TODO: Mejorar algoritmo
-        public IList<EmparejamientoDto> ObtenerEmparejamientos()
+        public IList<NnaEmparejamientoDto> ObtenerEmparejamientos()
         {
-            IList<EmparejamientoDto> resultado = new List<EmparejamientoDto>();
-            IList<Emparejamiento> emparejamientos = _emparejamientoRepository.GetAll();
-            IList<ExpedienteNnaDto> expedientes = _expedienteNnaService.GetNnaEstadoAdoptabilidad()
-                .Where(x => emparejamientos.Select(x => x.ExpedienteNna).Contains(x.NumeroExpediente))
-                .ToList();
-
-            foreach (var expediente in expedientes)
-            {
-                EmparejamientoDto dto = new EmparejamientoDto();
-                DatosNnaDto datosNnaDto = new DatosNnaDto();
-                datosNnaDto.NumeroExpediente = expediente.NumeroExpediente;
-                datosNnaDto.Nombre = expediente.DetalleNna.NombreCorto;
-                datosNnaDto.NombreCompleto = expediente.DetalleNna.Nombre;
-                datosNnaDto.NumeroIdentidad = "0801-1990-09306";
-                datosNnaDto.FechaNacimiento = expediente.DetalleNna.FechaNacimiento;
-                datosNnaDto.Edad = expediente.DetalleNna.Edad.ToString();
-                datosNnaDto.Nacionalidad = expediente.DetalleNna.Nacionalidad;
-                datosNnaDto.Genero = expediente.DetalleNna.Genero;
-                datosNnaDto.Telefono = "99336655";
-                datosNnaDto.Email = "testemail@gmail.com";
-
-                dto.DatosNna = datosNnaDto;
-
-                var x = emparejamientos.Where(x => x.ExpedienteNna == expediente.NumeroExpediente);
-
-                foreach (var emparejamiento in x)
-                {
-                    DatosEmparejamientoDto datosEmparejamientoDto = new DatosEmparejamientoDto();
-                    datosEmparejamientoDto.Id = emparejamiento.Id;
-                    datosEmparejamientoDto.NumeroSolicitud = emparejamiento.SolicitudAdopcion;
-                    datosEmparejamientoDto.Etapa = emparejamiento.Etapa.ToString();
-                    dto.DatosEmparejamiento.Add(datosEmparejamientoDto);
-                }
-
-                resultado.Add(dto);
-            }
-
-            return resultado;
+            return _nnaEmparejamientoRepository.GetAll().ToDto();
         }
-        //TODO: Mejorar algoritmo
-        public EmparejamientoDto ObtenerDetalleEmparejamiento(NumeroExpedienteNnaDto numeroExpediente)
+
+        public NnaEmparejamientoDto ObtenerDetalleEmparejamiento(NumeroExpedienteNnaDto numeroExpediente)
         {
-            EmparejamientoDto resultado = new EmparejamientoDto();
-            IList<Emparejamiento> emparejamientos = _emparejamientoRepository.ObtenerPorNumeroExpediente(numeroExpediente.Valor);
-            ExpedienteNnaDto expediente = _expedienteNnaService.GetNnaEstadoAdoptabilidad(numeroExpediente);
-
-            DatosNnaDto datosNnaDto = new DatosNnaDto();
-            datosNnaDto.NumeroExpediente = expediente.NumeroExpediente;
-            datosNnaDto.Nombre = expediente.DetalleNna.NombreCorto;
-            datosNnaDto.NombreCompleto = expediente.DetalleNna.Nombre;
-            datosNnaDto.NumeroIdentidad = "0801-1990-09306";
-            datosNnaDto.FechaNacimiento = expediente.DetalleNna.FechaNacimiento;
-            datosNnaDto.Edad = expediente.DetalleNna.Edad.ToString();
-            datosNnaDto.Nacionalidad = expediente.DetalleNna.Nacionalidad;
-            datosNnaDto.Genero = expediente.DetalleNna.Genero;
-            datosNnaDto.Telefono = "99336655";
-            datosNnaDto.Email = "testemail@gmail.com";
-
-            resultado.DatosNna = datosNnaDto;
-
-            var x = emparejamientos.Where(x => x.ExpedienteNna == expediente.NumeroExpediente);
-
-            foreach (var emparejamiento in x)
-            {
-                DatosEmparejamientoDto datosEmparejamientoDto = new DatosEmparejamientoDto();
-                datosEmparejamientoDto.Id = emparejamiento.Id;
-                datosEmparejamientoDto.NumeroSolicitud = emparejamiento.SolicitudAdopcion;
-                datosEmparejamientoDto.Etapa = emparejamiento.Etapa.ToString();
-                resultado.DatosEmparejamiento.Add(datosEmparejamientoDto);
-            }
-
-            return resultado;
+           return _nnaEmparejamientoRepository
+                .ObtenerPorNumeroExpediente(numeroExpediente.Valor)
+                .ToDto();
         }
 
         public void CrearPreEmparejamiento(NuevoEmparejamientoDto dto)
         {
-            Emparejamiento emparejamiento = new Emparejamiento(dto.ExpedienteNna, dto.SolicitudAdopcion);
-            emparejamiento.AgregarSeguimiento(Etapa.PreEmparejamiento, dto.Fecha, dto.Observaciones, dto.Usuario);
-            
-            _emparejamientoRepository.Insert(emparejamiento);
+            NnaEmparejamiento nnaEmparejamiento = _nnaEmparejamientoRepository.ObtenerPorNumeroExpediente(dto.ExpedienteNna);
+            nnaEmparejamiento.AgregarEmparejamiento(dto.SolicitudAdopcion, dto.Fecha, dto.Observaciones, dto.Usuario);
+            _nnaEmparejamientoRepository.Update(nnaEmparejamiento);
         }
 
         public void CrearAvanzarEtapa(InformacionSeguimientoDto dto)
         {
-            Emparejamiento emparejamiento = _emparejamientoRepository.Get(dto.Id);            
-            Etapa nuevaEtapa =  (Etapa)(int)emparejamiento.Etapa + 1;
+            bool tieneAdjunto = dto.NombreArchivo != null && dto.Base64 != null;
 
-            emparejamiento.AgregarSeguimiento(nuevaEtapa, dto.Fecha, dto.Observaciones, dto.Usuario);
-            emparejamiento.Etapa = nuevaEtapa;
+            NnaEmparejamiento nnaEmparejamiento = _nnaEmparejamientoRepository.ObtenerPorNumeroExpediente(dto.ExpedienteNna);
+            Emparejamiento emparejamiento = nnaEmparejamiento.ObtenerEmparejamientoPorId(dto.Id);
+            emparejamiento.AgregarSeguimiento(dto.Fecha, dto.Observaciones, dto.Usuario, tieneAdjunto);
 
-            _emparejamientoRepository.Update(emparejamiento);
+            if (tieneAdjunto)
+            {
+                var nombreArchivo = emparejamiento.Seguimientos.LastOrDefault().Id + "_" + dto.NombreArchivo;
+                _archivosService.Guardar(nombreArchivo, dto.RutaCarpeta, dto.Base64);
+            }
+            
+            _nnaEmparejamientoRepository.Update(nnaEmparejamiento);
         }
 
-        //TODO: Pasar logica de mapeo a mapper propio 
         public IList<SeguimientoDto> ObtenerSeguimientos()
         {
-            IList<SeguimientoDto> resultado = new List<SeguimientoDto>();
-            IList<DetalleSeguimiento> seguimientos = _seguimientoRepository.GetAll();
-
-            foreach (var seguimiento in seguimientos)
-            {
-                SeguimientoDto dto = new SeguimientoDto();
-                dto.Id = seguimiento.Id;
-                dto.ExpedienteNna = seguimiento.Emparejamiento.ExpedienteNna;
-                dto.SolicitudAdopcion = seguimiento.Emparejamiento.SolicitudAdopcion;
-                dto.Etapa = seguimiento.Etapa.ToString();
-                dto.Fecha = seguimiento.Fecha.ToString("dd/MM/yyyy");
-                dto.Observaciones = seguimiento.Observaciones;
-                dto.Usuario = seguimiento.Usuario;
-
-                resultado.Add(dto);
-            }
-
-            return resultado;
+            return _seguimientoRepository.GetAll().ToDto();
         }
 
-        //TODO: Pasar logica de mapeo a mapper propio 
         public IList<SeguimientoDto> ObtenerSeguimientos(EmparejamientoIdDto emparejamientoId)
         {
-            IList<SeguimientoDto> resultado = new List<SeguimientoDto>();
-            IList<DetalleSeguimiento> seguimientos = _seguimientoRepository.GetByEmparejamientoId(emparejamientoId.Valor);
-
-            foreach (var seguimiento in seguimientos)
-            {
-                SeguimientoDto dto = new SeguimientoDto();
-                dto.Id = seguimiento.Id;
-                dto.ExpedienteNna = seguimiento.Emparejamiento.ExpedienteNna;
-                dto.SolicitudAdopcion = seguimiento.Emparejamiento.SolicitudAdopcion;
-                dto.Etapa = seguimiento.Etapa.ToString();
-                dto.Fecha = seguimiento.Fecha.ToString("dd/MM/yyyy");
-                dto.Observaciones = seguimiento.Observaciones;
-                dto.Usuario = seguimiento.Usuario;
-
-                resultado.Add(dto);
-            }
-
-            return resultado;
+            return _seguimientoRepository.GetByEmparejamientoId(emparejamientoId.Valor).ToDto();
         }
     }
 }

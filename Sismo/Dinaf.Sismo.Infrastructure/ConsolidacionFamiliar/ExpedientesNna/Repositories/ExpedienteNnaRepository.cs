@@ -14,7 +14,7 @@ namespace Dinaf.Sismo.Infrastructure.ConsolidacionFamiliar.Repositories
             var nnaEstadoAdoptabilidad = Session.Query<MedidaProteccion>().Where(md => md.TipoCustodio.Id == 23).Select(x => x.NumeroExpediente).ToList();
             return Session.QueryOver<ExpedienteNna>()
                 .WhereRestrictionOn(c => c.NumeroExpediente).IsIn(nnaEstadoAdoptabilidad)
-                .List();
+                .List().OrderByDescending(x => x.FechaCreacion).ToList();
         }
 
         public ExpedienteNna GetByNumeroExpedienteNna(string numeroExpediente)

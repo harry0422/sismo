@@ -7,27 +7,6 @@ namespace Dinaf.Sismo.Domain.ProteccionDerechos.Personas.Entities
 {
     public class DetallePersona : EntityBase<int>, IAggregateRoot
     {
-        public DetallePersona() { }
-
-        public DetallePersona(Nombre nombre, string genero, string nna, string raza, string religion, DateTime fechaNacimiento, string nacionalidad, int usuario, string colorCabello, string colorOjos, string colorPiel, string signosFisicos, string ocupacion, string observaciones, IList<Relacion> relaciones)
-        {
-            AgregarNombre(nombre);
-            Genero = genero;
-            Nna = nna;
-            Raza = raza;
-            Religion = religion;
-            FechaNacimiento = fechaNacimiento;
-            Nacionalidad = nacionalidad;
-            Usuario = usuario;
-            ColorCabello = colorCabello;
-            ColorOjos = colorOjos;
-            ColorPiel = colorPiel;
-            SignosFisicos = signosFisicos;
-            Ocupacion = ocupacion;
-            Observaciones = observaciones;
-            Relaciones = relaciones;
-        }
-
         public virtual Nombre Nombre { get; set; }
         public virtual string Genero { get; set; }
         public virtual string Nna { get; set; }

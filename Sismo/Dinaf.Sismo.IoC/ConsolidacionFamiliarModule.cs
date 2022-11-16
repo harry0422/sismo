@@ -27,13 +27,13 @@ namespace Dinaf.Sismo.IoC
                 .InterceptedBy(typeof(TransactionInterceptor));
 
             builder
-                .RegisterType<EmparejamientoRepository>()
-                .As<IEmparejamientoRepository>()
+                .RegisterType<NnaEmparejamientoRepository>()
+                .As<INnaEmparejamientoRepository>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));
 
             builder
-                .RegisterType<SeguimientoRepository>()
+                .RegisterType<DetalleSeguimientoRepository>()
                 .As<ISeguimientoRepository>()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(TransactionInterceptor));
